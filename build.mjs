@@ -1572,6 +1572,5 @@ buildProducts();
 buildNotice();
 buildFaqPage();
 buildQuote();
-buildAdminV2();
 buildTransformer();
 console.log('built:', readdirSync(OUT).filter(f=>f.endsWith('.html')).join(', '));

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>관리자 — (주)효성중전기</title>
 <meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+KR:wght@400;500;700;900&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--space:#0A1230;--blue:#2A5CFF;--violet:#7A5CFF;--cyan:#0E96A5;--ink:#141B33;--slate:#5A6480;--cloud:#F5F7FB;--line:#E3E7F0}
@@ -25,17 +26,21 @@ header{background:var(--space);position:sticky;top:0;z-index:50}
 .btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
 .btn.sm{padding:6px 14px;font-size:12.5px}
 .btn.danger{background:#FDECEC;color:#D14343}
+.btn.ok{background:#E7F8EF;color:#0E8345}
 .btn.big{padding:14px 34px;font-size:16px}
 .a-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
-.a-tabs button{font-family:inherit;font-size:15px;font-weight:500;padding:11px 22px;border-radius:99px;border:1.5px solid var(--line);background:#fff;cursor:pointer}
+.a-tabs button{font-family:inherit;font-size:14.5px;font-weight:500;padding:10px 18px;border-radius:99px;border:1.5px solid var(--line);background:#fff;cursor:pointer}
 .a-tabs button.on{background:var(--space);border-color:var(--space);color:#fff;font-weight:700}
 label.f{display:grid;gap:6px;font-size:13.5px;font-weight:700;margin-bottom:14px}
-table.list{border-collapse:collapse;width:100%;font-size:14.5px;background:#fff}
-table.list th{background:var(--cloud);text-align:left;padding:11px 14px;font-size:13px;color:var(--slate);border-top:2px solid var(--space);border-bottom:1px solid var(--line);white-space:nowrap}
-table.list td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+table.list{border-collapse:collapse;width:100%;font-size:14px;background:#fff}
+table.list th{background:var(--cloud);text-align:left;padding:11px 12px;font-size:12.5px;color:var(--slate);border-top:2px solid var(--space);border-bottom:1px solid var(--line);white-space:nowrap}
+table.list td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
 table.list tr:hover td{background:#F8FAFD}
 .badge{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:2px 9px;background:#EDEBFF;color:var(--violet);white-space:nowrap}
 .badge.lang{background:#E8F8FA;color:var(--cyan)}
+.badge.wait{background:#FFF4E0;color:#B07000}
+.badge.ok{background:#E7F8EF;color:#0E8345}
+.badge.super{background:#0A1230;color:#2BD9E5}
 .step{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--slate);margin-bottom:8px}
 .step b{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
 .sec-title{font-size:19px;font-weight:900;margin:30px 0 12px;display:flex;align-items:center;gap:10px}
@@ -46,7 +51,9 @@ table.list tr:hover td{background:#F8FAFD}
 .empty{padding:30px;text-align:center;color:#98A2B8;font-size:14px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .msg{font-size:14px;font-weight:700;margin-top:10px}
-@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.auth-card{max-width:440px;margin:50px auto;padding:36px}
+.link-btn{background:none;border:none;color:var(--blue);font-weight:700;font-size:13.5px;cursor:pointer;font-family:inherit;text-decoration:underline}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}.wrap{padding:22px 16px 60px}.card{padding:20px 18px}table.list{font-size:12.5px}table.list th,table.list td{padding:9px 8px}}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -65,27 +72,60 @@ table.list tr:hover td{background:#F8FAFD}
   <p style="color:var(--slate);margin-top:10px;font-size:14.5px">supabase-config.js에 프로젝트 URL과 KEY를 입력하면 관리자 기능이 활성화됩니다.</p>
 </div>
 
-<div id="login-view" class="card" style="max-width:420px;margin:60px auto" hidden>
+<!-- 로그인 -->
+<div id="login-view" class="card auth-card" hidden>
   <h2 style="font-weight:900;font-size:20px;margin-bottom:6px">관리자 로그인</h2>
-  <p style="font-size:13.5px;color:var(--slate);margin-bottom:18px">사이트 관리는 관리자만 할 수 있어요.</p>
+  <p style="font-size:13.5px;color:var(--slate);margin-bottom:18px">사이트 관리는 승인된 관리자만 할 수 있어요.</p>
   <label class="f">이메일<input class="input" id="l-email" type="email" autocomplete="username"></label>
   <label class="f">비밀번호<input class="input" id="l-pw" type="password" autocomplete="current-password"></label>
   <button class="btn big" style="width:100%" onclick="doLogin()">로그인</button>
   <div id="l-msg" class="msg" style="color:#D14343" hidden></div>
+  <div style="text-align:center;margin-top:18px;font-size:13.5px;color:var(--slate)">
+    직원이신가요? <button class="link-btn" onclick="showSignup()">가입 신청하기</button>
+  </div>
 </div>
 
+<!-- 가입 신청 -->
+<div id="signup-view" class="card auth-card" hidden>
+  <h2 style="font-weight:900;font-size:20px;margin-bottom:6px">관리자 가입 신청</h2>
+  <p style="font-size:13.5px;color:var(--slate);margin-bottom:18px">신청 후 <b>이메일 인증</b>을 완료하면, 최고관리자의 <b>승인</b>을 거쳐 사용할 수 있어요.</p>
+  <label class="f">이메일 (아이디) *<input class="input" id="s-email" type="email"></label>
+  <div class="grid2">
+    <label class="f">이름 *<input class="input" id="s-name"></label>
+    <label class="f">직급<input class="input" id="s-pos" placeholder="예: 과장"></label>
+  </div>
+  <label class="f">연락처 *<input class="input" id="s-phone" placeholder="010-0000-0000"></label>
+  <label class="f">비밀번호 * (6자 이상)<input class="input" id="s-pw" type="password" autocomplete="new-password"></label>
+  <button class="btn big" style="width:100%" onclick="doSignup()">가입 신청</button>
+  <div id="s-msg" class="msg" hidden></div>
+  <div style="text-align:center;margin-top:18px;font-size:13.5px;color:var(--slate)">
+    이미 계정이 있나요? <button class="link-btn" onclick="showLogin()">로그인</button>
+  </div>
+</div>
+
+<!-- 승인 대기 -->
+<div id="pending-view" class="card auth-card" style="text-align:center" hidden>
+  <div style="font-size:44px;margin-bottom:12px">⏳</div>
+  <h2 style="font-weight:900;font-size:20px">승인 대기 중입니다</h2>
+  <p style="font-size:14px;color:var(--slate);margin-top:10px">가입 신청이 접수됐어요. 최고관리자가 승인하면<br>관리자 기능을 사용할 수 있습니다.</p>
+  <button class="btn ghost" style="margin-top:20px" onclick="sb.auth.signOut().then(()=>location.reload())">로그아웃</button>
+</div>
+
+<!-- 대시보드 -->
 <div id="dash" hidden>
   <div class="a-tabs">
     <button class="on" data-t="inq">📥 견적문의 <span id="cnt-inq"></span></button>
     <button data-t="res">📂 자료실 파일 <span id="cnt-res"></span></button>
     <button data-t="notice">📢 공지사항 <span id="cnt-notice"></span></button>
     <button data-t="faq">❓ FAQ <span id="cnt-faq"></span></button>
+    <button data-t="my">🔒 내 계정</button>
+    <button data-t="staff" id="staff-tab" hidden>👥 직원 관리 <span id="cnt-staff"></span></button>
   </div>
 
   <!-- 견적문의 -->
   <div data-p="inq">
     <div class="card" style="padding:18px 24px;margin-bottom:16px;background:#F4F7FF;border-color:#D9E3FF">
-      <div style="font-size:14px;color:#40507E">사이트 <b>견적요청</b> 페이지로 접수된 문의가 여기에 쌓여요. 새 문의가 왔는지 이 탭에서 확인하세요.</div>
+      <div style="font-size:14px;color:#40507E">사이트 <b>견적요청</b> 페이지로 접수된 문의가 여기에 쌓여요.</div>
     </div>
     <div id="inq-list"></div>
   </div>
@@ -155,6 +195,27 @@ table.list tr:hover td{background:#F8FAFD}
     <div class="sec-title">등록된 FAQ <span class="cnt" id="faq-cnt2"></span></div>
     <div class="card" style="padding:0;overflow-x:auto"><div id="faq-list"></div></div>
   </div>
+
+  <!-- 내 계정 -->
+  <div data-p="my" hidden>
+    <div class="card">
+      <h3 style="font-size:17px;font-weight:900;margin-bottom:10px">내 비밀번호 변경</h3>
+      <div class="grid2">
+        <label class="f">새 비밀번호 (6자 이상)<input class="input" id="my-pw" type="password" autocomplete="new-password"></label>
+        <div style="display:flex;align-items:flex-end;padding-bottom:14px"><button class="btn" onclick="changeMyPw()">변경하기</button></div>
+      </div>
+      <div id="mypw-msg" class="msg" hidden></div>
+    </div>
+  </div>
+
+  <!-- 직원 관리 (최고관리자 전용) -->
+  <div data-p="staff" hidden>
+    <div class="card" style="padding:18px 24px;margin-bottom:16px;background:#F4F7FF;border-color:#D9E3FF">
+      <div style="font-size:14px;color:#40507E">신규 가입 신청이 오면 <b>hsgearmotor@korea.com</b>로 알림 메일이 가고, 여기에 <b>대기중</b>으로 표시돼요. <b>승인</b>을 눌러야 관리자 기능을 쓸 수 있어요. 이 탭은 <b>최고관리자에게만</b> 보여요.</div>
+    </div>
+    <div class="sec-title">가입된 직원 <span class="cnt" id="staff-cnt2"></span></div>
+    <div class="card" style="padding:0;overflow-x:auto"><div id="staff-list"></div></div>
+  </div>
 </div>
 </div>
 
@@ -165,24 +226,59 @@ const sb=(window.SB_URL&&window.SB_KEY&&window.supabase)?window.supabase.createC
 const $=id=>document.getElementById(id);
 const esc=s=>(s||'').toString().replace(/</g,'&lt;');
 const CATS={'manual-hv':'매뉴얼·고압전동기','manual-lv':'매뉴얼·저압전동기','manual-gm':'매뉴얼·기어드모터','spec-lv':'사양서·저압','spec-gm':'사양서·기어드','etc':'기타'};
+let MY_ID=null, MY_ROLE='admin';
 if(!sb){$('no-sb').hidden=false;}else{init();}
+
 async function init(){
+  sb.auth.onAuthStateChange(async (event)=>{
+    if(event==='PASSWORD_RECOVERY'){
+      const np=prompt('새 비밀번호를 입력하세요 (6자 이상)');
+      if(np&&np.length>=6){const {error}=await sb.auth.updateUser({password:np});alert(error?'변경 실패: '+error.message:'비밀번호가 변경됐어요.');}
+    }
+  });
   const {data:{session}}=await sb.auth.getSession();
-  if(session){showDash();}else{$('login-view').hidden=false;}
+  if(!session){$('login-view').hidden=false;return;}
+  MY_ID=session.user.id;
+  const {data:prof}=await sb.from('admin_profiles').select('*').eq('id',MY_ID).single();
+  if(!prof||!prof.approved){$('pending-view').hidden=false;$('logout-btn').hidden=false;return;}
+  MY_ROLE=prof.role||'admin';
+  showDash();
 }
+function showLogin(){$('signup-view').hidden=true;$('login-view').hidden=false;}
+function showSignup(){$('login-view').hidden=true;$('signup-view').hidden=false;}
 async function doLogin(){
   const {error}=await sb.auth.signInWithPassword({email:$('l-email').value.trim(),password:$('l-pw').value});
-  if(error){$('l-msg').hidden=false;$('l-msg').textContent='로그인 실패: 이메일/비밀번호를 확인해 주세요.';return;}
-  $('login-view').hidden=true;showDash();
+  if(error){$('l-msg').hidden=false;$('l-msg').textContent='로그인 실패: 이메일/비밀번호를 확인해 주세요. (이메일 인증을 아직 안 하셨다면 메일함을 확인해 주세요)';return;}
+  location.reload();
+}
+async function doSignup(){
+  const email=$('s-email').value.trim(),name=$('s-name').value.trim(),pos=$('s-pos').value.trim(),phone=$('s-phone').value.trim(),pw=$('s-pw').value;
+  const m=$('s-msg');m.hidden=false;
+  if(!email||!name||!phone||!pw){m.style.color='#D14343';m.textContent='필수 항목(*)을 모두 입력해 주세요.';return;}
+  if(pw.length<6){m.style.color='#D14343';m.textContent='비밀번호는 6자 이상이어야 해요.';return;}
+  m.style.color='var(--slate)';m.textContent='신청 중...';
+  const {error}=await sb.auth.signUp({email,password:pw,options:{data:{name,position:pos,phone}}});
+  if(error){m.style.color='#D14343';m.textContent='신청 실패: '+error.message;return;}
+  try{
+    await fetch('https://formsubmit.co/ajax/hsgearmotor@korea.com',{method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({_subject:'[효성중전기] 관리자 가입 승인 요청 - '+name,_template:'table',
+        '이름':name,'직급':pos||'-','이메일':email,'연락처':phone,
+        '승인방법':'관리자 페이지(hyosung-site.pages.dev/admin.html) 로그인 → 직원 관리 탭 → 승인 클릭'})});
+  }catch(e){}
+  m.style.color='#0E8345';m.textContent='✅ 신청 완료! ① 입력한 이메일로 온 인증 메일의 링크를 눌러 인증하고, ② 최고관리자 승인이 나면 로그인할 수 있어요.';
 }
 $('logout-btn').addEventListener('click',async()=>{await sb.auth.signOut();location.reload();});
-$('l-pw').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
-function showDash(){$('dash').hidden=false;$('logout-btn').hidden=false;loadInq();loadNotices();loadFaqs();loadRes();}
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&!$('login-view').hidden)doLogin();});
+function showDash(){
+  $('dash').hidden=false;$('logout-btn').hidden=false;
+  if(MY_ROLE==='super'){$('staff-tab').hidden=false;loadStaff();}
+  loadInq();loadNotices();loadFaqs();loadRes();
+}
 document.querySelectorAll('.a-tabs button').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('.a-tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
   document.querySelectorAll('[data-p]').forEach(p=>p.hidden=p.dataset.p!==b.dataset.t);
 }));
-// 파일박스 표시
 $('r-file').addEventListener('change',()=>{
   const f=$('r-file').files[0];
   if(f){$('filebox').classList.add('has');$('filebox-text').textContent='✅ '+f.name+' ('+(f.size/1024/1024).toFixed(1)+'MB)';
@@ -202,7 +298,7 @@ async function loadInq(){
     <div style="font-size:14px;color:var(--slate);margin-top:8px">📞 <a href="tel:${esc(q.phone)}" style="color:var(--blue);font-weight:700">${esc(q.phone)}</a>${q.email?' &nbsp;·&nbsp; ✉ '+esc(q.email):''}</div>
     <div style="font-size:15px;margin-top:10px;padding:14px;background:var(--cloud);border-radius:10px;white-space:pre-wrap">${esc(q.message)}</div>
     ${q.file_url?'<div style="margin-top:10px"><a href="'+q.file_url+'" target="_blank" class="btn ghost sm">📎 첨부파일 보기</a></div>':''}
-  </div>`).join(''):'<div class="card"><div class="empty">아직 접수된 문의가 없어요. 문의가 들어오면 여기에 표시됩니다.</div></div>';
+  </div>`).join(''):'<div class="card"><div class="empty">아직 접수된 문의가 없어요.</div></div>';
 }
 // ── 자료실
 async function loadRes(){
@@ -279,7 +375,7 @@ async function loadFaqs(){
       <td><button class="btn ghost sm" onclick='editFaq(${JSON.stringify(x).replace(/'/g,"&#39;")})'>수정</button></td>
       <td><button class="btn danger sm" onclick="delRow('faqs','${x.id}',loadFaqs)">삭제</button></td>
     </tr>`).join('')}</table>`
-  :'<div class="empty">아직 등록된 FAQ가 없어요. 사이트에는 기본 질문 4개가 표시 중이에요 — 여기서 등록하면 그걸로 교체돼요.</div>';
+  :'<div class="empty">아직 등록된 FAQ가 없어요.</div>';
 }
 function editFaq(x){$('f-id').value=x.id;$('f-q').value=x.question;$('f-a').value=x.answer||'';$('f-sort').value=x.sort||0;$('f-form-title').textContent='FAQ 수정하기';window.scrollTo({top:0,behavior:'smooth'});}
 function resetFaq(){$('f-id').value='';$('f-q').value='';$('f-a').value='';$('f-sort').value=0;$('f-form-title').textContent='새 질문 추가';}
@@ -290,6 +386,67 @@ async function saveFaq(){
   const {error}=id?await sb.from('faqs').update(rec).eq('id',id):await sb.from('faqs').insert(rec);
   if(error)return alert('저장 실패: '+error.message);
   resetFaq();loadFaqs();
+}
+// ── 직원 관리 (최고관리자 전용)
+async function loadStaff(){
+  const {data}=await sb.from('admin_profiles').select('*').order('created_at',{ascending:false});
+  const n=data?data.length:0;
+  const wait=data?data.filter(x=>!x.approved).length:0;
+  $('cnt-staff').textContent=wait?'('+wait+' 대기)':'('+n+')';
+  $('staff-cnt2').textContent=n+'명';
+  $('staff-list').innerHTML=n?`<table class="list">
+    <tr><th>이름</th><th>직급</th><th>이메일</th><th>연락처</th><th>가입일</th><th>등급</th><th>상태</th><th colspan="4"></th></tr>
+    ${data.map(x=>{
+      const me=x.id===MY_ID;
+      const superB=x.role==='super';
+      return `<tr>
+      <td style="font-weight:700">${esc(x.name||'-')}${me?' <span class="badge">나</span>':''}</td>
+      <td>${esc(x.position||'-')}</td>
+      <td style="font-size:13px">${esc(x.email)}</td>
+      <td style="font-size:13px">${esc(x.phone||'-')}</td>
+      <td style="color:#98A2B8;font-size:12.5px">${(x.created_at||'').slice(0,10)}</td>
+      <td>${superB?'<span class="badge super">최고관리자</span>':'<span class="badge">관리자</span>'}</td>
+      <td>${x.approved?'<span class="badge ok">승인됨</span>':'<span class="badge wait">대기중</span>'}</td>
+      <td>${me?'':(x.approved
+        ?`<button class="btn ghost sm" onclick="setApprove('${x.id}',false)">승인취소</button>`
+        :`<button class="btn ok sm" onclick="setApprove('${x.id}',true)">✓ 승인</button>`)}</td>
+      <td>${me||!x.approved?'':(superB
+        ?`<button class="btn ghost sm" onclick="setRole('${x.id}','admin')">최고관리자 해제</button>`
+        :`<button class="btn ghost sm" onclick="setRole('${x.id}','super')">최고관리자 지정</button>`)}</td>
+      <td><button class="btn ghost sm" onclick="sendReset('${esc(x.email)}')">비번 재설정</button></td>
+      <td>${me?'':`<button class="btn danger sm" onclick="delStaff('${x.id}','${esc(x.name||'')}')">삭제</button>`}</td>
+    </tr>`}).join('')}</table>`
+  :'<div class="empty">가입된 직원이 없어요.</div>';
+}
+async function setApprove(id,val){
+  const {error}=await sb.from('admin_profiles').update({approved:val}).eq('id',id);
+  if(error)return alert('실패: '+error.message);
+  loadStaff();
+}
+async function setRole(id,role){
+  if(role==='super'&&!confirm('최고관리자로 지정하면 직원 승인·삭제 권한을 갖게 돼요. 지정할까요?'))return;
+  const {error}=await sb.from('admin_profiles').update({role}).eq('id',id);
+  if(error)return alert('실패: '+error.message);
+  loadStaff();
+}
+async function sendReset(email){
+  if(!confirm(email+' 주소로 비밀번호 재설정 메일을 보낼까요?'))return;
+  const {error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:'https://hyosung-site.pages.dev/admin.html'});
+  alert(error?'실패: '+error.message:'재설정 메일을 보냈어요. 메일의 링크를 누르면 새 비밀번호를 정할 수 있어요.');
+}
+async function delStaff(id,name){
+  if(!confirm(name+' 님을 삭제할까요? 관리자 접근 권한이 즉시 사라져요.'))return;
+  const {error}=await sb.from('admin_profiles').delete().eq('id',id);
+  if(error)return alert('실패: '+error.message);
+  loadStaff();
+}
+async function changeMyPw(){
+  const pw=$('my-pw').value;
+  const m=$('mypw-msg');m.hidden=false;
+  if(pw.length<6){m.style.color='#D14343';m.textContent='6자 이상 입력해 주세요.';return;}
+  const {error}=await sb.auth.updateUser({password:pw});
+  if(error){m.style.color='#D14343';m.textContent='변경 실패: '+error.message;return;}
+  m.style.color='#0E8345';m.textContent='✅ 비밀번호가 변경됐어요.';$('my-pw').value='';
 }
 async function delRow(table,id,cb){if(!confirm('삭제할까요?'))return;await sb.from(table).delete().eq('id',id);cb();}
 </script>
