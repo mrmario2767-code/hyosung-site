@@ -92,6 +92,9 @@ table.spec td.dim{color:#B6BECF}
 .dl-card h4{font-size:16px;font-weight:700;line-height:1.4}
 .dl-card .meta{font-size:12.5px;color:#98A2B8}
 .dl-card .act{margin-top:auto;padding-top:12px}
+.dl-card .dl-row{margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.dl-card .dl-row .meta{min-width:0;overflow-wrap:anywhere}
+.dl-btn.sm{padding:5px 12px;font-size:12px;white-space:nowrap;flex-shrink:0}
 .dl-btn{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:var(--blue);border:1.5px solid var(--blue);border-radius:99px;padding:7px 18px;transition:.2s}
 .dl-btn:hover{background:var(--blue);color:#fff}
 /* board table */
@@ -129,6 +132,29 @@ footer p{margin-top:13px;line-height:2;font-weight:300}
 footer .copy{margin-top:14px;color:#4A5470;font-size:12.5px}
 .reveal{opacity:0;transform:translateY(30px);transition:.7s cubic-bezier(.2,.7,.3,1)}
 .reveal.on{opacity:1;transform:none}
+/* product pages */
+.p-intro{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:40px 44px}
+.p-intro .p-en{font-family:'Outfit';font-size:13px;letter-spacing:.3em;color:#7A5CFF;font-weight:600}
+.p-intro h2{font-size:27px;font-weight:900;margin:10px 0 14px}
+.p-intro-txt p{color:var(--slate)}
+.p-intro-img{text-align:center}
+.p-intro-img img{max-width:100%;max-height:340px;object-fit:contain}
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.feat-grid.cols3{grid-template-columns:repeat(3,1fr)}
+.feat-grid .feat{padding:24px}
+.feat-grid h3{font-size:16.5px;font-weight:900;margin-bottom:6px;color:#2A5CFF}
+.feat-grid p{font-size:14px;color:var(--slate)}
+.lineup{margin-bottom:18px;padding:34px 38px}
+.lineup-grid{display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:start}
+.lineup-img{background:var(--cloud);border-radius:14px;padding:14px;text-align:center}
+.lineup-img img{width:100%;max-width:200px;border-radius:8px}
+.lineup h3{font-size:20px;font-weight:900}
+.lineup .ldesc{color:var(--slate);font-size:14.5px;margin-top:8px}
+.lineup .lpoints{margin-top:12px;display:grid;gap:6px}
+.lineup .lpoints li{font-size:14px;color:var(--ink);padding-left:18px;position:relative}
+.lineup .lpoints .ck{position:absolute;left:0;color:#0E96A5;font-weight:900}
+.lineup .luses{font-size:13.5px;color:var(--slate);margin-top:6px}
+.ltbl-t{font-weight:700;font-size:15px;margin-bottom:-4px}
 [hidden]{display:none!important}
 .mnav{display:none;position:fixed;top:74px;left:0;right:0;bottom:0;background:rgba(10,18,48,.97);backdrop-filter:blur(12px);z-index:99;overflow-y:auto;padding:16px 26px 40px}
 .mnav.open{display:block}
@@ -180,6 +206,35 @@ footer .copy{margin-top:14px;color:#4A5470;font-size:12.5px}
  .dl-btn{font-size:12.5px;padding:6px 14px}
  footer{font-size:12px;padding:28px 0}
  footer .f-logo{font-size:16px}
+ /* product pages — mobile */
+ .p-intro{grid-template-columns:1fr;gap:16px;padding:22px 20px}
+ .p-intro .p-en{font-size:11px;letter-spacing:.2em}
+ .p-intro h2{font-size:19px;margin:6px 0 8px}
+ .p-intro-txt p{font-size:13.5px}
+ .p-intro-img img{max-height:190px}
+ .feat-grid,.feat-grid.cols3{grid-template-columns:1fr 1fr;gap:10px}
+ .feat-grid .feat{padding:15px 13px}
+ .feat-grid h3{font-size:13.5px;margin-bottom:4px}
+ .feat-grid p{font-size:12px}
+ .lineup{padding:18px 16px;margin-bottom:14px}
+ .lineup-grid{grid-template-columns:1fr;gap:14px}
+ .lineup-img{padding:10px;max-width:210px;margin:0 auto;width:100%}
+ .lineup h3{font-size:16px}
+ .lineup .ldesc{font-size:13px;margin-top:6px}
+ .lineup .lpoints li{font-size:12.5px}
+ .lineup .luses{font-size:12.5px}
+ .ltbl-t{font-size:13.5px}
+ table.spec{min-width:0!important}
+ /* 제품매뉴얼 게시판 — 가로 스크롤 없이 */
+ table.man{table-layout:fixed;width:100%}
+ table.man th:nth-child(1),table.man td:nth-child(1),
+ table.man th:nth-child(2),table.man td:nth-child(2){display:none}
+ table.man th:nth-child(4),table.man td:nth-child(4){width:52px!important}
+ table.man th:nth-child(5),table.man td:nth-child(5){width:74px!important}
+ table.man th,table.man td{padding:9px 6px;font-size:12px}
+ table.man td:nth-child(3){word-break:break-all}
+ table.man .badge.lang{font-size:9.5px;padding:2px 6px}
+ table.man .dl-btn{padding:4px 8px!important;font-size:11px!important}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1!important;transform:none!important}}
 </style>
@@ -240,64 +295,64 @@ footer .copy{margin-top:14px;color:#4A5470;font-size:12.5px}
 </div>
 <div class="content"><div class="wrap">
 
-<div class="card reveal" style="display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:40px 44px">
-  <div>
-    <div style="font-family:'Outfit';font-size:13px;letter-spacing:.3em;color:#7A5CFF;font-weight:600">HIGH VOLTAGE MOTOR</div>
-    <h2 style="font-size:27px;font-weight:900;margin:10px 0 14px">다양한 부하 조건에 최적화된 고압전동기</h2>
-    <p style="color:var(--slate)">우수한 절연 시스템을 기반으로 발전소, Oil&Gas, 석유화학, 담수 플랜트, 선박, 철강 등 폭넓은 산업 현장에 적용되는 고압전동기를 공급합니다. 필요한 출력·전압·형식을 알려주시면 최적 사양을 안내해 드립니다.</p>
+<div class="card reveal p-intro">
+  <div class="p-intro-txt">
+    <div class="p-en">HIGH VOLTAGE MOTOR</div>
+    <h2>다양한 부하 조건에 최적화된 고압전동기</h2>
+    <p>우수한 절연 시스템을 기반으로 발전소, Oil&Gas, 석유화학, 담수 플랜트, 선박, 철강 등 폭넓은 산업 현장에 적용되는 고압전동기를 공급합니다. 필요한 출력·전압·형식을 알려주시면 최적 사양을 안내해 드립니다.</p>
   </div>
-  <div style="text-align:center"><img src="img/hv-main.png" alt="고압전동기" style="max-width:100%;max-height:340px;object-fit:contain"></div>
+  <div class="p-intro-img"><img src="img/hv-main.png" alt="고압전동기"></div>
 </div>
 
 <div class="sec-h"><h2>특장점</h2></div>
-<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px">
-  <div class="card reveal" style="padding:24px">
-    <h3 style="font-size:16.5px;font-weight:900;margin-bottom:6px;color:var(--brand,#2A5CFF)">우수한 절연 시스템</h3>
-    <p style="font-size:14px;color:var(--slate)">F종 SUPACT 절연 시스템 적용으로 높은 신뢰성을 확보했습니다.</p></div><div class="card reveal" style="padding:24px">
-    <h3 style="font-size:16.5px;font-weight:900;margin-bottom:6px;color:var(--brand,#2A5CFF)">특수 농형 회전자 구조</h3>
-    <p style="font-size:14px;color:var(--slate)">이중농형·심구농형 등 다양한 회전자 구조로 광범위한 부하 조건에 대응합니다.</p></div><div class="card reveal" style="padding:24px">
-    <h3 style="font-size:16.5px;font-weight:900;margin-bottom:6px;color:var(--brand,#2A5CFF)">저진동 · 저소음</h3>
-    <p style="font-size:14px;color:var(--slate)">구조 해석(ANSYS·NASTRAN) 기반 설계로 진동과 소음을 낮췄습니다.</p></div><div class="card reveal" style="padding:24px">
-    <h3 style="font-size:16.5px;font-weight:900;margin-bottom:6px;color:var(--brand,#2A5CFF)">최적 설계</h3>
-    <p style="font-size:14px;color:var(--slate)">유동·전자계 해석(ANSYS CFX·FLUX 2D)을 통한 정밀 설계로 성능을 극대화했습니다.</p></div>
+<div class="feat-grid">
+  <div class="card reveal feat">
+    <h3>우수한 절연 시스템</h3>
+    <p>F종 SUPACT 절연 시스템 적용으로 높은 신뢰성을 확보했습니다.</p></div><div class="card reveal feat">
+    <h3>특수 농형 회전자 구조</h3>
+    <p>이중농형·심구농형 등 다양한 회전자 구조로 광범위한 부하 조건에 대응합니다.</p></div><div class="card reveal feat">
+    <h3>저진동 · 저소음</h3>
+    <p>구조 해석(ANSYS·NASTRAN) 기반 설계로 진동과 소음을 낮췄습니다.</p></div><div class="card reveal feat">
+    <h3>최적 설계</h3>
+    <p>유동·전자계 해석(ANSYS CFX·FLUX 2D)을 통한 정밀 설계로 성능을 극대화했습니다.</p></div>
 </div>
 
 <div class="sec-h"><h2>제품 라인업</h2></div>
-<div class="card reveal" style="margin-bottom:18px;padding:34px 38px">
-  <div style="display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:start">
-    <div style="background:var(--cloud);border-radius:14px;padding:14px;text-align:center"><img src="img/hv-iec.png" alt="IEC Standard Motor (HV)" style="width:100%;max-width:200px;border-radius:8px"></div>
+<div class="card reveal lineup">
+  <div class="lineup-grid">
+    <div class="lineup-img"><img src="img/hv-iec.png" alt="IEC Standard Motor (HV)"></div>
     <div>
-      <h3 style="font-size:20px;font-weight:900">IEC Standard Motor (HV)</h3>
-      <p style="color:var(--slate);font-size:14.5px;margin-top:8px">IEC 국제규격 대응 고압전동기. 우수한 절연 시스템과 특수 바니쉬 처리, 이중 농형 구조로 광범위한 부하 조건에 대응합니다.</p>
+      <h3>IEC Standard Motor (HV)</h3>
+      <p class="ldesc">IEC 국제규격 대응 고압전동기. 우수한 절연 시스템과 특수 바니쉬 처리, 이중 농형 구조로 광범위한 부하 조건에 대응합니다.</p>
       
-      <div style="margin-top:14px"><span class="badge" style="margin-bottom:6px">적용 분야</span><p style="font-size:13.5px;color:var(--slate);margin-top:6px">펌프·팬·압축기·크레인·밀·분쇄기 / 일반 산업·철강 / 석유화학·시멘트 플랜트 / 석탄화력·복합화력 / 원자력(Class-1E, Non Class-1E) / 선박용</p></div>
+      <div style="margin-top:14px"><span class="badge" style="margin-bottom:6px">적용 분야</span><p class="luses">펌프·팬·압축기·크레인·밀·분쇄기 / 일반 산업·철강 / 석유화학·시멘트 플랜트 / 석탄화력·복합화력 / 원자력(Class-1E, Non Class-1E) / 선박용</p></div>
     </div>
   </div>
   <div style="margin-top:20px"><div class="tbl-wrap" style="margin-top:14px"><table class="spec" style="min-width:420px"><tbody><tr><th style="width:160px;background:var(--cloud)">출력</th><td style="text-align:left;white-space:normal">Max. 25,000kW</td></tr><tr><th style="width:160px;background:var(--cloud)">극수</th><td style="text-align:left;white-space:normal">Max. 30P</td></tr><tr><th style="width:160px;background:var(--cloud)">형식</th><td style="text-align:left;white-space:normal">TEFC, TEAAC, TEWAC, ODP, WPI, WPII, Explosion-proof</td></tr><tr><th style="width:160px;background:var(--cloud)">전압</th><td style="text-align:left;white-space:normal">Max. 13.8kV</td></tr><tr><th style="width:160px;background:var(--cloud)">주파수</th><td style="text-align:left;white-space:normal">50Hz / 60Hz</td></tr></tbody></table></div></div>
 </div>
-<div class="card reveal" style="margin-bottom:18px;padding:34px 38px">
-  <div style="display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:start">
-    <div style="background:var(--cloud);border-radius:14px;padding:14px;text-align:center"><img src="img/hv-nema.png" alt="NEMA Standard Motor (HV)" style="width:100%;max-width:200px;border-radius:8px"></div>
+<div class="card reveal lineup">
+  <div class="lineup-grid">
+    <div class="lineup-img"><img src="img/hv-nema.png" alt="NEMA Standard Motor (HV)"></div>
     <div>
-      <h3 style="font-size:20px;font-weight:900">NEMA Standard Motor (HV)</h3>
-      <p style="color:var(--slate);font-size:14.5px;margin-top:8px">NEMA 국제규격 대응 고압전동기. 동일한 고성능 절연 시스템과 저진동 설계가 특징입니다.</p>
+      <h3>NEMA Standard Motor (HV)</h3>
+      <p class="ldesc">NEMA 국제규격 대응 고압전동기. 동일한 고성능 절연 시스템과 저진동 설계가 특징입니다.</p>
       
-      <div style="margin-top:14px"><span class="badge" style="margin-bottom:6px">적용 분야</span><p style="font-size:13.5px;color:var(--slate);margin-top:6px">IEC Standard Motor와 동일</p></div>
+      <div style="margin-top:14px"><span class="badge" style="margin-bottom:6px">적용 분야</span><p class="luses">IEC Standard Motor와 동일</p></div>
     </div>
   </div>
   <div style="margin-top:20px"><div class="tbl-wrap" style="margin-top:14px"><table class="spec" style="min-width:420px"><tbody><tr><th style="width:160px;background:var(--cloud)">출력</th><td style="text-align:left;white-space:normal">Max. 25,000kW</td></tr><tr><th style="width:160px;background:var(--cloud)">전압</th><td style="text-align:left;white-space:normal">Max. 13.8kV</td></tr><tr><th style="width:160px;background:var(--cloud)">주파수</th><td style="text-align:left;white-space:normal">50Hz / 60Hz</td></tr></tbody></table></div></div>
 </div>
-<div class="card reveal" style="margin-bottom:18px;padding:34px 38px">
-  <div style="display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:start">
-    <div style="background:var(--cloud);border-radius:14px;padding:14px;text-align:center"><img src="img/hv-exp.png" alt="Explosion-proof Motor (HV)" style="width:100%;max-width:200px;border-radius:8px"></div>
+<div class="card reveal lineup">
+  <div class="lineup-grid">
+    <div class="lineup-img"><img src="img/hv-exp.png" alt="Explosion-proof Motor (HV)"></div>
     <div>
-      <h3 style="font-size:20px;font-weight:900">Explosion-proof Motor (HV)</h3>
-      <p style="color:var(--slate);font-size:14.5px;margin-top:8px">Oil&Gas 산업 등 폭발성 가스 환경용 방폭 전동기. IECEx, ATEX, UL, CSA, GOST, KGS 등 국제 규격에 대응합니다.</p>
+      <h3>Explosion-proof Motor (HV)</h3>
+      <p class="ldesc">Oil&Gas 산업 등 폭발성 가스 환경용 방폭 전동기. IECEx, ATEX, UL, CSA, GOST, KGS 등 국제 규격에 대응합니다.</p>
       
       
     </div>
   </div>
-  <div style="margin-top:20px"><div style="font-weight:700;font-size:15px;margin-bottom:-4px">방폭 구조 유형</div><div class="tbl-wrap" style="margin-top:14px"><table class="spec" style="min-width:420px"><thead><tr><th>구조</th><th>설명</th></tr></thead><tbody><tr><td style="">Ex d (내압 방폭)</td><td style="text-align:left;white-space:normal">용기 내부 폭발 시 압력을 견디고, 접합부를 통해 외부 폭발성 가스가 점화되지 않도록 하는 구조</td></tr><tr><td style="">Ex p (압력 방폭)</td><td style="text-align:left;white-space:normal">보호가스(공기·불연성가스)를 압입해 폭발성 가스의 내부 유입을 차단하는 구조</td></tr><tr><td style="">Ex e (안전증 방폭)</td><td style="text-align:left;white-space:normal">정상 운전 중 점화원(불꽃·아크·고온) 발생을 방지하는 구조</td></tr><tr><td style="">Ex n (비점화 방폭)</td><td style="text-align:left;white-space:normal">정상 동작 상태에서 주변 가스를 점화시키지 않는 구조</td></tr></tbody></table></div></div><div style="margin-top:20px"><div style="font-weight:700;font-size:15px;margin-bottom:-4px">생산 범위</div><div class="tbl-wrap" style="margin-top:14px"><table class="spec" style="min-width:420px"><thead><tr><th>구조</th><th>극수</th><th>최대 출력</th><th>최대 Frame</th></tr></thead><tbody><tr><td style="">Ex d</td><td style="">~20P</td><td style="">~4,000kW</td><td style="">~800Fr.</td></tr><tr><td style="">Ex p</td><td style="">~20P</td><td style="">~13,000kW</td><td style="">~1,500Fr.</td></tr><tr><td style="">Ex e</td><td style="">~20P</td><td style="">~13,000kW</td><td style="">~1,500Fr.</td></tr><tr><td style="">Ex n</td><td style="">~20P</td><td style="">~13,000kW</td><td style="">~1,500Fr.</td></tr></tbody></table></div></div>
+  <div style="margin-top:20px"><div class="ltbl-t">방폭 구조 유형</div><div class="tbl-wrap" style="margin-top:14px"><table class="spec" style="min-width:420px"><thead><tr><th>구조</th><th>설명</th></tr></thead><tbody><tr><td style="">Ex d (내압 방폭)</td><td style="text-align:left;white-space:normal">용기 내부 폭발 시 압력을 견디고, 접합부를 통해 외부 폭발성 가스가 점화되지 않도록 하는 구조</td></tr><tr><td style="">Ex p (압력 방폭)</td><td style="text-align:left;white-space:normal">보호가스(공기·불연성가스)를 압입해 폭발성 가스의 내부 유입을 차단하는 구조</td></tr><tr><td style="">Ex e (안전증 방폭)</td><td style="text-align:left;white-space:normal">정상 운전 중 점화원(불꽃·아크·고온) 발생을 방지하는 구조</td></tr><tr><td style="">Ex n (비점화 방폭)</td><td style="text-align:left;white-space:normal">정상 동작 상태에서 주변 가스를 점화시키지 않는 구조</td></tr></tbody></table></div></div><div style="margin-top:20px"><div class="ltbl-t">생산 범위</div><div class="tbl-wrap" style="margin-top:14px"><table class="spec" style="min-width:420px"><thead><tr><th>구조</th><th>극수</th><th>최대 출력</th><th>최대 Frame</th></tr></thead><tbody><tr><td style="">Ex d</td><td style="">~20P</td><td style="">~4,000kW</td><td style="">~800Fr.</td></tr><tr><td style="">Ex p</td><td style="">~20P</td><td style="">~13,000kW</td><td style="">~1,500Fr.</td></tr><tr><td style="">Ex e</td><td style="">~20P</td><td style="">~13,000kW</td><td style="">~1,500Fr.</td></tr><tr><td style="">Ex n</td><td style="">~20P</td><td style="">~13,000kW</td><td style="">~1,500Fr.</td></tr></tbody></table></div></div>
 </div><div class="note-box" style="margin-top:24px">관련 자료: <a href="data-manual.html" style="color:var(--blue);font-weight:700">고압전동기 취급설명서 (제품 매뉴얼)</a> · 견적은 <b>02-535-1571~2</b> 로 문의해 주세요.</div>
 </div></div>
 

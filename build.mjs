@@ -79,6 +79,9 @@ table.spec td.dim{color:#B6BECF}
 .dl-card h4{font-size:16px;font-weight:700;line-height:1.4}
 .dl-card .meta{font-size:12.5px;color:#98A2B8}
 .dl-card .act{margin-top:auto;padding-top:12px}
+.dl-card .dl-row{margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.dl-card .dl-row .meta{min-width:0;overflow-wrap:anywhere}
+.dl-btn.sm{padding:5px 12px;font-size:12px;white-space:nowrap;flex-shrink:0}
 .dl-btn{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:var(--blue);border:1.5px solid var(--blue);border-radius:99px;padding:7px 18px;transition:.2s}
 .dl-btn:hover{background:var(--blue);color:#fff}
 /* board table */
@@ -116,6 +119,29 @@ footer p{margin-top:13px;line-height:2;font-weight:300}
 footer .copy{margin-top:14px;color:#4A5470;font-size:12.5px}
 .reveal{opacity:0;transform:translateY(30px);transition:.7s cubic-bezier(.2,.7,.3,1)}
 .reveal.on{opacity:1;transform:none}
+/* product pages */
+.p-intro{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:40px 44px}
+.p-intro .p-en{font-family:'Outfit';font-size:13px;letter-spacing:.3em;color:#7A5CFF;font-weight:600}
+.p-intro h2{font-size:27px;font-weight:900;margin:10px 0 14px}
+.p-intro-txt p{color:var(--slate)}
+.p-intro-img{text-align:center}
+.p-intro-img img{max-width:100%;max-height:340px;object-fit:contain}
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.feat-grid.cols3{grid-template-columns:repeat(3,1fr)}
+.feat-grid .feat{padding:24px}
+.feat-grid h3{font-size:16.5px;font-weight:900;margin-bottom:6px;color:#2A5CFF}
+.feat-grid p{font-size:14px;color:var(--slate)}
+.lineup{margin-bottom:18px;padding:34px 38px}
+.lineup-grid{display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:start}
+.lineup-img{background:var(--cloud);border-radius:14px;padding:14px;text-align:center}
+.lineup-img img{width:100%;max-width:200px;border-radius:8px}
+.lineup h3{font-size:20px;font-weight:900}
+.lineup .ldesc{color:var(--slate);font-size:14.5px;margin-top:8px}
+.lineup .lpoints{margin-top:12px;display:grid;gap:6px}
+.lineup .lpoints li{font-size:14px;color:var(--ink);padding-left:18px;position:relative}
+.lineup .lpoints .ck{position:absolute;left:0;color:#0E96A5;font-weight:900}
+.lineup .luses{font-size:13.5px;color:var(--slate);margin-top:6px}
+.ltbl-t{font-weight:700;font-size:15px;margin-bottom:-4px}
 [hidden]{display:none!important}
 .mnav{display:none;position:fixed;top:74px;left:0;right:0;bottom:0;background:rgba(10,18,48,.97);backdrop-filter:blur(12px);z-index:99;overflow-y:auto;padding:16px 26px 40px}
 .mnav.open{display:block}
@@ -167,6 +193,35 @@ footer .copy{margin-top:14px;color:#4A5470;font-size:12.5px}
  .dl-btn{font-size:12.5px;padding:6px 14px}
  footer{font-size:12px;padding:28px 0}
  footer .f-logo{font-size:16px}
+ /* product pages — mobile */
+ .p-intro{grid-template-columns:1fr;gap:16px;padding:22px 20px}
+ .p-intro .p-en{font-size:11px;letter-spacing:.2em}
+ .p-intro h2{font-size:19px;margin:6px 0 8px}
+ .p-intro-txt p{font-size:13.5px}
+ .p-intro-img img{max-height:190px}
+ .feat-grid,.feat-grid.cols3{grid-template-columns:1fr 1fr;gap:10px}
+ .feat-grid .feat{padding:15px 13px}
+ .feat-grid h3{font-size:13.5px;margin-bottom:4px}
+ .feat-grid p{font-size:12px}
+ .lineup{padding:18px 16px;margin-bottom:14px}
+ .lineup-grid{grid-template-columns:1fr;gap:14px}
+ .lineup-img{padding:10px;max-width:210px;margin:0 auto;width:100%}
+ .lineup h3{font-size:16px}
+ .lineup .ldesc{font-size:13px;margin-top:6px}
+ .lineup .lpoints li{font-size:12.5px}
+ .lineup .luses{font-size:12.5px}
+ .ltbl-t{font-size:13.5px}
+ table.spec{min-width:0!important}
+ /* 제품매뉴얼 게시판 — 가로 스크롤 없이 */
+ table.man{table-layout:fixed;width:100%}
+ table.man th:nth-child(1),table.man td:nth-child(1),
+ table.man th:nth-child(2),table.man td:nth-child(2){display:none}
+ table.man th:nth-child(4),table.man td:nth-child(4){width:52px!important}
+ table.man th:nth-child(5),table.man td:nth-child(5){width:74px!important}
+ table.man th,table.man td{padding:9px 6px;font-size:12px}
+ table.man td:nth-child(3){word-break:break-all}
+ table.man .badge.lang{font-size:9.5px;padding:2px 6px}
+ table.man .dl-btn{padding:4px 8px!important;font-size:11px!important}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1!important;transform:none!important}}
 `;
@@ -406,7 +461,19 @@ function buildCyclo(){
 <div id="panel-jiksel" data-p="jiksel"><div class="sec-h"><h2 style="font-size:28px">직결형 선정표</h2></div>${pJikSel}</div>
 <div id="panel-yangsel" data-p="yangsel"><div class="sec-h"><h2 style="font-size:28px">양축형 선정표</h2></div>${pYangSel}</div>`;
 
-  const js = `<script>
+  const js = `<style>
+.tv-open{display:none}
+@media(max-width:760px){
+ .tv-open{display:block;margin:10px 0 -6px auto;font-size:11.5px;padding:5px 13px;border:1px solid var(--line);border-radius:99px;background:#fff;color:var(--slate);cursor:pointer}
+}
+#tblov{position:fixed;inset:0;z-index:400;background:#fff;display:none;flex-direction:column}
+#tblov.open{display:flex}
+#tblov .tv-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:11.5px;color:var(--slate)}
+#tblov .tv-bar b{font-size:12.5px;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#tblov .tv-bar button{font-size:12.5px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:6px 12px;flex-shrink:0;cursor:pointer}
+#tblov .tv-body{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px}
+#tblov .tv-body table{min-width:max-content}
+</style><script>
 document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));
   b.classList.add('on');
@@ -414,6 +481,26 @@ document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',
   document.querySelectorAll('[data-p]').forEach(p=>{p.hidden = (t!=='all' && p.dataset.p!==t)});
   window.scrollTo({top:0});
 }));
+// 모바일: 표 전체화면 보기
+if(matchMedia('(max-width:760px)').matches){
+  const ov=document.createElement('div');ov.id='tblov';
+  ov.innerHTML='<div class="tv-bar"><b id="tv-t"></b><button id="tv-x">✕ 닫기</button></div><div class="tv-body"></div>';
+  document.body.appendChild(ov);
+  const close=()=>{ov.classList.remove('open');document.body.style.overflow='';};
+  ov.querySelector('#tv-x').addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+  document.querySelectorAll('.tbl-wrap').forEach(w=>{
+    const sec=w.closest('.tbl-sec');
+    const title=sec?(sec.querySelector('h3')||{}).textContent||'':'';
+    const b=document.createElement('button');b.className='tv-open';b.textContent='⛶ 표 크게 보기';
+    b.addEventListener('click',()=>{
+      ov.querySelector('#tv-t').textContent=title;
+      ov.querySelector('.tv-body').innerHTML=w.innerHTML;
+      ov.classList.add('open');document.body.style.overflow='hidden';
+    });
+    w.parentNode.insertBefore(b,w);
+  });
+}
 </script>`;
   writeFileSync(join(OUT,'cyclo.html'), page('싸이크로감속기','cyclo','Cyclo Reducer','싸이크로감속기','전동기 직결형 · 양축형 외형 치수와 감속비별 선정표·허용전달 용량표를 한눈에 확인하세요.',body,js));
 }
@@ -499,8 +586,7 @@ function buildSpec(){
   <div class="dl-card">
     <span class="cat">${cat}</span>
     <h4>${esc(name)}</h4>
-    <span class="meta">${esc(file)} · ZIP</span>
-    <div class="act"><a class="dl-btn" href="${HY}${url}" target="_blank" rel="noopener">↓ 다운로드</a></div>
+    <div class="dl-row"><span class="meta">${esc(file)} · ZIP</span><a class="dl-btn sm" href="${HY}${url}" target="_blank" rel="noopener">↓ 다운로드</a></div>
   </div>`;
 
   const body = `
@@ -515,15 +601,15 @@ function buildSpec(){
 
   <div class="sec-h"><h2>외형도 다운로드</h2><p>PDF·CAD 외형도 및 조견표</p></div>
   <div class="dl-grid">
-    <div class="dl-card"><span class="cat">TABLE</span><h4>저압전동기 외형도 조견표</h4><span class="meta">LV_Motor_Dim_Table_2603.xlsm · Excel</span>
-      <div class="act"><a class="dl-btn" href="${HY}/upload/motor/files/LV_Motor_Dim_Table_2603.xlsm" target="_blank" rel="noopener">↓ 다운로드</a></div></div>
+    <div class="dl-card"><span class="cat">TABLE</span><h4>저압전동기 외형도 조견표</h4>
+      <div class="dl-row"><span class="meta">LV_Motor_Dim_Table_2603.xlsm · Excel</span><a class="dl-btn sm" href="${HY}/upload/motor/files/LV_Motor_Dim_Table_2603.xlsm" target="_blank" rel="noopener">↓ 다운로드</a></div></div>
     ${lvDim.map(x=>card('DIMENSION',x)).join('')}
   </div>
 
   <div class="sec-h"><h2>인증 문서</h2></div>
   <div class="dl-grid">
-    <div class="dl-card"><span class="cat">CE</span><h4>CE 인증 문서 — 계획품 (TEFC, TE-F)</h4><span class="meta">CEDOC_TEFCTE-F.pdf · PDF</span>
-      <div class="act"><a class="dl-btn" href="${HY}/upload/motor/files/CEDOC_TEFCTE-F.pdf" target="_blank" rel="noopener">↓ 다운로드</a></div></div>
+    <div class="dl-card"><span class="cat">CE</span><h4>CE 인증 문서 — 계획품 (TEFC, TE-F)</h4>
+      <div class="dl-row"><span class="meta">CEDOC_TEFCTE-F.pdf · PDF</span><a class="dl-btn sm" href="${HY}/upload/motor/files/CEDOC_TEFCTE-F.pdf" target="_blank" rel="noopener">↓ 다운로드</a></div></div>
   </div>
 
   <div class="sec-h"><h2>3D 모델링</h2></div>
@@ -617,7 +703,7 @@ function buildManual(){
   ];
   const board = (rows, id) => `
   <div class="tbl-wrap" style="border-radius:14px">
-  <table class="board">
+  <table class="board man">
     <thead><tr><th class="c" style="width:70px">NO</th><th class="c" style="width:90px">분류</th><th>자료명</th><th class="c" style="width:80px">언어</th><th class="c" style="width:120px">다운로드</th></tr></thead>
     <tbody id="${id}">${rows.map(([no,name,lang],i)=>`<tr>
       <td class="c" style="color:#98A2B8;font-family:'Outfit'">${rows.length-i}</td>
@@ -679,37 +765,37 @@ function specTable(tb){
 
 function productPage(cfg){
   let body = `
-<div class="card reveal" style="display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:40px 44px">
-  <div>
-    <div style="font-family:'Outfit';font-size:13px;letter-spacing:.3em;color:#7A5CFF;font-weight:600">${cfg.en}</div>
-    <h2 style="font-size:27px;font-weight:900;margin:10px 0 14px">${cfg.introTitle}</h2>
-    <p style="color:var(--slate)">${cfg.intro}</p>
+<div class="card reveal p-intro">
+  <div class="p-intro-txt">
+    <div class="p-en">${cfg.en}</div>
+    <h2>${cfg.introTitle}</h2>
+    <p>${cfg.intro}</p>
   </div>
-  <div style="text-align:center"><img src="img/${cfg.mainImg}" alt="${cfg.title}" style="max-width:100%;max-height:340px;object-fit:contain"></div>
+  <div class="p-intro-img"><img src="img/${cfg.mainImg}" alt="${cfg.title}"></div>
 </div>
 
 <div class="sec-h"><h2>특장점</h2></div>
-<div style="display:grid;grid-template-columns:repeat(${cfg.features.length>4?3:2},1fr);gap:14px">
-  ${cfg.features.map(f=>`<div class="card reveal" style="padding:24px">
-    <h3 style="font-size:16.5px;font-weight:900;margin-bottom:6px;color:var(--brand,#2A5CFF)">${esc(f[0])}</h3>
-    <p style="font-size:14px;color:var(--slate)">${esc(f[1])}</p></div>`).join('')}
+<div class="feat-grid${cfg.features.length>4?' cols3':''}">
+  ${cfg.features.map(f=>`<div class="card reveal feat">
+    <h3>${esc(f[0])}</h3>
+    <p>${esc(f[1])}</p></div>`).join('')}
 </div>
 
 <div class="sec-h"><h2>제품 라인업</h2></div>`;
 
   for(const l of cfg.lineups){
     body += `
-<div class="card reveal" style="margin-bottom:18px;padding:34px 38px">
-  <div style="display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:start">
-    <div style="background:var(--cloud);border-radius:14px;padding:14px;text-align:center"><img src="img/${l.img}" alt="${esc(l.name)}" style="width:100%;max-width:200px;border-radius:8px"></div>
+<div class="card reveal lineup">
+  <div class="lineup-grid">
+    <div class="lineup-img"><img src="img/${l.img}" alt="${esc(l.name)}"></div>
     <div>
-      <h3 style="font-size:20px;font-weight:900">${esc(l.name)}</h3>
-      <p style="color:var(--slate);font-size:14.5px;margin-top:8px">${l.desc}</p>
-      ${l.points?`<ul style="margin-top:12px;display:grid;gap:6px">${l.points.map(p=>`<li style="font-size:14px;color:var(--ink);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--cyan,#0E96A5);font-weight:900">✓</span>${esc(p)}</li>`).join('')}</ul>`:''}
-      ${l.uses?`<div style="margin-top:14px"><span class="badge" style="margin-bottom:6px">적용 분야</span><p style="font-size:13.5px;color:var(--slate);margin-top:6px">${esc(l.uses)}</p></div>`:''}
+      <h3>${esc(l.name)}</h3>
+      <p class="ldesc">${l.desc}</p>
+      ${l.points?`<ul class="lpoints">${l.points.map(p=>`<li><span class="ck">✓</span>${esc(p)}</li>`).join('')}</ul>`:''}
+      ${l.uses?`<div style="margin-top:14px"><span class="badge" style="margin-bottom:6px">적용 분야</span><p class="luses">${esc(l.uses)}</p></div>`:''}
     </div>
   </div>
-  ${(l.tables||[]).map(tb=>`<div style="margin-top:20px">${tb.title?`<div style="font-weight:700;font-size:15px;margin-bottom:-4px">${esc(tb.title)}</div>`:''}${specTable(tb)}</div>`).join('')}
+  ${(l.tables||[]).map(tb=>`<div style="margin-top:20px">${tb.title?`<div class="ltbl-t">${esc(tb.title)}</div>`:''}${specTable(tb)}</div>`).join('')}
 </div>`;
   }
 
@@ -866,26 +952,44 @@ function buildNotice(){
     </table>
   </div>
 </div>
-<div id="detail-view" hidden>
-  <div class="card" style="padding:36px 40px">
-    <div style="font-size:13px;color:#98A2B8" id="d-date"></div>
-    <h2 style="font-size:24px;font-weight:900;margin:6px 0 18px" id="d-title"></h2>
-    <div style="border-top:1px solid var(--line);padding-top:20px;white-space:pre-wrap;font-size:15.5px" id="d-body"></div>
-    <div style="margin-top:26px"><button class="dl-btn" onclick="showList()" style="cursor:pointer;background:#fff">← 목록으로</button></div>
+<div id="n-modal" hidden>
+  <div class="nm-bg" onclick="closeNotice()"></div>
+  <div class="nm-box">
+    <button class="nm-x" onclick="closeNotice()" aria-label="닫기">✕</button>
+    <div class="nm-date" id="d-date"></div>
+    <h2 id="d-title"></h2>
+    <div class="nm-body" id="d-body"></div>
   </div>
-</div>`;
+</div>
+<style>
+#n-modal{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:20px}
+#n-modal .nm-bg{position:absolute;inset:0;background:rgba(10,18,48,.55);backdrop-filter:blur(3px)}
+#n-modal .nm-box{position:relative;background:#fff;border-radius:18px;max-width:640px;width:100%;max-height:82vh;overflow-y:auto;padding:32px 34px;box-shadow:0 30px 60px rgba(10,18,48,.35)}
+#n-modal .nm-x{all:unset;position:absolute;top:14px;right:18px;cursor:pointer;font-size:17px;color:#98A2B8;padding:6px;line-height:1}
+#n-modal .nm-x:hover{color:var(--ink)}
+#n-modal .nm-date{font-size:13px;color:#98A2B8;font-family:'Outfit'}
+#n-modal h2{font-size:22px;font-weight:900;margin:6px 24px 16px 0}
+#n-modal .nm-body{border-top:1px solid var(--line);padding-top:18px;white-space:pre-wrap;font-size:15px;line-height:1.8;color:var(--ink)}
+@media(max-width:760px){
+ #n-modal{padding:14px}
+ #n-modal .nm-box{padding:22px 20px;border-radius:14px;max-height:78vh}
+ #n-modal h2{font-size:17px}
+ #n-modal .nm-body{font-size:13.5px;padding-top:14px}
+ #n-modal .nm-date{font-size:12px}
+}
+</style>`;
   const js = SB_SCRIPTS + `
 <script>
 const rowsEl=document.getElementById('notice-rows');
 let notices=[];
-function showList(){document.getElementById('detail-view').hidden=true;document.getElementById('list-view').hidden=false;}
+function closeNotice(){document.getElementById('n-modal').hidden=true;document.body.style.overflow='';}
 function showDetail(n){
   document.getElementById('d-date').textContent=(n.created_at||'').slice(0,10);
   document.getElementById('d-title').textContent=n.title;
   document.getElementById('d-body').textContent=n.body||'';
-  document.getElementById('list-view').hidden=true;document.getElementById('detail-view').hidden=false;
-  window.scrollTo({top:0});
+  document.getElementById('n-modal').hidden=false;document.body.style.overflow='hidden';
 }
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNotice();});
 function render(){
   if(!notices.length) return;
   rowsEl.innerHTML=notices.map((n,i)=>\`<tr style="cursor:pointer" onclick="showDetail(notices[\${i}])">
