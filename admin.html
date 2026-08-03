@@ -7,210 +7,153 @@
 <meta name="robots" content="noindex,nofollow">
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+KR:wght@400;500;700;900&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--space:#0A1230;--space2:#101A42;--blue:#2A5CFF;--violet:#7A5CFF;--cyan:#2BD9E5;
---ink:#141B33;--slate:#5A6480;--cloud:#F5F7FB;--line:#E3E7F0;--white:#fff}
+:root{--space:#0A1230;--blue:#2A5CFF;--violet:#7A5CFF;--cyan:#0E96A5;--ink:#141B33;--slate:#5A6480;--cloud:#F5F7FB;--line:#E3E7F0}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Noto Sans KR',sans-serif;color:var(--ink);background:#fff;line-height:1.65;overflow-x:hidden}
-a{text-decoration:none;color:inherit}ul{list-style:none}
-.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
-header{position:sticky;top:0;left:0;right:0;z-index:100;background:rgba(10,18,48,.94);backdrop-filter:blur(14px)}
-header .hd{display:flex;align-items:center;justify-content:space-between;height:74px}
-.logo{display:flex;flex-direction:column;line-height:1;color:#fff}
-.logo .en{font-family:'Marcellus',serif;font-size:24px;letter-spacing:.07em}
-.logo .sub{font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:.42em;color:var(--cyan);margin-top:4px;font-weight:500}
-nav.gnb>ul{display:flex;gap:2px}
-nav.gnb>ul>li{position:relative}
-nav.gnb>ul>li>a{display:block;padding:11px 15px;font-weight:500;font-size:15px;color:rgba(255,255,255,.88);border-radius:99px;transition:.2s}
-nav.gnb>ul>li>a:hover,nav.gnb>ul>li>a.on{color:#fff;background:rgba(255,255,255,.10)}
-nav.gnb .dep2{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(13,21,54,.96);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:14px;min-width:160px;padding:8px;display:none}
-nav.gnb>ul>li:hover .dep2{display:block}
-nav.gnb .dep2 a{display:block;padding:9px 14px;font-size:14px;border-radius:8px;color:rgba(255,255,255,.75);white-space:nowrap}
-nav.gnb .dep2 a:hover{background:rgba(255,255,255,.10);color:#fff}
-.cta-btn{font-weight:700;font-size:14.5px;padding:10px 24px;border-radius:99px;color:#fff;background:linear-gradient(135deg,var(--blue),var(--violet));box-shadow:0 6px 20px rgba(42,92,255,.35);transition:.25s}
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(42,92,255,.5)}
-.m-toggle{display:none;background:none;border:none;font-size:26px;color:#fff;cursor:pointer}
-/* page hero */
-.phero{position:relative;background:radial-gradient(900px 460px at 80% 0%,rgba(122,92,255,.4),transparent 60%),radial-gradient(700px 400px at 10% 100%,rgba(43,217,229,.18),transparent 55%),linear-gradient(140deg,#0A1230 10%,#16246E 70%,#22348F 100%);color:#fff;padding:74px 0 58px;overflow:hidden}
-.phero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(255,255,255,.04) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(255,255,255,.04) 56px)}
-.phero .wrap{position:relative;z-index:1}
-.phero .tag{font-family:'Outfit',sans-serif;font-size:13.5px;letter-spacing:.32em;font-weight:600;color:var(--cyan);text-transform:uppercase}
-.phero h1{font-size:clamp(30px,4vw,44px);font-weight:900;margin-top:10px;letter-spacing:-.01em}
-.phero p{margin-top:12px;color:rgba(255,255,255,.75);font-weight:300;max-width:70ch}
-/* content */
-.content{padding:56px 0 90px}
-.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
-/* tabs */
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 28px}
-.tabs button{font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:500;padding:10px 22px;border-radius:99px;border:1.5px solid var(--line);background:#fff;color:var(--slate);cursor:pointer;transition:.2s}
-.tabs button:hover{border-color:var(--blue);color:var(--blue)}
-.tabs button.on{background:var(--space);border-color:var(--space);color:#fff;font-weight:700}
-.subtabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 22px}
-.subtabs a,.subtabs button{font-size:13.5px;font-weight:500;padding:7px 16px;border-radius:99px;background:var(--cloud);border:1px solid var(--line);color:var(--slate);cursor:pointer;transition:.2s}
-.subtabs a:hover,.subtabs button:hover{color:var(--blue);border-color:var(--blue)}
-.subtabs button.on{background:#EDEBFF;border-color:var(--violet);color:var(--violet);font-weight:700}
-/* tables */
-.tbl-sec{margin-bottom:46px}
-.tbl-sec h3{font-size:21px;font-weight:900;display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.tbl-sec h3::before{content:"";width:5px;height:22px;border-radius:3px;background:linear-gradient(180deg,var(--blue),var(--cyan))}
-.tbl-sec .desc{color:var(--slate);font-size:14px;margin-bottom:14px}
-.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
-table.spec{border-collapse:collapse;width:100%;min-width:640px;font-size:13.5px}
-table.spec th,table.spec td{border:1px solid #E9EDF4;padding:7px 10px;text-align:center;white-space:nowrap}
-table.spec thead th{background:var(--space);color:#fff;font-weight:500;font-size:13px;border-color:#26325E}
-table.spec thead tr:nth-child(2) th{background:#1A2450;font-weight:400;font-size:12px;color:#BFC9E4}
-table.spec tbody th{background:var(--cloud);font-weight:700;color:var(--ink)}
-table.spec tbody tr:nth-child(even) td{background:#F8FAFD}
-table.spec tbody tr:hover td{background:#EEF3FF}
-table.spec td.num{font-family:'Outfit','Noto Sans KR',sans-serif;font-variant-numeric:tabular-nums}
-table.spec td.dim{color:#B6BECF}
-.note-box{background:#F4F7FF;border:1px solid #D9E3FF;border-radius:12px;padding:14px 18px;font-size:13.5px;color:#40507E;margin:14px 0 0}
-.note-box b{color:var(--blue)}
-/* download list */
-.dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.dl-card{border:1px solid var(--line);border-radius:16px;padding:24px;background:#fff;transition:.2s;display:flex;flex-direction:column;gap:6px}
-.dl-card:hover{border-color:var(--blue);box-shadow:0 12px 28px rgba(42,92,255,.10);transform:translateY(-3px)}
-.dl-card .cat{font-family:'Outfit',sans-serif;font-size:11.5px;letter-spacing:.2em;font-weight:600;color:var(--violet)}
-.dl-card h4{font-size:16px;font-weight:700;line-height:1.4}
-.dl-card .meta{font-size:12.5px;color:#98A2B8}
-.dl-card .act{margin-top:auto;padding-top:12px}
-.dl-btn{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:var(--blue);border:1.5px solid var(--blue);border-radius:99px;padding:7px 18px;transition:.2s}
-.dl-btn:hover{background:var(--blue);color:#fff}
-/* board table */
-table.board{border-collapse:collapse;width:100%;font-size:14.5px}
-table.board th,table.board td{padding:13px 14px;border-bottom:1px solid var(--line);text-align:left}
-table.board thead th{background:var(--cloud);font-weight:700;font-size:13.5px;color:var(--slate);border-top:2px solid var(--space)}
-table.board td.c,table.board th.c{text-align:center;white-space:nowrap}
-table.board tbody tr:hover td{background:#F8FAFD}
-.badge{display:inline-block;font-size:11.5px;font-weight:700;border-radius:6px;padding:2px 8px;background:#EDEBFF;color:var(--violet)}
-.badge.lang{background:#E8F8FA;color:#0E96A5}
-/* section head */
-.sec-h{margin:44px 0 18px}
-.sec-h h2{font-size:24px;font-weight:900}
-.sec-h p{color:var(--slate);font-size:14.5px;margin-top:4px}
-/* about */
-.about-lead{font-size:clamp(19px,2.2vw,26px);font-weight:700;line-height:1.6;letter-spacing:-.01em}
-.about-lead em{font-style:normal;color:var(--blue)}
-.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
-.info-table{width:100%;border-collapse:collapse;font-size:15px}
-.info-table th{width:130px;text-align:left;padding:13px 10px;border-bottom:1px solid var(--line);color:var(--slate);font-weight:500;vertical-align:top;white-space:nowrap}
-.info-table td{padding:13px 10px;border-bottom:1px solid var(--line);font-weight:500}
-/* contact band */
-.cband{position:relative;background:linear-gradient(120deg,#12206B,#2A5CFF 55%,#7A5CFF);color:#fff;overflow:hidden;padding:56px 0}
-.cband::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(255,255,255,.05) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(255,255,255,.05) 56px)}
-.cband .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
-.cband h2{font-size:clamp(24px,3vw,32px);font-weight:900}
-.cband p{color:rgba(255,255,255,.82);font-weight:300;margin-top:8px}
-.cband .tel{font-family:'Outfit',sans-serif;font-size:clamp(32px,4vw,46px);font-weight:600;text-align:right;line-height:1.1}
-.cband .tel small{display:block;font-size:14px;letter-spacing:.3em;color:#BFF3F8;font-weight:500;margin-bottom:4px}
-.cband .sub{margin-top:10px;color:rgba(255,255,255,.85);font-size:14px;font-weight:300;text-align:right}
-footer{background:var(--space);color:#7E88A3;font-size:13.5px;padding:42px 0}
-footer .f-logo{font-family:'Marcellus',serif;color:#fff;font-size:19px;letter-spacing:.07em}
-footer .f-logo span{display:block;font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:.4em;color:var(--cyan);margin-top:4px}
-footer p{margin-top:13px;line-height:2;font-weight:300}
-footer .copy{margin-top:14px;color:#4A5470;font-size:12.5px}
-.reveal{opacity:0;transform:translateY(30px);transition:.7s cubic-bezier(.2,.7,.3,1)}
-.reveal.on{opacity:1;transform:none}
-[hidden]{display:none!important}
-@media(max-width:960px){
- nav.gnb{display:none}.m-toggle{display:block}
- .dl-grid{grid-template-columns:1fr}
- .about-grid{grid-template-columns:1fr}
- .cband .wrap{grid-template-columns:1fr}
- .cband .tel,.cband .sub{text-align:left}
-}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1!important;transform:none!important}}
-
-body{background:var(--cloud)}
-.admin-wrap{max-width:1000px;margin:0 auto;padding:40px 24px}
-.input, textarea.input, select.input{border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;font-size:14.5px;font-family:inherit;width:100%;box-sizing:border-box;background:#fff}
-.btn{border:none;cursor:pointer;font-weight:700;font-size:14px;padding:10px 20px;border-radius:99px;background:var(--space);color:#fff}
+body{font-family:'Noto Sans KR',sans-serif;color:var(--ink);background:var(--cloud);line-height:1.6}
+a{text-decoration:none;color:inherit}
+header{background:var(--space);position:sticky;top:0;z-index:50}
+.hd{max-width:1100px;margin:0 auto;padding:0 24px;height:66px;display:flex;align-items:center;justify-content:space-between}
+.logo{color:#fff;display:flex;align-items:center;gap:10px}
+.logo .en{font-family:'Marcellus',serif;font-size:20px;letter-spacing:.05em}
+.logo .tag{font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:.3em;color:#2BD9E5;font-weight:600;background:rgba(43,217,229,.12);border:1px solid rgba(43,217,229,.35);border-radius:99px;padding:3px 10px}
+.wrap{max-width:1100px;margin:0 auto;padding:34px 24px 80px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 28px}
+.input,textarea.input,select.input{border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;font-size:15px;font-family:inherit;width:100%;background:#fff}
+.input:focus{outline:2px solid rgba(42,92,255,.3)}
+.btn{border:none;cursor:pointer;font-weight:700;font-size:14.5px;padding:11px 24px;border-radius:99px;background:var(--blue);color:#fff;font-family:inherit}
+.btn:hover{background:#1F49D6}
 .btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn.sm{padding:6px 14px;font-size:12.5px}
 .btn.danger{background:#FDECEC;color:#D14343}
-.row-item{display:flex;gap:12px;align-items:center;padding:12px 4px;border-bottom:1px solid var(--line);font-size:14.5px}
-.a-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}
-.a-tabs button{font-size:14.5px;font-weight:500;padding:9px 20px;border-radius:99px;border:1.5px solid var(--line);background:#fff;cursor:pointer}
+.btn.big{padding:14px 34px;font-size:16px}
+.a-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.a-tabs button{font-family:inherit;font-size:15px;font-weight:500;padding:11px 22px;border-radius:99px;border:1.5px solid var(--line);background:#fff;cursor:pointer}
 .a-tabs button.on{background:var(--space);border-color:var(--space);color:#fff;font-weight:700}
-label.f{display:grid;gap:6px;font-size:13px;font-weight:700;margin-bottom:12px}
+label.f{display:grid;gap:6px;font-size:13.5px;font-weight:700;margin-bottom:14px}
+table.list{border-collapse:collapse;width:100%;font-size:14.5px;background:#fff}
+table.list th{background:var(--cloud);text-align:left;padding:11px 14px;font-size:13px;color:var(--slate);border-top:2px solid var(--space);border-bottom:1px solid var(--line);white-space:nowrap}
+table.list td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+table.list tr:hover td{background:#F8FAFD}
+.badge{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:2px 9px;background:#EDEBFF;color:var(--violet);white-space:nowrap}
+.badge.lang{background:#E8F8FA;color:var(--cyan)}
+.step{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--slate);margin-bottom:8px}
+.step b{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.sec-title{font-size:19px;font-weight:900;margin:30px 0 12px;display:flex;align-items:center;gap:10px}
+.sec-title .cnt{font-size:13px;color:var(--slate);font-weight:500}
+.filebox{border:2px dashed #C9D4E8;border-radius:12px;padding:22px;text-align:center;cursor:pointer;transition:.2s;background:#FAFBFE}
+.filebox:hover{border-color:var(--blue)}
+.filebox.has{border-color:var(--cyan);background:#F0FBFC}
+.empty{padding:30px;text-align:center;color:#98A2B8;font-size:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.msg{font-size:14px;font-weight:700;margin-top:10px}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
-<header><div class="wrap hd">
-  <a href="index.html" class="logo"><span class="en">HYOSUNG</span><span class="sub">ADMIN</span></a>
-  <button class="btn ghost" id="logout-btn" hidden>로그아웃</button>
+<header><div class="hd">
+  <a href="index.html" class="logo"><span class="en">HYOSUNG</span><span class="tag">관리자</span></a>
+  <div style="display:flex;gap:10px">
+    <a class="btn ghost sm" href="index.html" target="_blank" style="line-height:1.6">사이트 보기 ↗</a>
+    <button class="btn ghost sm" id="logout-btn" hidden>로그아웃</button>
+  </div>
 </div></header>
-<div class="admin-wrap">
+<div class="wrap">
 
-<!-- 연결 안내 -->
-<div id="no-sb" class="card" style="padding:34px" hidden>
+<div id="no-sb" class="card" hidden>
   <h2 style="font-weight:900;font-size:20px">Supabase 연결이 필요합니다</h2>
-  <p style="color:var(--slate);margin-top:10px;font-size:14.5px">아직 데이터베이스가 연결되지 않았어요. supabase-config.js 파일에 프로젝트 URL과 KEY를 입력하면 관리자 기능(공지·FAQ·자료실 파일·견적문의)이 활성화됩니다.</p>
+  <p style="color:var(--slate);margin-top:10px;font-size:14.5px">supabase-config.js에 프로젝트 URL과 KEY를 입력하면 관리자 기능이 활성화됩니다.</p>
 </div>
 
-<!-- 로그인 -->
-<div id="login-view" class="card" style="max-width:420px;margin:60px auto;padding:36px" hidden>
-  <h2 style="font-weight:900;font-size:20px;margin-bottom:18px">관리자 로그인</h2>
-  <label class="f">이메일<input class="input" id="l-email" type="email"></label>
-  <label class="f">비밀번호<input class="input" id="l-pw" type="password"></label>
-  <button class="btn" style="width:100%;padding:13px" onclick="doLogin()">로그인</button>
-  <div id="l-msg" style="color:#D14343;font-size:13.5px;margin-top:10px" hidden></div>
+<div id="login-view" class="card" style="max-width:420px;margin:60px auto" hidden>
+  <h2 style="font-weight:900;font-size:20px;margin-bottom:6px">관리자 로그인</h2>
+  <p style="font-size:13.5px;color:var(--slate);margin-bottom:18px">사이트 관리는 관리자만 할 수 있어요.</p>
+  <label class="f">이메일<input class="input" id="l-email" type="email" autocomplete="username"></label>
+  <label class="f">비밀번호<input class="input" id="l-pw" type="password" autocomplete="current-password"></label>
+  <button class="btn big" style="width:100%" onclick="doLogin()">로그인</button>
+  <div id="l-msg" class="msg" style="color:#D14343" hidden></div>
 </div>
 
-<!-- 대시보드 -->
 <div id="dash" hidden>
   <div class="a-tabs">
-    <button class="on" data-t="inq">견적문의 <span id="cnt-inq"></span></button>
-    <button data-t="notice">공지사항</button>
-    <button data-t="faq">FAQ</button>
-    <button data-t="res">자료실 파일</button>
+    <button class="on" data-t="inq">📥 견적문의 <span id="cnt-inq"></span></button>
+    <button data-t="res">📂 자료실 파일 <span id="cnt-res"></span></button>
+    <button data-t="notice">📢 공지사항 <span id="cnt-notice"></span></button>
+    <button data-t="faq">❓ FAQ <span id="cnt-faq"></span></button>
   </div>
 
-  <div data-p="inq" class="card" style="padding:26px 30px">
-    <h3 style="font-weight:900;margin-bottom:10px">견적문의 목록</h3>
+  <!-- 견적문의 -->
+  <div data-p="inq">
+    <div class="card" style="padding:18px 24px;margin-bottom:16px;background:#F4F7FF;border-color:#D9E3FF">
+      <div style="font-size:14px;color:#40507E">사이트 <b>견적요청</b> 페이지로 접수된 문의가 여기에 쌓여요. 새 문의가 왔는지 이 탭에서 확인하세요.</div>
+    </div>
     <div id="inq-list"></div>
   </div>
 
-  <div data-p="notice" class="card" style="padding:26px 30px" hidden>
-    <h3 style="font-weight:900;margin-bottom:14px">공지사항 작성</h3>
-    <input type="hidden" id="n-id">
-    <label class="f">제목<input class="input" id="n-title"></label>
-    <label class="f">내용<textarea class="input" id="n-body" rows="6"></textarea></label>
-    <button class="btn" onclick="saveNotice()">저장</button>
-    <button class="btn ghost" onclick="resetNotice()">새 글</button>
-    <div style="margin-top:22px" id="notice-list"></div>
-  </div>
-
-  <div data-p="faq" class="card" style="padding:26px 30px" hidden>
-    <h3 style="font-weight:900;margin-bottom:14px">FAQ 관리</h3>
-    <input type="hidden" id="f-id">
-    <label class="f">질문<input class="input" id="f-q"></label>
-    <label class="f">답변<textarea class="input" id="f-a" rows="4"></textarea></label>
-    <label class="f">정렬 순서 (숫자가 작을수록 위)<input class="input" id="f-sort" type="number" value="0" style="width:120px"></label>
-    <button class="btn" onclick="saveFaq()">저장</button>
-    <button class="btn ghost" onclick="resetFaq()">새 항목</button>
-    <div style="margin-top:22px" id="faq-list"></div>
-  </div>
-
-  <div data-p="res" class="card" style="padding:26px 30px" hidden>
-    <h3 style="font-weight:900;margin-bottom:14px">자료실 파일 업로드</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <label class="f">분류
-        <select class="input" id="r-cat">
-          <option value="manual-hv">제품 매뉴얼 — 고압전동기</option>
-          <option value="manual-lv">제품 매뉴얼 — 저압전동기</option>
-          <option value="manual-gm">제품 매뉴얼 — 기어드모터</option>
-          <option value="spec-lv">사양서 — 저압전동기</option>
-          <option value="spec-gm">사양서 — 기어드모터</option>
-          <option value="etc">기타</option>
-        </select></label>
-      <label class="f">언어
-        <select class="input" id="r-lang"><option>한국어</option><option>영어</option><option>일본어</option><option>중국어</option><option>기타</option></select></label>
+  <!-- 자료실 -->
+  <div data-p="res" hidden>
+    <div class="card">
+      <h3 style="font-size:17px;font-weight:900;margin-bottom:12px">새 파일 올리기</h3>
+      <div class="step"><b>1</b> 아래 점선 박스를 눌러 PDF 등 파일을 선택하고</div>
+      <div class="step"><b>2</b> 어느 게시판에 올릴지(분류)와 자료명을 정한 뒤</div>
+      <div class="step"><b>3</b> 업로드 버튼을 누르면 → 사이트 자료실에 바로 표시돼요</div>
+      <div class="filebox" id="filebox" onclick="document.getElementById('r-file').click()" style="margin:16px 0">
+        <div id="filebox-text" style="font-size:15px;font-weight:700;color:var(--slate)">📄 여기를 눌러 파일 선택</div>
+        <div style="font-size:12.5px;color:#98A2B8;margin-top:4px">PDF, 이미지, 압축파일 등 · 최대 50MB</div>
+      </div>
+      <input id="r-file" type="file" hidden>
+      <div class="grid2">
+        <label class="f">분류 (어느 게시판에 표시할지)
+          <select class="input" id="r-cat">
+            <option value="manual-hv">제품 매뉴얼 → 고압전동기 탭</option>
+            <option value="manual-lv">제품 매뉴얼 → 저압전동기 탭</option>
+            <option value="manual-gm">제품 매뉴얼 → 기어드모터 탭</option>
+            <option value="spec-lv">사양서 → 저압전동기</option>
+            <option value="spec-gm">사양서 → 기어드모터</option>
+            <option value="etc">기타</option>
+          </select></label>
+        <label class="f">언어
+          <select class="input" id="r-lang"><option>한국어</option><option>영어</option><option>일본어</option><option>중국어</option><option>기타</option></select></label>
+      </div>
+      <label class="f">자료명 (사이트에 표시될 이름)<input class="input" id="r-title" placeholder="예: 고압전동기 취급설명서 REV 2.5"></label>
+      <button class="btn big" onclick="uploadRes()">⬆ 업로드하기</button>
+      <div id="r-msg" class="msg"></div>
     </div>
-    <label class="f">자료명<input class="input" id="r-title" placeholder="예: 고압전동기 취급설명서 REV 2.5"></label>
-    <label class="f">파일<input class="input" id="r-file" type="file"></label>
-    <button class="btn" onclick="uploadRes()">업로드</button>
-    <div id="r-msg" style="font-size:13.5px;margin-top:10px"></div>
-    <div style="margin-top:22px" id="res-list"></div>
+    <div class="sec-title">올라가 있는 파일 <span class="cnt" id="res-cnt2"></span></div>
+    <div class="card" style="padding:0;overflow-x:auto"><div id="res-list"></div></div>
+  </div>
+
+  <!-- 공지 -->
+  <div data-p="notice" hidden>
+    <div class="card">
+      <h3 style="font-size:17px;font-weight:900;margin-bottom:14px" id="n-form-title">새 공지 쓰기</h3>
+      <input type="hidden" id="n-id">
+      <label class="f">제목<input class="input" id="n-title" placeholder="예: 여름 휴가 기간 배송 안내"></label>
+      <label class="f">내용<textarea class="input" id="n-body" rows="6" placeholder="공지 내용을 적어주세요"></textarea></label>
+      <div style="display:flex;gap:10px">
+        <button class="btn" onclick="saveNotice()">등록하기</button>
+        <button class="btn ghost" onclick="resetNotice()">새로 쓰기</button>
+      </div>
+    </div>
+    <div class="sec-title">등록된 공지 <span class="cnt" id="notice-cnt2"></span></div>
+    <div class="card" style="padding:0;overflow-x:auto"><div id="notice-list"></div></div>
+  </div>
+
+  <!-- FAQ -->
+  <div data-p="faq" hidden>
+    <div class="card">
+      <h3 style="font-size:17px;font-weight:900;margin-bottom:14px" id="f-form-title">새 질문 추가</h3>
+      <input type="hidden" id="f-id">
+      <label class="f">질문<input class="input" id="f-q" placeholder="예: 견적은 어떻게 요청하나요?"></label>
+      <label class="f">답변<textarea class="input" id="f-a" rows="4" placeholder="답변 내용을 적어주세요"></textarea></label>
+      <label class="f" style="max-width:200px">정렬 순서 (작을수록 위)<input class="input" id="f-sort" type="number" value="0"></label>
+      <div style="display:flex;gap:10px">
+        <button class="btn" onclick="saveFaq()">등록하기</button>
+        <button class="btn ghost" onclick="resetFaq()">새로 쓰기</button>
+      </div>
+    </div>
+    <div class="sec-title">등록된 FAQ <span class="cnt" id="faq-cnt2"></span></div>
+    <div class="card" style="padding:0;overflow-x:auto"><div id="faq-list"></div></div>
   </div>
 </div>
 </div>
@@ -218,117 +161,137 @@ label.f{display:grid;gap:6px;font-size:13px;font-weight:700;margin-bottom:12px}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="supabase-config.js"></script>
 <script>
-const sb=(window.SB_URL&&window.SB_KEY)?window.supabase.createClient(window.SB_URL,window.SB_KEY):null;
+const sb=(window.SB_URL&&window.SB_KEY&&window.supabase)?window.supabase.createClient(window.SB_URL,window.SB_KEY):null;
 const $=id=>document.getElementById(id);
-const esc=s=>(s||'').replace(/</g,'&lt;');
-if(!sb){$('no-sb').hidden=false;}
-else{init();}
+const esc=s=>(s||'').toString().replace(/</g,'&lt;');
+const CATS={'manual-hv':'매뉴얼·고압전동기','manual-lv':'매뉴얼·저압전동기','manual-gm':'매뉴얼·기어드모터','spec-lv':'사양서·저압','spec-gm':'사양서·기어드','etc':'기타'};
+if(!sb){$('no-sb').hidden=false;}else{init();}
 async function init(){
   const {data:{session}}=await sb.auth.getSession();
   if(session){showDash();}else{$('login-view').hidden=false;}
 }
 async function doLogin(){
-  const {error}=await sb.auth.signInWithPassword({email:$('l-email').value,password:$('l-pw').value});
+  const {error}=await sb.auth.signInWithPassword({email:$('l-email').value.trim(),password:$('l-pw').value});
   if(error){$('l-msg').hidden=false;$('l-msg').textContent='로그인 실패: 이메일/비밀번호를 확인해 주세요.';return;}
-  $('login-view').hidden=true; showDash();
+  $('login-view').hidden=true;showDash();
 }
 $('logout-btn').addEventListener('click',async()=>{await sb.auth.signOut();location.reload();});
-function showDash(){
-  $('dash').hidden=false;$('logout-btn').hidden=false;
-  loadInq();loadNotices();loadFaqs();loadRes();
-}
+$('l-pw').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+function showDash(){$('dash').hidden=false;$('logout-btn').hidden=false;loadInq();loadNotices();loadFaqs();loadRes();}
 document.querySelectorAll('.a-tabs button').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('.a-tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
   document.querySelectorAll('[data-p]').forEach(p=>p.hidden=p.dataset.p!==b.dataset.t);
 }));
-// 견적문의
+// 파일박스 표시
+$('r-file').addEventListener('change',()=>{
+  const f=$('r-file').files[0];
+  if(f){$('filebox').classList.add('has');$('filebox-text').textContent='✅ '+f.name+' ('+(f.size/1024/1024).toFixed(1)+'MB)';
+    if(!$('r-title').value)$('r-title').value=f.name.replace(/\.[^.]+$/,'');}
+});
+// ── 견적문의
 async function loadInq(){
   const {data}=await sb.from('inquiries').select('*').order('created_at',{ascending:false});
-  $('cnt-inq').textContent=data?('('+data.length+')'):'';
-  $('inq-list').innerHTML=(data||[]).map(q=>`<div class="row-item" style="display:block;padding:14px 4px">
+  $('cnt-inq').textContent=data&&data.length?'('+data.length+')':'(0)';
+  $('inq-list').innerHTML=(data&&data.length)?data.map(q=>`
+  <div class="card" style="margin-bottom:12px">
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-      <b>${esc(q.name)}</b><span class="badge">${esc(q.product)}</span>
-      <span style="color:#98A2B8;font-size:12.5px">${(q.created_at||'').slice(0,16).replace('T',' ')}</span>
-      <button class="btn danger" style="margin-left:auto;padding:5px 14px;font-size:12px" onclick="delRow('inquiries','${q.id}',loadInq)">삭제</button></div>
-    <div style="font-size:13.5px;color:var(--slate);margin-top:6px">☎ ${esc(q.phone)} ${q.email?' · ✉ '+esc(q.email):''}</div>
-    <div style="font-size:14px;margin-top:8px;white-space:pre-wrap">${esc(q.message)}</div>
-    ${q.file_url?'<a href="'+q.file_url+'" target="_blank" style="color:var(--blue);font-size:13.5px;font-weight:700">첨부파일 보기</a>':''}
-  </div>`).join('')||'<p style="color:#98A2B8">아직 접수된 문의가 없습니다.</p>';
+      <b style="font-size:16px">${esc(q.name)}</b><span class="badge">${esc(q.product||'기타')}</span>
+      <span style="color:#98A2B8;font-size:13px">${(q.created_at||'').slice(0,16).replace('T',' ')}</span>
+      <button class="btn danger sm" style="margin-left:auto" onclick="delRow('inquiries','${q.id}',loadInq)">삭제</button>
+    </div>
+    <div style="font-size:14px;color:var(--slate);margin-top:8px">📞 <a href="tel:${esc(q.phone)}" style="color:var(--blue);font-weight:700">${esc(q.phone)}</a>${q.email?' &nbsp;·&nbsp; ✉ '+esc(q.email):''}</div>
+    <div style="font-size:15px;margin-top:10px;padding:14px;background:var(--cloud);border-radius:10px;white-space:pre-wrap">${esc(q.message)}</div>
+    ${q.file_url?'<div style="margin-top:10px"><a href="'+q.file_url+'" target="_blank" class="btn ghost sm">📎 첨부파일 보기</a></div>':''}
+  </div>`).join(''):'<div class="card"><div class="empty">아직 접수된 문의가 없어요. 문의가 들어오면 여기에 표시됩니다.</div></div>';
 }
-// 공지
+// ── 자료실
+async function loadRes(){
+  const {data}=await sb.from('resources').select('*').order('created_at',{ascending:false});
+  const n=data?data.length:0;
+  $('cnt-res').textContent='('+n+')';$('res-cnt2').textContent=n+'개';
+  $('res-list').innerHTML=n?`<table class="list">
+    <tr><th>분류</th><th>자료명</th><th>언어</th><th>올린 날짜</th><th></th><th></th></tr>
+    ${data.map(r=>`<tr>
+      <td><span class="badge">${CATS[r.category]||r.category}</span></td>
+      <td style="font-weight:500">${esc(r.title)}</td>
+      <td><span class="badge lang">${esc(r.lang)}</span></td>
+      <td style="color:#98A2B8;font-size:13px">${(r.created_at||'').slice(0,10)}</td>
+      <td><a href="${r.file_url}" target="_blank" class="btn ghost sm">파일 보기</a></td>
+      <td><button class="btn danger sm" onclick="delRes('${r.id}','${r.file_path||''}')">삭제</button></td>
+    </tr>`).join('')}</table>`
+  :'<div class="empty">아직 올린 파일이 없어요. 위 "새 파일 올리기"에서 첫 파일을 올려보세요!</div>';
+}
+async function uploadRes(){
+  const f=$('r-file').files[0],title=$('r-title').value.trim();
+  if(!f){$('r-msg').style.color='#D14343';$('r-msg').textContent='① 파일을 먼저 선택해 주세요.';return;}
+  if(!title){$('r-msg').style.color='#D14343';$('r-msg').textContent='② 자료명을 입력해 주세요.';return;}
+  $('r-msg').style.color='var(--slate)';$('r-msg').textContent='업로드 중... 잠시만요';
+  const path='resources/'+Date.now()+'-'+f.name.replace(/[^\w.\-가-힣]/g,'_');
+  const {error:ue}=await sb.storage.from('files').upload(path,f);
+  if(ue){$('r-msg').style.color='#D14343';$('r-msg').textContent='업로드 실패: '+ue.message;return;}
+  const {data:pu}=sb.storage.from('files').getPublicUrl(path);
+  const {error}=await sb.from('resources').insert({category:$('r-cat').value,lang:$('r-lang').value,title,file_url:pu.publicUrl,file_path:path});
+  if(error){$('r-msg').style.color='#D14343';$('r-msg').textContent='저장 실패: '+error.message;return;}
+  $('r-msg').style.color='#0E96A5';$('r-msg').textContent='✅ 업로드 완료! 사이트 자료실에 바로 표시돼요.';
+  $('r-title').value='';$('r-file').value='';$('filebox').classList.remove('has');$('filebox-text').textContent='📄 여기를 눌러 파일 선택';
+  loadRes();
+}
+async function delRes(id,path){
+  if(!confirm('이 파일을 삭제할까요? 사이트에서도 사라져요.'))return;
+  if(path)await sb.storage.from('files').remove([path]);
+  await sb.from('resources').delete().eq('id',id);loadRes();
+}
+// ── 공지
 async function loadNotices(){
   const {data}=await sb.from('notices').select('*').order('created_at',{ascending:false});
-  $('notice-list').innerHTML=(data||[]).map(n=>`<div class="row-item">
-    <b style="flex:1;font-weight:500">${esc(n.title)}</b>
-    <span style="color:#98A2B8;font-size:12.5px">${(n.created_at||'').slice(0,10)}</span>
-    <button class="btn ghost" style="padding:5px 14px;font-size:12px" onclick='editNotice(${JSON.stringify(n).replace(/'/g,"&#39;")})'>수정</button>
-    <button class="btn danger" style="padding:5px 14px;font-size:12px" onclick="delRow('notices','${n.id}',loadNotices)">삭제</button>
-  </div>`).join('')||'<p style="color:#98A2B8">등록된 공지가 없습니다.</p>';
+  const n=data?data.length:0;
+  $('cnt-notice').textContent='('+n+')';$('notice-cnt2').textContent=n+'개';
+  $('notice-list').innerHTML=n?`<table class="list">
+    <tr><th>제목</th><th>작성일</th><th></th><th></th></tr>
+    ${data.map(x=>`<tr>
+      <td style="font-weight:500">${esc(x.title)}</td>
+      <td style="color:#98A2B8;font-size:13px;white-space:nowrap">${(x.created_at||'').slice(0,10)}</td>
+      <td><button class="btn ghost sm" onclick='editNotice(${JSON.stringify(x).replace(/'/g,"&#39;")})'>수정</button></td>
+      <td><button class="btn danger sm" onclick="delRow('notices','${x.id}',loadNotices)">삭제</button></td>
+    </tr>`).join('')}</table>`
+  :'<div class="empty">아직 등록된 공지가 없어요. 위에서 첫 공지를 써보세요!</div>';
 }
-function editNotice(n){$('n-id').value=n.id;$('n-title').value=n.title;$('n-body').value=n.body||'';}
-function resetNotice(){$('n-id').value='';$('n-title').value='';$('n-body').value='';}
+function editNotice(x){$('n-id').value=x.id;$('n-title').value=x.title;$('n-body').value=x.body||'';$('n-form-title').textContent='공지 수정하기';window.scrollTo({top:0,behavior:'smooth'});}
+function resetNotice(){$('n-id').value='';$('n-title').value='';$('n-body').value='';$('n-form-title').textContent='새 공지 쓰기';}
 async function saveNotice(){
-  const rec={title:$('n-title').value,body:$('n-body').value};
+  const rec={title:$('n-title').value.trim(),body:$('n-body').value};
   if(!rec.title)return alert('제목을 입력해 주세요.');
   const id=$('n-id').value;
   const {error}=id?await sb.from('notices').update(rec).eq('id',id):await sb.from('notices').insert(rec);
   if(error)return alert('저장 실패: '+error.message);
   resetNotice();loadNotices();
 }
-// FAQ
+// ── FAQ
 async function loadFaqs(){
   const {data}=await sb.from('faqs').select('*').order('sort');
-  $('faq-list').innerHTML=(data||[]).map(f=>`<div class="row-item">
-    <span class="badge">${f.sort}</span><b style="flex:1;font-weight:500">${esc(f.question)}</b>
-    <button class="btn ghost" style="padding:5px 14px;font-size:12px" onclick='editFaq(${JSON.stringify(f).replace(/'/g,"&#39;")})'>수정</button>
-    <button class="btn danger" style="padding:5px 14px;font-size:12px" onclick="delRow('faqs','${f.id}',loadFaqs)">삭제</button>
-  </div>`).join('')||'<p style="color:#98A2B8">등록된 FAQ가 없습니다.</p>';
+  const n=data?data.length:0;
+  $('cnt-faq').textContent='('+n+')';$('faq-cnt2').textContent=n+'개';
+  $('faq-list').innerHTML=n?`<table class="list">
+    <tr><th style="width:60px">순서</th><th>질문</th><th></th><th></th></tr>
+    ${data.map(x=>`<tr>
+      <td><span class="badge">${x.sort}</span></td>
+      <td style="font-weight:500">${esc(x.question)}</td>
+      <td><button class="btn ghost sm" onclick='editFaq(${JSON.stringify(x).replace(/'/g,"&#39;")})'>수정</button></td>
+      <td><button class="btn danger sm" onclick="delRow('faqs','${x.id}',loadFaqs)">삭제</button></td>
+    </tr>`).join('')}</table>`
+  :'<div class="empty">아직 등록된 FAQ가 없어요. 사이트에는 기본 질문 4개가 표시 중이에요 — 여기서 등록하면 그걸로 교체돼요.</div>';
 }
-function editFaq(f){$('f-id').value=f.id;$('f-q').value=f.question;$('f-a').value=f.answer||'';$('f-sort').value=f.sort||0;}
-function resetFaq(){$('f-id').value='';$('f-q').value='';$('f-a').value='';$('f-sort').value=0;}
+function editFaq(x){$('f-id').value=x.id;$('f-q').value=x.question;$('f-a').value=x.answer||'';$('f-sort').value=x.sort||0;$('f-form-title').textContent='FAQ 수정하기';window.scrollTo({top:0,behavior:'smooth'});}
+function resetFaq(){$('f-id').value='';$('f-q').value='';$('f-a').value='';$('f-sort').value=0;$('f-form-title').textContent='새 질문 추가';}
 async function saveFaq(){
-  const rec={question:$('f-q').value,answer:$('f-a').value,sort:Number($('f-sort').value)||0};
+  const rec={question:$('f-q').value.trim(),answer:$('f-a').value,sort:Number($('f-sort').value)||0};
   if(!rec.question)return alert('질문을 입력해 주세요.');
   const id=$('f-id').value;
   const {error}=id?await sb.from('faqs').update(rec).eq('id',id):await sb.from('faqs').insert(rec);
   if(error)return alert('저장 실패: '+error.message);
   resetFaq();loadFaqs();
 }
-// 자료실
-async function loadRes(){
-  const {data}=await sb.from('resources').select('*').order('created_at',{ascending:false});
-  const CATS={'manual-hv':'매뉴얼·고압','manual-lv':'매뉴얼·저압','manual-gm':'매뉴얼·기어드','spec-lv':'사양서·저압','spec-gm':'사양서·기어드','etc':'기타'};
-  $('res-list').innerHTML=(data||[]).map(r=>`<div class="row-item">
-    <span class="badge">${CATS[r.category]||r.category}</span>
-    <b style="flex:1;font-weight:500">${esc(r.title)}</b>
-    <span class="badge lang">${esc(r.lang)}</span>
-    <a href="${r.file_url}" target="_blank" class="btn ghost" style="padding:5px 14px;font-size:12px;text-decoration:none">보기</a>
-    <button class="btn danger" style="padding:5px 14px;font-size:12px" onclick="delRes('${r.id}','${r.file_path||''}')">삭제</button>
-  </div>`).join('')||'<p style="color:#98A2B8">업로드된 파일이 없습니다.</p>';
-}
-async function uploadRes(){
-  const f=$('r-file').files[0], title=$('r-title').value;
-  if(!f||!title)return alert('자료명과 파일을 모두 입력해 주세요.');
-  $('r-msg').textContent='업로드 중...';
-  const path='resources/'+Date.now()+'-'+f.name.replace(/[^\w.\-가-힣]/g,'_');
-  const {error:ue}=await sb.storage.from('files').upload(path,f);
-  if(ue){$('r-msg').textContent='업로드 실패: '+ue.message;return;}
-  const {data:pu}=sb.storage.from('files').getPublicUrl(path);
-  const {error}=await sb.from('resources').insert({category:$('r-cat').value,lang:$('r-lang').value,title,file_url:pu.publicUrl,file_path:path});
-  if(error){$('r-msg').textContent='DB 저장 실패: '+error.message;return;}
-  $('r-msg').textContent='업로드 완료!';$('r-title').value='';$('r-file').value='';
-  loadRes();
-}
-async function delRes(id,path){
-  if(!confirm('삭제할까요?'))return;
-  if(path)await sb.storage.from('files').remove([path]);
-  await sb.from('resources').delete().eq('id',id);
-  loadRes();
-}
-async function delRow(table,id,cb){
-  if(!confirm('삭제할까요?'))return;
-  await sb.from(table).delete().eq('id',id);cb();
-}
+async function delRow(table,id,cb){if(!confirm('삭제할까요?'))return;await sb.from(table).delete().eq('id',id);cb();}
 </script>
 </body>
 </html>

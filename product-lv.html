@@ -18,13 +18,17 @@ a{text-decoration:none;color:inherit}ul{list-style:none}
 header{position:sticky;top:0;left:0;right:0;z-index:100;background:rgba(10,18,48,.94);backdrop-filter:blur(14px)}
 header .hd{display:flex;align-items:center;justify-content:space-between;height:74px}
 .logo{display:flex;flex-direction:column;line-height:1;color:#fff}
-.logo .en{font-family:'Marcellus',serif;font-size:24px;letter-spacing:.07em}
+.logo .lrow{display:flex;align-items:center;gap:9px}
+.logo .en{font-family:'Marcellus',serif;font-size:24px;letter-spacing:.05em}
+.logo .he{display:flex;flex-direction:column;gap:3px;font-family:'Outfit',sans-serif;font-size:9.5px;letter-spacing:.22em;color:var(--cyan);font-weight:600}
+.logo .kr{font-size:12px;color:rgba(255,255,255,.85);letter-spacing:.4em;margin-top:5px;font-weight:500}
 .logo .sub{font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:.42em;color:var(--cyan);margin-top:4px;font-weight:500}
 nav.gnb>ul{display:flex;gap:2px}
 nav.gnb>ul>li{position:relative}
 nav.gnb>ul>li>a{display:block;padding:11px 15px;font-weight:500;font-size:15px;color:rgba(255,255,255,.88);border-radius:99px;transition:.2s}
 nav.gnb>ul>li>a:hover,nav.gnb>ul>li>a.on{color:#fff;background:rgba(255,255,255,.10)}
 nav.gnb .dep2{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(13,21,54,.96);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:14px;min-width:160px;padding:8px;display:none}
+nav.gnb .dep2::before{content:"";position:absolute;left:-10px;right:-10px;top:-14px;height:14px}
 nav.gnb>ul>li:hover .dep2{display:block}
 nav.gnb .dep2 a{display:block;padding:9px 14px;font-size:14px;border-radius:8px;color:rgba(255,255,255,.75);white-space:nowrap}
 nav.gnb .dep2 a:hover{background:rgba(255,255,255,.10);color:#fff}
@@ -128,15 +132,15 @@ footer .copy{margin-top:14px;color:#4A5470;font-size:12.5px}
 <header>
   <div class="wrap hd">
     <a href="index.html" class="logo" aria-label="효성중전기 홈">
-      <span class="en">HYOSUNG</span>
-      <span class="sub">HEAVY ELECTRIC</span>
+      <span class="lrow"><span class="en">HYOSUNG</span><span class="he"><span>HEAVY</span><span>ELECTRIC</span></span></span>
+      <span class="kr">효성중전기</span>
     </a>
     <nav class="gnb" aria-label="주 메뉴">
       <ul>
         <li><a href="about.html" class="">회사소개</a></li>
         <li><a href="product-hv.html" class="on">전동기</a>
           <ul class="dep2"><li><a href="product-hv.html">고압전동기</a></li><li><a href="product-lv.html">저압전동기</a></li></ul></li>
-        <li><a href="product-gm.html" class="">기어드모터</a>
+        <li><a href="product-gearbox.html" class="">기어드모터</a>
           <ul class="dep2"><li><a href="product-gearbox.html">기어박스</a></li><li><a href="product-gm.html">기어드모터</a></li></ul></li>
         <li><a href="cyclo.html" class="">싸이크로감속기</a></li>
         <li><a href="index.html#products">변압기</a></li>
