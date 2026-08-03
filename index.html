@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>(주)효성중전기 — 전동기 · 기어드모터 · 싸이크로감속기 · 변압기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --space:#0A1230;
+  --space2:#101A42;
+  --blue:#2A5CFF;
+  --violet:#7A5CFF;
+  --cyan:#2BD9E5;
+  --ink:#141B33;
+  --slate:#5A6480;
+  --cloud:#F5F7FB;
+  --line:#E3E7F0;
+  --white:#fff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',sans-serif;color:var(--ink);background:#fff;line-height:1.65;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+.en-d{font-family:'Outfit','Noto Sans KR',sans-serif}
+
+/* ───────── header ───────── */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.35s;padding:0}
+header .hd{display:flex;align-items:center;justify-content:space-between;height:76px}
+header.solid{background:rgba(10,18,48,.92);backdrop-filter:blur(14px);box-shadow:0 2px 24px rgba(6,10,30,.25)}
+.logo{display:flex;flex-direction:column;line-height:1;color:#fff}
+.logo .en{font-family:'Marcellus',serif;font-size:25px;letter-spacing:.07em}
+.logo .sub{font-family:'Outfit',sans-serif;font-size:10.5px;letter-spacing:.42em;color:var(--cyan);margin-top:4px;font-weight:500}
+nav.gnb>ul{display:flex;gap:2px}
+nav.gnb>ul>li{position:relative}
+nav.gnb>ul>li>a{display:block;padding:12px 16px;font-weight:500;font-size:15.5px;color:rgba(255,255,255,.88);border-radius:99px;transition:.2s}
+nav.gnb>ul>li>a:hover{color:#fff;background:rgba(255,255,255,.10)}
+nav.gnb .dep2{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(13,21,54,.96);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:14px;min-width:160px;padding:8px;display:none}
+nav.gnb>ul>li:hover .dep2{display:block}
+nav.gnb .dep2 a{display:block;padding:9px 14px;font-size:14px;border-radius:8px;color:rgba(255,255,255,.75)}
+nav.gnb .dep2 a:hover{background:rgba(255,255,255,.10);color:#fff}
+.cta-btn{font-weight:700;font-size:15px;padding:11px 26px;border-radius:99px;color:#fff;background:linear-gradient(135deg,var(--blue),var(--violet));box-shadow:0 6px 20px rgba(42,92,255,.35);transition:.25s}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(42,92,255,.5)}
+.m-toggle{display:none;background:none;border:none;font-size:26px;color:#fff;cursor:pointer}
+
+/* ───────── hero ───────── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:
+  radial-gradient(1200px 700px at 78% 18%,rgba(122,92,255,.55),transparent 60%),
+  radial-gradient(900px 600px at 12% 85%,rgba(43,217,229,.28),transparent 55%),
+  linear-gradient(150deg,#0A1230 0%,#12206B 48%,#2740B8 100%);
+  color:#fff;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:
+  repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(255,255,255,.035) 56px),
+  repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(255,255,255,.035) 56px)}
+.cube{position:absolute;border-radius:18px;border:1px solid rgba(255,255,255,.28);
+  background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.02));
+  backdrop-filter:blur(3px);animation:float 9s ease-in-out infinite}
+.cube.c1{width:150px;height:150px;right:14%;top:16%;transform:rotate(14deg)}
+.cube.c2{width:90px;height:90px;right:29%;top:44%;transform:rotate(-10deg);animation-delay:-3s}
+.cube.c3{width:210px;height:210px;right:5%;bottom:12%;transform:rotate(7deg);animation-delay:-5s}
+.cube.c4{width:60px;height:60px;right:42%;top:24%;transform:rotate(20deg);animation-delay:-7s}
+.cube.c5{width:120px;height:120px;left:6%;bottom:20%;transform:rotate(-14deg);animation-delay:-2s;opacity:.6}
+@keyframes float{0%,100%{margin-top:0}50%{margin-top:-26px}}
+.hero .wrap{position:relative;z-index:2;padding-top:130px;padding-bottom:110px}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Outfit',sans-serif;font-size:14px;letter-spacing:.3em;font-weight:500;color:var(--cyan);margin-bottom:26px}
+.hero .eyebrow::before{content:"";width:34px;height:1.5px;background:var(--cyan)}
+.hero h1{font-family:'Outfit','Noto Sans KR',sans-serif;font-weight:600;font-size:clamp(44px,7vw,88px);line-height:1.08;letter-spacing:-.015em}
+.hero h1 .l2{display:block;margin-left:.9em}
+.hero h1 .l3{display:block;margin-left:.35em;background:linear-gradient(90deg,#8FB0FF,#2BD9E5);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{margin:30px 0 0 .2em;font-size:clamp(16px,1.6vw,20px);font-weight:300;color:rgba(255,255,255,.85);max-width:56ch}
+.hero p.lead b{font-weight:700;color:#fff}
+.hero .btns{display:flex;gap:14px;margin:42px 0 0 .2em;flex-wrap:wrap}
+.btn-glass{font-weight:500;font-size:15px;padding:13px 28px;border-radius:99px;color:#fff;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);backdrop-filter:blur(6px);transition:.25s}
+.btn-glass:hover{background:rgba(255,255,255,.18)}
+.hero .quick{display:flex;gap:34px;margin:64px 0 0 .2em;flex-wrap:wrap}
+.hero .quick div{border-left:2px solid rgba(43,217,229,.7);padding-left:14px}
+.hero .quick .t{font-size:12.5px;color:rgba(255,255,255,.6);letter-spacing:.1em}
+.hero .quick .v{font-family:'Outfit',sans-serif;font-size:23px;font-weight:600;letter-spacing:.01em}
+.scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.6);font-size:20px;animation:hint 2s ease-in-out infinite}
+@keyframes hint{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+/* load animation */
+.rise{opacity:0;transform:translateY(34px);animation:rise .9s cubic-bezier(.2,.7,.3,1) forwards}
+.rise.d1{animation-delay:.15s}.rise.d2{animation-delay:.3s}.rise.d3{animation-delay:.45s}.rise.d4{animation-delay:.6s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* ───────── section common ───────── */
+section{padding:100px 0}
+.sec-head{text-align:center;margin-bottom:56px}
+.sec-head .tag{font-family:'Outfit',sans-serif;font-size:14px;letter-spacing:.34em;font-weight:600;color:var(--blue);text-transform:uppercase}
+.sec-head h2{font-size:clamp(30px,3.4vw,42px);font-weight:900;letter-spacing:-.01em;margin-top:10px}
+.sec-head h2 .hl{position:relative;z-index:1}
+.sec-head h2 .hl::after{content:"";position:absolute;left:-2%;right:-2%;bottom:6%;height:34%;background:linear-gradient(90deg,rgba(42,92,255,.18),rgba(43,217,229,.28));z-index:-1}
+.sec-head p{color:var(--slate);margin-top:14px;font-size:16.5px}
+.reveal{opacity:0;transform:translateY(40px);transition:.8s cubic-bezier(.2,.7,.3,1)}
+.reveal.on{opacity:1;transform:none}
+
+/* ───────── products ───────── */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.prod{position:relative;border-radius:20px;padding:34px 28px 30px;min-height:290px;display:flex;flex-direction:column;color:#fff;overflow:hidden;transition:.3s;
+  background:linear-gradient(160deg,#18244F 0%,#0A1230 70%)}
+.prod::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 260px at 85% -10%,rgba(122,92,255,.5),transparent 60%);opacity:.7;transition:.3s}
+.prod:nth-child(2)::before{background:radial-gradient(420px 260px at 85% -10%,rgba(42,92,255,.55),transparent 60%)}
+.prod:nth-child(3)::before{background:radial-gradient(420px 260px at 85% -10%,rgba(43,217,229,.4),transparent 60%)}
+.prod:nth-child(4)::before{background:radial-gradient(420px 260px at 85% -10%,rgba(143,176,255,.45),transparent 60%)}
+.prod:hover{transform:translateY(-8px);box-shadow:0 24px 44px rgba(10,18,48,.35)}
+.prod:hover::before{opacity:1}
+.prod .ic{position:relative;z-index:1;width:54px;height:54px;border-radius:14px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:var(--cyan);margin-bottom:auto}
+.prod h3{position:relative;z-index:1;font-size:21px;font-weight:700;margin-top:26px}
+.prod .en{position:relative;z-index:1;font-family:'Outfit',sans-serif;font-size:12.5px;letter-spacing:.22em;color:rgba(255,255,255,.55);text-transform:uppercase;margin:4px 0 12px}
+.prod p{position:relative;z-index:1;font-size:14px;color:rgba(255,255,255,.72);font-weight:300}
+.prod .go{position:relative;z-index:1;margin-top:18px;font-family:'Outfit',sans-serif;font-size:13.5px;letter-spacing:.08em;color:var(--cyan);display:inline-flex;align-items:center;gap:6px}
+.prod .go::after{content:"→";transition:.25s}
+.prod:hover .go::after{transform:translateX(5px)}
+
+/* ───────── data room (dark) ───────── */
+.data-sec{background:
+  radial-gradient(900px 500px at 85% 0%,rgba(122,92,255,.25),transparent 55%),
+  radial-gradient(700px 500px at 8% 100%,rgba(43,217,229,.14),transparent 55%),
+  var(--space);color:#fff}
+.data-sec .sec-head h2{color:#fff}
+.data-sec .sec-head .tag{color:var(--cyan)}
+.data-sec .sec-head p{color:rgba(255,255,255,.6)}
+.data-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.data-card{border-radius:20px;padding:34px 30px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(8px);transition:.3s}
+.data-card:hover{background:rgba(255,255,255,.09);transform:translateY(-6px)}
+.data-card .tag{display:inline-block;font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:.24em;font-weight:600;color:var(--cyan);border:1px solid rgba(43,217,229,.45);border-radius:99px;padding:4px 14px;margin-bottom:20px}
+.data-card h3{font-size:20px;font-weight:700;margin-bottom:8px}
+.data-card p{font-size:14.5px;color:rgba(255,255,255,.65);font-weight:300;margin-bottom:24px}
+.dl{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:14.5px;color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:3px;transition:.2s}
+.dl:hover{color:var(--cyan);border-color:var(--cyan)}
+
+/* ───────── boards ───────── */
+.board-sec{background:var(--cloud)}
+.board-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.board{background:#fff;border-radius:20px;padding:34px 34px 22px;border:1px solid var(--line)}
+.board h3{display:flex;justify-content:space-between;align-items:center;font-size:21px;font-weight:900;margin-bottom:14px}
+.board h3 a{font-size:13px;color:var(--slate);font-weight:500;border:1px solid var(--line);border-radius:99px;padding:5px 14px;transition:.2s}
+.board h3 a:hover{border-color:var(--blue);color:var(--blue)}
+.board li{border-top:1px solid var(--line)}
+.board li a{display:flex;justify-content:space-between;gap:16px;padding:14px 2px;font-size:15px}
+.board li a:hover{color:var(--blue)}
+.board li .date{color:#9AA3B8;font-size:13px;white-space:nowrap;font-family:'Outfit',sans-serif}
+.board li .q{color:var(--blue);font-weight:900;margin-right:9px;font-family:'Outfit',sans-serif}
+
+/* ───────── contact ───────── */
+.contact{position:relative;background:linear-gradient(120deg,#12206B,#2A5CFF 55%,#7A5CFF);color:#fff;overflow:hidden}
+.contact::after{content:"";position:absolute;inset:0;background:
+  repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(255,255,255,.05) 56px),
+  repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(255,255,255,.05) 56px)}
+.contact .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center}
+.contact .tag{font-family:'Outfit',sans-serif;font-size:14px;letter-spacing:.34em;font-weight:600;color:#BFF3F8;text-transform:uppercase}
+.contact h2{font-size:clamp(28px,3.2vw,40px);font-weight:900;margin:12px 0 12px}
+.contact p{color:rgba(255,255,255,.82);max-width:52ch;font-weight:300}
+.contact .tels{text-align:right}
+.contact .tel-big{font-family:'Outfit',sans-serif;font-size:clamp(38px,4.4vw,54px);font-weight:600;line-height:1.1}
+.contact .tel-big small{display:block;font-size:15px;letter-spacing:.3em;color:#BFF3F8;font-weight:500;margin-bottom:6px}
+.contact .sub-line{margin-top:16px;color:rgba(255,255,255,.85);font-size:15px;font-weight:300}
+.contact .sub-line b{font-weight:700}
+
+/* ───────── footer ───────── */
+footer{background:var(--space);color:#7E88A3;font-size:13.5px;padding:44px 0}
+footer .f-logo{font-family:'Marcellus',serif;color:#fff;font-size:20px;letter-spacing:.07em}
+footer .f-logo span{display:block;font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:.4em;color:var(--cyan);margin-top:4px}
+footer p{margin-top:14px;line-height:2;font-weight:300}
+footer .copy{margin-top:16px;color:#4A5470;font-size:12.5px}
+
+@media (max-width:960px){
+  nav.gnb{display:none}
+  .m-toggle{display:block}
+  header{background:rgba(10,18,48,.9);backdrop-filter:blur(10px)}
+  .hero .wrap{padding-top:120px;padding-bottom:90px}
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+  .data-grid{grid-template-columns:1fr}
+  .board-grid{grid-template-columns:1fr}
+  .contact .wrap{grid-template-columns:1fr}
+  .contact .tels{text-align:left}
+  .cube.c4,.cube.c5{display:none}
+}
+@media (max-width:560px){
+  .prod-grid{grid-template-columns:1fr}
+  .hero h1 .l2,.hero h1 .l3{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .rise,.reveal{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- header -->
+<header id="hd">
+  <div class="wrap hd">
+    <a href="#" class="logo" aria-label="효성중전기 홈">
+      <span class="en">HYOSUNG</span>
+      <span class="sub">HEAVY ELECTRIC</span>
+    </a>
+    <nav class="gnb" aria-label="주 메뉴">
+      <ul>
+        <li><a href="about.html">회사소개</a></li>
+        <li><a href="product-hv.html">전동기</a>
+          <ul class="dep2">
+            <li><a href="product-hv.html">고압전동기</a></li>
+            <li><a href="product-lv.html">저압전동기</a></li>
+          </ul>
+        </li>
+        <li><a href="product-gm.html">기어드모터</a>
+          <ul class="dep2">
+            <li><a href="product-gearbox.html">기어박스</a></li>
+            <li><a href="product-gm.html">기어드모터</a></li>
+          </ul>
+        </li>
+        <li><a href="cyclo.html">싸이크로감속기</a></li>
+        <li><a href="#products">변압기</a></li>
+        <li><a href="#data">자료실</a>
+          <ul class="dep2">
+            <li><a href="data-spec.html">사양서</a></li>
+            <li><a href="data-manual.html">제품 매뉴얼</a></li>
+            <li><a href="notice.html">공지사항</a></li>
+            <li><a href="faq.html">자주 묻는 질문</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <a class="cta-btn" href="quote.html">견적요청</a>
+    <button class="m-toggle" aria-label="메뉴 열기">☰</button>
+  </div>
+</header>
+
+<!-- hero -->
+<div class="hero">
+  <div class="cube c1" aria-hidden="true"></div>
+  <div class="cube c2" aria-hidden="true"></div>
+  <div class="cube c3" aria-hidden="true"></div>
+  <div class="cube c4" aria-hidden="true"></div>
+  <div class="cube c5" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="eyebrow rise">HYOSUNG HEAVY ELECTRIC</div>
+    <h1>
+      <span class="rise d1">Total</span>
+      <span class="l2 rise d2">Power Solution</span>
+      <span class="l3 rise d3">for Industry</span>
+    </h1>
+    <p class="lead rise d3">고압·저압 전동기부터 기어드모터, 싸이크로감속기, 변압기까지 —<br>산업 현장에 필요한 동력 설비를 <b>정확한 사양</b>으로 공급합니다.</p>
+    <div class="btns rise d4">
+      <a class="cta-btn" href="quote.html">견적 요청하기</a>
+      <a class="btn-glass" href="data-spec.html">사양서 다운로드</a>
+    </div>
+    <div class="quick rise d4">
+      <div><div class="t">구입문의</div><div class="v">02-535-1571~2</div></div>
+      <div><div class="t">휴대전화</div><div class="v">010-3125-9666</div></div>
+      <div><div class="t">이메일</div><div class="v" style="font-size:17px;padding-top:5px">hsgearmotor@korea.com</div></div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">⌄</div>
+</div>
+
+<!-- products -->
+<section id="products">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Products</div>
+      <h2><span class="hl">취급 품목</span></h2>
+      <p>산업 현장에서 가장 많이 찾는 동력·전력 설비를 공급합니다.</p>
+    </div>
+    <div class="prod-grid">
+      <a class="prod reveal" href="product-hv.html">
+        <div class="ic"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="13" height="9" rx="2"/><path d="M6 8v9M9 8v9M12 8v9M17 10h3v5h-3M2 11.5h2v2H2z"/></svg></div>
+        <h3>전동기</h3>
+        <div class="en">High · Low Voltage Motor</div>
+        <p>고압전동기 · 저압전동기<br>규격별 재고 확인 및 공급</p>
+        <span class="go">자세히 보기</span>
+      </a>
+      <a class="prod reveal" href="product-gm.html">
+        <div class="ic"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="8" width="10" height="9" rx="2"/><circle cx="5.5" cy="12.5" r="3.5"/><path d="M11 8v9M14 8v9"/></svg></div>
+        <h3>기어드모터</h3>
+        <div class="en">Geared Motor · Gear Box</div>
+        <p>기어박스, 모터 일체형 기어드모터<br>감속비별 선정 지원</p>
+        <span class="go">자세히 보기</span>
+      </a>
+      <a class="prod reveal" href="cyclo.html">
+        <div class="ic"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="4.2" stroke-dasharray="2.5 2.5"/><circle cx="12" cy="12" r="1.4"/></svg></div>
+        <h3>싸이크로감속기</h3>
+        <div class="en">Cyclo Reducer</div>
+        <p>고감속비·고내구성<br>싸이크로 감속기</p>
+        <span class="go">자세히 보기</span>
+      </a>
+      <a class="prod reveal" href="#">
+        <div class="ic"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="5" width="16" height="14" rx="2"/><circle cx="9.5" cy="12" r="2.8"/><circle cx="14.5" cy="12" r="2.8"/><path d="M7 5V3M17 5V3"/></svg></div>
+        <h3>변압기</h3>
+        <div class="en">Transformer</div>
+        <p>용량별 변압기 공급<br>및 교체 상담</p>
+        <span class="go">자세히 보기</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- data room -->
+<section class="data-sec" id="data">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Data Room</div>
+      <h2>자료실</h2>
+      <p>사양서·도면·메뉴얼을 회원가입 없이 바로 내려받을 수 있습니다.</p>
+    </div>
+    <div class="data-grid">
+      <div class="data-card reveal">
+        <span class="tag">SPEC</span>
+        <h3>사양서</h3>
+        <p>저압전동기·기어드모터 사양서와 외형도</p>
+        <a class="dl" href="data-spec.html">바로가기 →</a>
+      </div>
+      <div class="data-card reveal">
+        <span class="tag">MANUAL</span>
+        <h3>제품 매뉴얼</h3>
+        <p>고압전동기·저압전동기·기어드모터 취급설명서</p>
+        <a class="dl" href="data-manual.html">바로가기 →</a>
+      </div>
+      <div class="data-card reveal">
+        <span class="tag">CYCLO</span>
+        <h3>싸이크로감속기 선정 자료</h3>
+        <p>감속비별 선정표 · 허용전달 용량표 · 외형 치수</p>
+        <a class="dl" href="cyclo.html">바로가기 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- boards -->
+<section class="board-sec" id="board">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Support</div>
+      <h2>고객지원</h2>
+    </div>
+    <div class="board-grid">
+      <div class="board reveal">
+        <h3>공지사항 <a href="notice.html">더보기 +</a></h3>
+        <ul>
+          <li><a href="#"><span>홈페이지를 새롭게 오픈했습니다</span><span class="date">2026-08</span></a></li>
+          <li><a href="#"><span>여름 휴가 기간 배송 안내</span><span class="date">2026-08</span></a></li>
+          <li><a href="#"><span>기어드모터 신규 사양서 업로드 안내</span><span class="date">2026-07</span></a></li>
+          <li><a href="#"><span>전화 상담 가능 시간 안내</span><span class="date">2026-07</span></a></li>
+        </ul>
+      </div>
+      <div class="board reveal">
+        <h3>자주 묻는 질문 <a href="faq.html">더보기 +</a></h3>
+        <ul>
+          <li><a href="#"><span><span class="q">Q</span>견적은 어떻게 요청하나요?</span></a></li>
+          <li><a href="#"><span><span class="q">Q</span>모터 명판만 보내드려도 견적이 가능한가요?</span></a></li>
+          <li><a href="#"><span><span class="q">Q</span>지방 현장도 납품이 가능한가요?</span></a></li>
+          <li><a href="#"><span><span class="q">Q</span>단종 모델 대체품도 찾아주시나요?</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- contact -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="tag">Contact</div>
+      <h2>구입 · 견적 문의</h2>
+      <p>제품명이나 명판 사진, 필요한 사양만 보내주세요.<br>확인 후 빠르게 견적을 회신드립니다.</p>
+    </div>
+    <div class="tels reveal">
+      <div class="tel-big"><small>TEL</small>02-535-1571~2</div>
+      <div class="sub-line">Mobile <b>010-3125-9666</b> · FAX <b>02-535-1573</b><br>E-mail <b>hsgearmotor@korea.com</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer>
+  <div class="wrap">
+    <div class="f-logo">HYOSUNG<span>HEAVY ELECTRIC</span></div>
+    <p>
+      상호: (주)효성중전기 &nbsp;|&nbsp; TEL: 02-535-1571~2 &nbsp;|&nbsp; FAX: 02-535-1573 &nbsp;|&nbsp; Mobile: 010-3125-9666<br>
+      주소: (07072) 서울특별시 동작구 신대방1가길 38, 106동 214호 (동작상떼빌) &nbsp;|&nbsp; E-mail: hsgearmotor@korea.com
+    </p>
+    <p class="copy">Copyright © (주)효성중전기. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// header solid on scroll
+const hd=document.getElementById('hd');
+addEventListener('scroll',()=>{hd.classList.toggle('solid',scrollY>60)},{passive:true});
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// stagger product cards
+document.querySelectorAll('.prod-grid .prod').forEach((el,i)=>el.style.transitionDelay=(i*90)+'ms');
+document.querySelectorAll('.data-grid .data-card').forEach((el,i)=>el.style.transitionDelay=(i*90)+'ms');
+</script>
+</body>
+</html>

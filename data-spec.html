@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>자료실 — 사양서 — (주)효성중전기</title>
+<meta name="description" content="(주)효성중전기 — 고압·저압 전동기, 기어드모터, 싸이크로감속기, 변압기 공급. 저압전동기·기어드모터 사양서와 외형도를 내려받을 수 있습니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--space:#0A1230;--space2:#101A42;--blue:#2A5CFF;--violet:#7A5CFF;--cyan:#2BD9E5;
+--ink:#141B33;--slate:#5A6480;--cloud:#F5F7FB;--line:#E3E7F0;--white:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',sans-serif;color:var(--ink);background:#fff;line-height:1.65;overflow-x:hidden}
+a{text-decoration:none;color:inherit}ul{list-style:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+header{position:sticky;top:0;left:0;right:0;z-index:100;background:rgba(10,18,48,.94);backdrop-filter:blur(14px)}
+header .hd{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;flex-direction:column;line-height:1;color:#fff}
+.logo .en{font-family:'Marcellus',serif;font-size:24px;letter-spacing:.07em}
+.logo .sub{font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:.42em;color:var(--cyan);margin-top:4px;font-weight:500}
+nav.gnb>ul{display:flex;gap:2px}
+nav.gnb>ul>li{position:relative}
+nav.gnb>ul>li>a{display:block;padding:11px 15px;font-weight:500;font-size:15px;color:rgba(255,255,255,.88);border-radius:99px;transition:.2s}
+nav.gnb>ul>li>a:hover,nav.gnb>ul>li>a.on{color:#fff;background:rgba(255,255,255,.10)}
+nav.gnb .dep2{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(13,21,54,.96);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:14px;min-width:160px;padding:8px;display:none}
+nav.gnb>ul>li:hover .dep2{display:block}
+nav.gnb .dep2 a{display:block;padding:9px 14px;font-size:14px;border-radius:8px;color:rgba(255,255,255,.75);white-space:nowrap}
+nav.gnb .dep2 a:hover{background:rgba(255,255,255,.10);color:#fff}
+.cta-btn{font-weight:700;font-size:14.5px;padding:10px 24px;border-radius:99px;color:#fff;background:linear-gradient(135deg,var(--blue),var(--violet));box-shadow:0 6px 20px rgba(42,92,255,.35);transition:.25s}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(42,92,255,.5)}
+.m-toggle{display:none;background:none;border:none;font-size:26px;color:#fff;cursor:pointer}
+/* page hero */
+.phero{position:relative;background:radial-gradient(900px 460px at 80% 0%,rgba(122,92,255,.4),transparent 60%),radial-gradient(700px 400px at 10% 100%,rgba(43,217,229,.18),transparent 55%),linear-gradient(140deg,#0A1230 10%,#16246E 70%,#22348F 100%);color:#fff;padding:74px 0 58px;overflow:hidden}
+.phero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(255,255,255,.04) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(255,255,255,.04) 56px)}
+.phero .wrap{position:relative;z-index:1}
+.phero .tag{font-family:'Outfit',sans-serif;font-size:13.5px;letter-spacing:.32em;font-weight:600;color:var(--cyan);text-transform:uppercase}
+.phero h1{font-size:clamp(30px,4vw,44px);font-weight:900;margin-top:10px;letter-spacing:-.01em}
+.phero p{margin-top:12px;color:rgba(255,255,255,.75);font-weight:300;max-width:70ch}
+/* content */
+.content{padding:56px 0 90px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+/* tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 28px}
+.tabs button{font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:500;padding:10px 22px;border-radius:99px;border:1.5px solid var(--line);background:#fff;color:var(--slate);cursor:pointer;transition:.2s}
+.tabs button:hover{border-color:var(--blue);color:var(--blue)}
+.tabs button.on{background:var(--space);border-color:var(--space);color:#fff;font-weight:700}
+.subtabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 22px}
+.subtabs a,.subtabs button{font-size:13.5px;font-weight:500;padding:7px 16px;border-radius:99px;background:var(--cloud);border:1px solid var(--line);color:var(--slate);cursor:pointer;transition:.2s}
+.subtabs a:hover,.subtabs button:hover{color:var(--blue);border-color:var(--blue)}
+.subtabs button.on{background:#EDEBFF;border-color:var(--violet);color:var(--violet);font-weight:700}
+/* tables */
+.tbl-sec{margin-bottom:46px}
+.tbl-sec h3{font-size:21px;font-weight:900;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.tbl-sec h3::before{content:"";width:5px;height:22px;border-radius:3px;background:linear-gradient(180deg,var(--blue),var(--cyan))}
+.tbl-sec .desc{color:var(--slate);font-size:14px;margin-bottom:14px}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+table.spec{border-collapse:collapse;width:100%;min-width:640px;font-size:13.5px}
+table.spec th,table.spec td{border:1px solid #E9EDF4;padding:7px 10px;text-align:center;white-space:nowrap}
+table.spec thead th{background:var(--space);color:#fff;font-weight:500;font-size:13px;border-color:#26325E}
+table.spec thead tr:nth-child(2) th{background:#1A2450;font-weight:400;font-size:12px;color:#BFC9E4}
+table.spec tbody th{background:var(--cloud);font-weight:700;color:var(--ink)}
+table.spec tbody tr:nth-child(even) td{background:#F8FAFD}
+table.spec tbody tr:hover td{background:#EEF3FF}
+table.spec td.num{font-family:'Outfit','Noto Sans KR',sans-serif;font-variant-numeric:tabular-nums}
+table.spec td.dim{color:#B6BECF}
+.note-box{background:#F4F7FF;border:1px solid #D9E3FF;border-radius:12px;padding:14px 18px;font-size:13.5px;color:#40507E;margin:14px 0 0}
+.note-box b{color:var(--blue)}
+/* download list */
+.dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.dl-card{border:1px solid var(--line);border-radius:16px;padding:24px;background:#fff;transition:.2s;display:flex;flex-direction:column;gap:6px}
+.dl-card:hover{border-color:var(--blue);box-shadow:0 12px 28px rgba(42,92,255,.10);transform:translateY(-3px)}
+.dl-card .cat{font-family:'Outfit',sans-serif;font-size:11.5px;letter-spacing:.2em;font-weight:600;color:var(--violet)}
+.dl-card h4{font-size:16px;font-weight:700;line-height:1.4}
+.dl-card .meta{font-size:12.5px;color:#98A2B8}
+.dl-card .act{margin-top:auto;padding-top:12px}
+.dl-btn{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:var(--blue);border:1.5px solid var(--blue);border-radius:99px;padding:7px 18px;transition:.2s}
+.dl-btn:hover{background:var(--blue);color:#fff}
+/* board table */
+table.board{border-collapse:collapse;width:100%;font-size:14.5px}
+table.board th,table.board td{padding:13px 14px;border-bottom:1px solid var(--line);text-align:left}
+table.board thead th{background:var(--cloud);font-weight:700;font-size:13.5px;color:var(--slate);border-top:2px solid var(--space)}
+table.board td.c,table.board th.c{text-align:center;white-space:nowrap}
+table.board tbody tr:hover td{background:#F8FAFD}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;border-radius:6px;padding:2px 8px;background:#EDEBFF;color:var(--violet)}
+.badge.lang{background:#E8F8FA;color:#0E96A5}
+/* section head */
+.sec-h{margin:44px 0 18px}
+.sec-h h2{font-size:24px;font-weight:900}
+.sec-h p{color:var(--slate);font-size:14.5px;margin-top:4px}
+/* about */
+.about-lead{font-size:clamp(19px,2.2vw,26px);font-weight:700;line-height:1.6;letter-spacing:-.01em}
+.about-lead em{font-style:normal;color:var(--blue)}
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.info-table{width:100%;border-collapse:collapse;font-size:15px}
+.info-table th{width:130px;text-align:left;padding:13px 10px;border-bottom:1px solid var(--line);color:var(--slate);font-weight:500;vertical-align:top;white-space:nowrap}
+.info-table td{padding:13px 10px;border-bottom:1px solid var(--line);font-weight:500}
+/* contact band */
+.cband{position:relative;background:linear-gradient(120deg,#12206B,#2A5CFF 55%,#7A5CFF);color:#fff;overflow:hidden;padding:56px 0}
+.cband::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(255,255,255,.05) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(255,255,255,.05) 56px)}
+.cband .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.cband h2{font-size:clamp(24px,3vw,32px);font-weight:900}
+.cband p{color:rgba(255,255,255,.82);font-weight:300;margin-top:8px}
+.cband .tel{font-family:'Outfit',sans-serif;font-size:clamp(32px,4vw,46px);font-weight:600;text-align:right;line-height:1.1}
+.cband .tel small{display:block;font-size:14px;letter-spacing:.3em;color:#BFF3F8;font-weight:500;margin-bottom:4px}
+.cband .sub{margin-top:10px;color:rgba(255,255,255,.85);font-size:14px;font-weight:300;text-align:right}
+footer{background:var(--space);color:#7E88A3;font-size:13.5px;padding:42px 0}
+footer .f-logo{font-family:'Marcellus',serif;color:#fff;font-size:19px;letter-spacing:.07em}
+footer .f-logo span{display:block;font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:.4em;color:var(--cyan);margin-top:4px}
+footer p{margin-top:13px;line-height:2;font-weight:300}
+footer .copy{margin-top:14px;color:#4A5470;font-size:12.5px}
+.reveal{opacity:0;transform:translateY(30px);transition:.7s cubic-bezier(.2,.7,.3,1)}
+.reveal.on{opacity:1;transform:none}
+[hidden]{display:none!important}
+@media(max-width:960px){
+ nav.gnb{display:none}.m-toggle{display:block}
+ .dl-grid{grid-template-columns:1fr}
+ .about-grid{grid-template-columns:1fr}
+ .cband .wrap{grid-template-columns:1fr}
+ .cband .tel,.cband .sub{text-align:left}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hd">
+    <a href="index.html" class="logo" aria-label="효성중전기 홈">
+      <span class="en">HYOSUNG</span>
+      <span class="sub">HEAVY ELECTRIC</span>
+    </a>
+    <nav class="gnb" aria-label="주 메뉴">
+      <ul>
+        <li><a href="about.html" class="">회사소개</a></li>
+        <li><a href="product-hv.html" class="">전동기</a>
+          <ul class="dep2"><li><a href="product-hv.html">고압전동기</a></li><li><a href="product-lv.html">저압전동기</a></li></ul></li>
+        <li><a href="product-gm.html" class="">기어드모터</a>
+          <ul class="dep2"><li><a href="product-gearbox.html">기어박스</a></li><li><a href="product-gm.html">기어드모터</a></li></ul></li>
+        <li><a href="cyclo.html" class="">싸이크로감속기</a></li>
+        <li><a href="index.html#products">변압기</a></li>
+        <li><a href="data-spec.html" class="on">자료실</a>
+          <ul class="dep2">
+            <li><a href="data-spec.html">사양서</a></li>
+            <li><a href="data-manual.html">제품 매뉴얼</a></li>
+            <li><a href="notice.html">공지사항</a></li>
+            <li><a href="faq.html">자주 묻는 질문</a></li>
+          </ul></li>
+      </ul>
+    </nav>
+    <a class="cta-btn" href="quote.html">견적요청</a>
+    <button class="m-toggle" aria-label="메뉴 열기">☰</button>
+  </div>
+</header>
+<div class="phero">
+  <div class="wrap">
+    <div class="tag">Data Room</div>
+    <h1>사양서</h1>
+    <p>저압전동기·기어드모터 사양서와 외형도를 내려받을 수 있습니다.</p>
+  </div>
+</div>
+<div class="content"><div class="wrap">
+
+<div class="tabs">
+  <button class="on" data-t="lv">저압전동기 사양서</button>
+  <button data-t="gm">기어드모터 사양서</button>
+</div>
+
+<div data-p="lv">
+  <div class="sec-h" style="margin-top:0"><h2>사양서 다운로드</h2><p>제품군별 사양서 일괄 다운로드 (ZIP)</p></div>
+  <div class="dl-grid">
+  <div class="dl-card">
+    <span class="cat">SPEC</span>
+    <h4>계획품</h4>
+    <span class="meta">계획품 사양서.zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/Planned_Low_Voltage_Motor.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div>
+  <div class="dl-card">
+    <span class="cat">SPEC</span>
+    <h4>권선형</h4>
+    <span class="meta">권선형 사양서.zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/WoundRotor.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div>
+  <div class="dl-card">
+    <span class="cat">SPEC</span>
+    <h4>발전소</h4>
+    <span class="meta">발전소 사양서.zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/DATASHEET_PLANT_20200227.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div>
+  <div class="dl-card">
+    <span class="cat">SPEC</span>
+    <h4>저압고출력</h4>
+    <span class="meta">저압고출력 사양서.zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/Low_voltage_high_output.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div>
+  <div class="dl-card">
+    <span class="cat">SPEC</span>
+    <h4>NEMA</h4>
+    <span class="meta">NEMA 사양서.zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/NEMA_Motor.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div></div>
+
+  <div class="sec-h"><h2>외형도 다운로드</h2><p>PDF·CAD 외형도 및 조견표</p></div>
+  <div class="dl-grid">
+    <div class="dl-card"><span class="cat">TABLE</span><h4>저압전동기 외형도 조견표</h4><span class="meta">LV_Motor_Dim_Table_2603.xlsm · Excel</span>
+      <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/LV_Motor_Dim_Table_2603.xlsm" target="_blank" rel="noopener">↓ 다운로드</a></div></div>
+    
+  <div class="dl-card">
+    <span class="cat">DIMENSION</span>
+    <h4>IEC 소형</h4>
+    <span class="meta">IEC_소형.zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/IEC_Small.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div>
+  <div class="dl-card">
+    <span class="cat">DIMENSION</span>
+    <h4>IEC 중형(1)</h4>
+    <span class="meta">IEC_중형(1).zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/IEC_Medium_1.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div>
+  <div class="dl-card">
+    <span class="cat">DIMENSION</span>
+    <h4>IEC 중형(2)</h4>
+    <span class="meta">IEC_중형(2).zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/IEC_Medium_2.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div>
+  <div class="dl-card">
+    <span class="cat">DIMENSION</span>
+    <h4>IEC 발전소 소형</h4>
+    <span class="meta">IEC_발전소_소형.zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/IEC_PowerPlant_Small.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div>
+  <div class="dl-card">
+    <span class="cat">DIMENSION</span>
+    <h4>IEC 저압고출력</h4>
+    <span class="meta">IEC_저압고출력.zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/IEC_LV_HighOutput.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div>
+  <div class="dl-card">
+    <span class="cat">DIMENSION</span>
+    <h4>IEC 내압(방폭)</h4>
+    <span class="meta">IEC_내압.zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/IEC_ExplosionProof.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div>
+  <div class="dl-card">
+    <span class="cat">DIMENSION</span>
+    <h4>LF</h4>
+    <span class="meta">LF.zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/LF.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div>
+  <div class="dl-card">
+    <span class="cat">DIMENSION</span>
+    <h4>NEMA</h4>
+    <span class="meta">NEMA.zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/NEMA.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div>
+  <div class="dl-card">
+    <span class="cat">DIMENSION</span>
+    <h4>기타 외형도</h4>
+    <span class="meta">그외 외형도.zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/Other_Dimensions.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div>
+  <div class="dl-card">
+    <span class="cat">DIMENSION</span>
+    <h4>단자박스</h4>
+    <span class="meta">단자박스.zip · ZIP</span>
+    <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/Terminal_Box.zip" target="_blank" rel="noopener">↓ 다운로드</a></div>
+  </div>
+  </div>
+
+  <div class="sec-h"><h2>인증 문서</h2></div>
+  <div class="dl-grid">
+    <div class="dl-card"><span class="cat">CE</span><h4>CE 인증 문서 — 계획품 (TEFC, TE-F)</h4><span class="meta">CEDOC_TEFCTE-F.pdf · PDF</span>
+      <div class="act"><a class="dl-btn" href="https://www.hyosungheavyindustries.com/upload/motor/files/CEDOC_TEFCTE-F.pdf" target="_blank" rel="noopener">↓ 다운로드</a></div></div>
+  </div>
+
+  <div class="sec-h"><h2>3D 모델링</h2></div>
+  <div class="card">
+    <p style="font-size:14.5px;color:var(--slate)">IEC 규격(TEFC/TE-F) 프레임 80M~355L, IE3 규격(EFFC/EF-F) 프레임 71M~315M의 FOOT/ROUND FRAME 3D 모델링 파일을 제공합니다. 필요한 프레임을 알려주시면 파일을 보내드립니다.</p>
+    <div style="margin-top:14px"><a class="dl-btn" href="index.html#contact">프레임별 3D 파일 요청하기</a></div>
+  </div>
+
+  <div class="sec-h"><h2>개별 사양 검색</h2></div>
+  <div class="card">
+    <p style="font-size:14.5px;color:var(--slate)">IEC 규격 · KS PREMIUM 효율 · 출력 0.75~375kW · 2/4/6/8극 — 총 9,912개 제품 사양을 조건별로 검색할 수 있습니다. 원하는 조건을 알려주시면 정확한 사양서를 찾아드립니다.</p>
+    <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+      <a class="dl-btn" href="https://www.hyosungheavyindustries.com/kr/data/low-voltage" target="_blank" rel="noopener">사양 검색 바로가기 ↗</a>
+      <a class="dl-btn" href="index.html#contact">사양 문의하기</a>
+    </div>
+  </div>
+</div>
+
+<div data-p="gm" hidden>
+  <div class="sec-h" style="margin-top:0"><h2>기어드모터 사양 검색</h2><p>총 11,574개 제품 사양 — 조건 선택 후 데이터시트·외형도를 받을 수 있습니다</p></div>
+  <div class="card">
+    <table class="info-table">
+      <tr><th>동력 (kW)</th><td>0.2 · 0.4 · 0.75 · 1.5 · 2.2 · 3.7 · 5.5 · 7.5 · 11 · 15 · 18.5 · 22 · 30 · 37 · 45 · 55 · 75</td></tr>
+      <tr><th>극수</th><td>4극</td></tr>
+      <tr><th>감속비</th><td>5 · 10 · 15 · 20 · 25 · 30 · 40 · 45 · 50 · 60 · 75 · 80 · 90 · 100 · 120</td></tr>
+      <tr><th>전압/주파수</th><td>220/380V 50·60Hz, 380V 50·60Hz, 415V 50Hz, 440V 60Hz</td></tr>
+      <tr><th>취부방법</th><td>G/M Hor. · G/M Ver. · IEC Flange Hor./Ver. · Line Power Hor./Ver.</td></tr>
+      <tr><th>모터형식</th><td>TE-F · TEFC</td></tr>
+      <tr><th>설치장소</th><td>INDOOR · OUTDOOR</td></tr>
+      <tr><th>시리즈</th><td>F · F1 · FN · H · RP</td></tr>
+      <tr><th>제공 자료</th><td>데이터시트 · 2D 외형도(PDF/DWG) · 3D 모델(STP)</td></tr>
+    </table>
+    <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+      <a class="dl-btn" href="https://www.hyosungheavyindustries.com/kr/data/geared-motors" target="_blank" rel="noopener">사양 검색 바로가기 ↗</a>
+      <a class="dl-btn" href="index.html#contact">조건 보내고 사양서 받기</a>
+    </div>
+  </div>
+  <div class="note-box">원하는 동력·감속비·취부방법만 알려주시면 데이터시트와 외형도(2D/3D)를 찾아서 보내드립니다. 전화 02-535-1571~2 또는 이메일 hsgearmotor@korea.com</div>
+</div>
+</div></div>
+
+<section class="cband">
+  <div class="wrap">
+    <div>
+      <h2>구입 · 견적 문의</h2>
+      <p>제품명이나 명판 사진, 필요한 사양만 보내주세요. 확인 후 빠르게 견적을 회신드립니다.</p>
+    </div>
+    <div>
+      <div class="tel"><small>TEL</small>02-535-1571~2</div>
+      <div class="sub">Mobile 010-3125-9666 · FAX 02-535-1573<br>E-mail hsgearmotor@korea.com</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-logo">HYOSUNG<span>HEAVY ELECTRIC</span></div>
+    <p>상호: (주)효성중전기 &nbsp;|&nbsp; TEL: 02-535-1571~2 &nbsp;|&nbsp; FAX: 02-535-1573 &nbsp;|&nbsp; Mobile: 010-3125-9666<br>
+    주소: (07072) 서울특별시 동작구 신대방1가길 38, 106동 214호 (동작상떼빌) &nbsp;|&nbsp; E-mail: hsgearmotor@korea.com</p>
+    <p class="copy">Copyright © (주)효성중전기. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script>
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  document.querySelectorAll('[data-p]').forEach(p=>p.hidden = p.dataset.p!==b.dataset.t);
+}));
+</script>
+</body>
+</html>
