@@ -659,8 +659,8 @@ function animate(){
     P[k].position.set(BASE[k].x + o[0]*ex, BASE[k].y + o[1]*ex, BASE[k].z + o[2]*ex);
   }
   // 회전: 분해되는 동안 천천히 돌면서 보여줌
-  root.rotation.y = -0.65 + smooth*Math.PI*1.15;
-  root.rotation.x = 0.14 + Math.sin(smooth*Math.PI)*0.06;
+  root.rotation.y = -0.65 + smooth*1.05;  // 옆모습 유지하며 살짝만 회전
+  root.rotation.x = 0.14 + Math.sin(smooth*Math.PI)*0.1;
   root.position.y = 0;
 
   // 카메라 살짝 뒤로 (분해 시 전체가 보이게)
