@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D 분해 조립 샘플 — (주)효성중전기</title>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--space:#0A1230;--blue:#2A5CFF;--violet:#7A5CFF;--cyan:#2BD9E5;--ink:#141B33;--slate:#5A6480}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;color:#fff;background:#070D24;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,18,48,.9);backdrop-filter:blur(14px)}
+.hd{max-width:1200px;margin:0 auto;padding:0 28px;height:74px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo .lrow{display:flex;align-items:center;gap:9px}
+.logo .en{font-family:'Marcellus',serif;font-size:24px;letter-spacing:.05em}
+.logo .he{display:flex;flex-direction:column;gap:3px;font-family:'Outfit',sans-serif;font-size:9.5px;letter-spacing:.22em;color:var(--cyan);font-weight:600}
+.logo .kr{display:flex;justify-content:space-between;font-size:13.5px;margin-top:6px;font-weight:700}
+.demo-tag{font-family:'Outfit';font-size:12px;letter-spacing:.2em;color:var(--cyan);border:1px solid rgba(43,217,229,.4);border-radius:99px;padding:6px 16px}
+
+/* intro */
+.intro{min-height:72vh;display:flex;align-items:center;background:
+  radial-gradient(1000px 600px at 75% 20%,rgba(122,92,255,.4),transparent 60%),
+  linear-gradient(150deg,#0A1230 0%,#12206B 60%,#2740B8 100%)}
+.intro .wrap{max-width:1200px;margin:0 auto;padding:130px 28px 60px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Outfit';font-size:14px;letter-spacing:.3em;color:var(--cyan);margin-bottom:22px}
+.eyebrow::before{content:"";width:34px;height:1.5px;background:var(--cyan)}
+.intro h1{font-family:'Outfit','Noto Sans KR';font-weight:600;font-size:clamp(36px,5vw,62px);line-height:1.15}
+.intro h1 em{font-style:normal;background:linear-gradient(90deg,#8FB0FF,#2BD9E5);-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro p{margin-top:20px;font-weight:300;color:rgba(255,255,255,.8);font-size:17px}
+.intro .down{margin-top:40px;font-family:'Outfit';font-size:13px;letter-spacing:.3em;color:rgba(255,255,255,.6);animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* scrollytelling stage */
+.exp-section{height:440vh;position:relative;background:
+  radial-gradient(1200px 800px at 50% 40%,#152258 0%,#0A1230 55%,#070D24 100%)}
+.sticky{position:sticky;top:0;height:100vh;overflow:hidden}
+#exp-canvas{position:absolute;inset:0;width:100%;height:100%}
+.grid-bg{position:absolute;inset:0;background:
+  repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(255,255,255,.03) 56px),
+  repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(255,255,255,.03) 56px);pointer-events:none}
+.stage-title{position:absolute;top:100px;left:0;right:0;text-align:center;pointer-events:none}
+.stage-title .t1{font-family:'Outfit';font-size:13px;letter-spacing:.34em;color:var(--cyan)}
+.stage-title h2{font-size:clamp(22px,2.6vw,34px);font-weight:900;margin-top:8px}
+.phase-label{position:absolute;bottom:56px;left:0;right:0;text-align:center;pointer-events:none}
+.phase-label .bar{width:280px;height:3px;background:rgba(255,255,255,.15);border-radius:99px;margin:0 auto 12px;overflow:hidden}
+.phase-label .bar i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:99px}
+.phase-label .txt{font-family:'Outfit';font-size:12.5px;letter-spacing:.28em;color:rgba(255,255,255,.65)}
+/* part labels */
+.plabel{position:absolute;transform:translate(-50%,-100%);pointer-events:none;opacity:0;transition:opacity .2s;white-space:nowrap}
+.plabel .chip{font-family:'Outfit','Noto Sans KR';font-size:12px;letter-spacing:.08em;color:#BFF3F8;border:1px solid rgba(43,217,229,.45);background:rgba(7,13,36,.72);backdrop-filter:blur(4px);border-radius:8px;padding:5px 12px;font-weight:500}
+.plabel::after{content:"";display:block;width:1px;height:16px;background:rgba(43,217,229,.5);margin:0 auto}
+
+/* after section */
+.after{background:#fff;color:var(--ink);padding:110px 0;text-align:center}
+.after h2{font-size:clamp(26px,3vw,38px);font-weight:900}
+.after p{color:var(--slate);margin-top:12px}
+@media(max-width:760px){.stage-title{top:86px}}
+</style>
+</head>
+<body>
+
+<header><div class="hd">
+  <a href="#" class="logo">
+    <span class="lrow"><span class="en">HYOSUNG</span><span class="he"><span>HEAVY</span><span>ELECTRIC</span></span></span>
+    <span class="kr"><span>효</span><span>성</span><span>중</span><span>전</span><span>기</span></span>
+  </a>
+  <span class="demo-tag">3D EXPLODED VIEW</span>
+</div></header>
+
+<div class="intro">
+  <div class="wrap">
+    <div class="eyebrow">TECHNOLOGY INSIDE</div>
+    <h1>전동기의 <em>내부</em>까지<br>정확하게 이해하고 공급합니다</h1>
+    <p>스크롤을 내리면 전동기가 부품 단위로 분해되고, 계속 내리면 다시 조립됩니다.</p>
+    <div class="down">SCROLL ▼</div>
+  </div>
+</div>
+
+<div class="exp-section" id="exp-section">
+  <div class="sticky">
+    <div class="grid-bg"></div>
+    <canvas id="exp-canvas"></canvas>
+    <div class="stage-title">
+      <div class="t1">INSIDE THE MOTOR</div>
+      <h2 id="stage-h2">유도전동기의 구조</h2>
+    </div>
+    <!-- part labels (JS가 3D 위치 따라 이동) -->
+    <div class="plabel" data-part="fanCover"><span class="chip">냉각팬 커버 Fan Cover</span></div>
+    <div class="plabel" data-part="fan"><span class="chip">냉각팬 Cooling Fan</span></div>
+    <div class="plabel" data-part="rearBell"><span class="chip">브라켓 · 베어링 Bearing</span></div>
+    <div class="plabel" data-part="stator"><span class="chip">고정자 · 권선 Stator</span></div>
+    <div class="plabel" data-part="rotor"><span class="chip">회전자 · 축 Rotor &amp; Shaft</span></div>
+    <div class="plabel" data-part="frontBell"><span class="chip">브라켓 · 베어링 Bearing</span></div>
+    <div class="plabel" data-part="tbox"><span class="chip">단자함 Terminal Box</span></div>
+    <div class="phase-label">
+      <div class="bar"><i id="pbar"></i></div>
+      <div class="txt" id="phase-txt">SCROLL — 분해</div>
+    </div>
+  </div>
+</div>
+
+<div class="after">
+  <h2>필요한 사양만 알려주세요</h2>
+  <p>고압·저압 전동기, 기어드모터, 싸이크로감속기, 변압기 — 재고 확인 후 빠르게 견적 드립니다.</p>
+</div>
+
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const canvas = document.getElementById('exp-canvas');
+const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.1;
+
+const scene = new THREE.Scene();
+// 금속 반사를 위한 환경맵 — 이게 있어야 금속이 "진짜"처럼 보임
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
+
+// lights (환경맵 + 보조 림라이트)
+const rimC = new THREE.DirectionalLight(0x2BD9E5, 1.1); rimC.position.set(-6, 3, -5); scene.add(rimC);
+const rimV = new THREE.DirectionalLight(0x7A5CFF, 0.9); rimV.position.set(6, -2, -5); scene.add(rimV);
+const key  = new THREE.DirectionalLight(0xffffff, 0.9); key.position.set(3, 6, 6); scene.add(key);
+
+// ── 재질
+const navy   = new THREE.MeshStandardMaterial({color:0x35508F, metalness:0.75, roughness:0.34});
+const navyD  = new THREE.MeshStandardMaterial({color:0x22335F, metalness:0.7,  roughness:0.4});
+const steel  = new THREE.MeshStandardMaterial({color:0xC8D2E4, metalness:1.0,  roughness:0.18});
+const alu    = new THREE.MeshStandardMaterial({color:0x9AA6BC, metalness:0.95, roughness:0.3});
+const copper = new THREE.MeshStandardMaterial({color:0xC77A3A, metalness:1.0,  roughness:0.28});
+const darkFe = new THREE.MeshStandardMaterial({color:0x4A5266, metalness:0.9,  roughness:0.45});
+
+const root = new THREE.Group();
+scene.add(root);
+const P = {}; // parts
+
+function G(){ const g = new THREE.Group(); root.add(g); return g; }
+function cyl(r1,r2,len,mat,seg=48){ const m=new THREE.Mesh(new THREE.CylinderGeometry(r1,r2,len,seg),mat); m.rotation.z=Math.PI/2; return m; }
+
+// ── 고정자 (중앙 고정)
+P.stator = G();
+{
+  const body = cyl(1.0, 1.0, 2.1, navy);
+  P.stator.add(body);
+  // 방열핀
+  const finGeo = new THREE.BoxGeometry(2.05, 0.2, 0.04);
+  for(let i=0;i<30;i++){
+    const a=(i/30)*Math.PI*2;
+    const fin=new THREE.Mesh(finGeo, navyD);
+    fin.position.set(0, Math.cos(a)*1.09, Math.sin(a)*1.09);
+    fin.rotation.x=-a;
+    P.stator.add(fin);
+  }
+  // 내부 보어(구멍) + 코일 엔드(구리 권선)
+  const bore = new THREE.Mesh(new THREE.CylinderGeometry(0.58,0.58,2.12,48,1,true),
+    new THREE.MeshStandardMaterial({color:0x1A2440, metalness:.6, roughness:.6, side:THREE.BackSide}));
+  bore.rotation.z=Math.PI/2; P.stator.add(bore);
+  [-1.02, 1.02].forEach(x=>{
+    const coil=new THREE.Mesh(new THREE.TorusGeometry(0.72, 0.13, 16, 48), copper);
+    coil.rotation.y=Math.PI/2; coil.position.x=x;
+    P.stator.add(coil);
+  });
+}
+
+// ── 회전자 + 축 (앞으로 뽑힘)
+P.rotor = G();
+{
+  const shaft = cyl(0.13, 0.13, 4.7, steel, 32); P.rotor.add(shaft);
+  const core = cyl(0.53, 0.53, 1.9, darkFe); P.rotor.add(core);
+  // 라미네이션 줄무늬
+  for(let i=0;i<7;i++){
+    const ring=new THREE.Mesh(new THREE.TorusGeometry(0.535, 0.008, 8, 48), navyD);
+    ring.rotation.y=Math.PI/2; ring.position.x=-0.8+i*0.27;
+    P.rotor.add(ring);
+  }
+  // 엔드링(구리)
+  [-1.0, 1.0].forEach(x=>{
+    const er=new THREE.Mesh(new THREE.TorusGeometry(0.44, 0.075, 12, 48), copper);
+    er.rotation.y=Math.PI/2; er.position.x=x; P.rotor.add(er);
+  });
+  // 축 키
+  const k=new THREE.Mesh(new THREE.BoxGeometry(0.55,0.05,0.08), steel);
+  k.position.set(2.15,0.15,0); P.rotor.add(k);
+}
+
+// ── 브라켓(엔드벨) + 베어링
+function bell(dir){
+  const g = G();
+  const b = cyl(1.12, 1.02, 0.3, navy); b.position.x = 0; g.add(b);
+  const rim = cyl(1.12, 1.12, 0.08, navyD); rim.position.x = dir*0.16; g.add(rim);
+  const brg = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.09, 14, 40), steel);
+  brg.rotation.y = Math.PI/2; g.add(brg);
+  const hub = cyl(0.24, 0.24, 0.34, darkFe, 24); g.add(hub);
+  for(let i=0;i<8;i++){
+    const a=(i/8)*Math.PI*2;
+    const bolt=cyl(0.045,0.045,0.36,steel,10);
+    bolt.position.set(0, Math.cos(a)*0.92, Math.sin(a)*0.92);
+    g.add(bolt);
+  }
+  g.position.x = dir*1.2;
+  return g;
+}
+P.frontBell = bell(1);
+P.rearBell  = bell(-1);
+
+// ── 냉각팬
+P.fan = G();
+{
+  const hub = cyl(0.3, 0.3, 0.14, alu, 32); P.fan.add(hub);
+  for(let i=0;i<8;i++){
+    const a=(i/8)*Math.PI*2;
+    const bl=new THREE.Mesh(new THREE.BoxGeometry(0.1,0.62,0.2), alu);
+    bl.position.set(0, Math.cos(a)*0.55, Math.sin(a)*0.55);
+    bl.rotation.x=-a; bl.rotation.y=0.5;
+    P.fan.add(bl);
+  }
+  P.fan.position.x = -1.62;
+}
+
+// ── 팬커버
+P.fanCover = G();
+{
+  const cov = cyl(1.05, 0.85, 0.6, navy); P.fanCover.add(cov);
+  const cap = cyl(0.85, 0.85, 0.04, navyD); cap.position.x=-0.32; P.fanCover.add(cap);
+  for(let i=0;i<9;i++){
+    const ring=new THREE.Mesh(new THREE.TorusGeometry(0.15+i*0.075, 0.011, 6, 40), navyD);
+    ring.rotation.y=Math.PI/2; ring.position.x=-0.35; P.fanCover.add(ring);
+  }
+  P.fanCover.position.x = -1.95;
+}
+
+// ── 단자함 (위로 분리)
+P.tbox = G();
+{
+  const box=new THREE.Mesh(new THREE.BoxGeometry(0.8,0.55,0.75), navyD); P.tbox.add(box);
+  const lid=new THREE.Mesh(new THREE.BoxGeometry(0.85,0.09,0.8), navy); lid.position.y=0.3; P.tbox.add(lid);
+  const gl=cyl(0.07,0.07,0.3,steel,12); gl.rotation.z=0; gl.rotation.x=Math.PI/2; gl.position.set(0.2,-0.1,0.5); P.tbox.add(gl);
+  P.tbox.position.set(0.15, 1.32, 0);
+}
+
+// ── 베이스(다리) — 아래로 분리
+P.feet = G();
+{
+  [-0.75, 0.75].forEach(x=>{
+    const f=new THREE.Mesh(new THREE.BoxGeometry(0.5,0.26,1.85), navyD);
+    f.position.set(x,0,0); P.feet.add(f);
+  });
+  const plate=new THREE.Mesh(new THREE.BoxGeometry(2.2,0.08,1.95), navy);
+  plate.position.y=-0.16; P.feet.add(plate);
+  P.feet.position.y=-1.16;
+}
+
+root.rotation.set(0.14, -0.65, 0);
+
+// ── 분해 오프셋 (부품별 이동 방향/거리)
+const EXPLODE = {
+  fanCover:[-2.3, 0, 0],
+  fan:[-1.5, 0, 0],
+  rearBell:[-0.85, 0, 0],
+  stator:[0, 0, 0],
+  rotor:[1.75, 0, 0],
+  frontBell:[2.7, 0, 0],
+  tbox:[0.15, 1.25, 0],
+  feet:[0, -1.15, 0],
+};
+const BASE = {};
+for(const k in P) BASE[k] = P[k].position.clone();
+
+// ── 라벨
+const labels = [...document.querySelectorAll('.plabel')];
+const labelAnchor = new THREE.Vector3();
+
+// ── 스크롤 진행도
+const section = document.getElementById('exp-section');
+const pbar = document.getElementById('pbar');
+const phaseTxt = document.getElementById('phase-txt');
+let progress = 0;
+function onScroll(){
+  const r = section.getBoundingClientRect();
+  const total = section.offsetHeight - innerHeight;
+  progress = Math.min(1, Math.max(0, -r.top / total));
+}
+addEventListener('scroll', onScroll, {passive:true});
+
+function ease(t){ return t*t*(3-2*t); } // smoothstep
+
+function resize(){
+  const w=canvas.clientWidth, h=canvas.clientHeight;
+  renderer.setSize(w,h,false);
+  camera.aspect=w/h; camera.updateProjectionMatrix();
+}
+addEventListener('resize', resize);
+
+let smooth = 0;
+function animate(){
+  requestAnimationFrame(animate);
+  resize();
+  smooth += (progress - smooth)*0.08;
+
+  // 0~0.5 분해 / 0.5~1 조립
+  let ex;
+  if(smooth < 0.5){ ex = ease(smooth*2); phaseTxt.textContent='SCROLL — 분해 EXPLODE'; }
+  else { ex = ease((1-smooth)*2); phaseTxt.textContent='SCROLL — 조립 ASSEMBLE'; }
+  pbar.style.width = (smooth*100)+'%';
+
+  for(const k in P){
+    const o = EXPLODE[k];
+    P[k].position.set(BASE[k].x + o[0]*ex, BASE[k].y + o[1]*ex, BASE[k].z + o[2]*ex);
+  }
+  // 회전: 분해되는 동안 천천히 돌면서 보여줌
+  root.rotation.y = -0.65 + smooth*Math.PI*1.15;
+  root.rotation.x = 0.14 + Math.sin(smooth*Math.PI)*0.06;
+  root.position.y = 0;
+
+  // 카메라 살짝 뒤로 (분해 시 전체가 보이게)
+  camera.position.set(0, 0.5, 7.2 + ex*1.8);
+  camera.lookAt(0, 0, 0);
+
+  renderer.render(scene, camera);
+
+  // 라벨 위치 갱신
+  const w=canvas.clientWidth, h=canvas.clientHeight;
+  labels.forEach(el=>{
+    const part = P[el.dataset.part];
+    if(!part) return;
+    part.getWorldPosition(labelAnchor);
+    labelAnchor.y += 0.55;
+    const v = labelAnchor.clone().project(camera);
+    el.style.left = ((v.x*0.5+0.5)*w)+'px';
+    el.style.top  = ((-v.y*0.5+0.5)*h)+'px';
+    el.style.opacity = ex > 0.55 ? Math.min(1,(ex-0.55)*4) : 0;
+  });
+}
+onScroll();
+animate();
+</script>
+</body>
+</html>
