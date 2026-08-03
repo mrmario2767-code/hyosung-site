@@ -142,7 +142,7 @@ const NAV = (active = '') => `
         <li><a href="product-gearbox.html" class="${active==='gb'||active==='gm'?'on':''}">기어드모터</a>
           <ul class="dep2"><li><a href="product-gearbox.html">기어박스</a></li><li><a href="product-gm.html">기어드모터</a></li></ul></li>
         <li><a href="cyclo.html" class="${active==='cyclo'?'on':''}">싸이크로감속기</a></li>
-        <li><a href="index.html#products">변압기</a></li>
+        <li><a href="product-transformer.html" class="${active==='tr'?'on':''}">변압기</a></li>
         <li><a href="data-spec.html" class="${active.startsWith('data')?'on':''}">자료실</a>
           <ul class="dep2">
             <li><a href="data-spec.html">사양서</a></li>
@@ -348,7 +348,7 @@ function buildAbout(){
 <div class="card reveal" style="padding:44px 46px">
   <div class="tag" style="font-family:'Outfit';font-size:13px;letter-spacing:.3em;color:#7A5CFF;font-weight:600">ABOUT US</div>
   <p class="about-lead" style="margin-top:14px">
-    (주)효성중전기는 <em>고압·저압 전동기, 기어드모터,<br>싸이크로감속기, 변압기</em>를 공급하는<br>산업용 동력·전력 설비 전문 기업입니다.
+    (주)효성중전기는<br><em>고압·저압 전동기, 기어드모터, 싸이크로감속기, 변압기</em>를<br>공급하는 산업용 동력·전력 설비 전문 기업입니다.
   </p>
   <p style="margin-top:22px;color:var(--slate);max-width:72ch">
     산업 현장의 동력 설비는 사양 하나, 치수 하나가 정확해야 합니다. 저희는 제품을 파는 데서 끝나지 않고,
@@ -1471,6 +1471,21 @@ async function delRow(table,id,cb){if(!confirm('삭제할까요?'))return;await 
   writeFileSync(join(OUT,'admin.html'), html);
 }
 
+
+function buildTransformer(){
+  const body = `
+<div class="card reveal" style="text-align:center;padding:80px 40px">
+  <div style="font-size:52px;margin-bottom:18px">⚡</div>
+  <h2 style="font-size:26px;font-weight:900">변압기 페이지는 준비 중입니다</h2>
+  <p style="color:var(--slate);margin:14px auto 0;max-width:52ch">제품 자료를 준비하고 있어요. 변압기가 필요하시면 용량과 사양만 알려주세요 — 재고 확인 후 바로 견적을 안내해 드립니다.</p>
+  <div style="display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap">
+    <a class="dl-btn" href="tel:025351571" style="font-size:15px;padding:11px 26px">📞 02-535-1571~2</a>
+    <a class="dl-btn" href="quote.html" style="font-size:15px;padding:11px 26px;background:var(--blue);color:#fff">견적 요청하기</a>
+  </div>
+</div>`;
+  writeFileSync(join(OUT,'product-transformer.html'), page('변압기','tr','Transformer','변압기','용량별 변압기 공급 및 교체 상담 — 페이지 준비 중입니다.',body));
+}
+
 /* ───────────────────────── run ───────────────────────── */
 mkdirSync(OUT, { recursive: true });
 buildCyclo();
@@ -1482,4 +1497,5 @@ buildNotice();
 buildFaqPage();
 buildQuote();
 buildAdminV2();
+buildTransformer();
 console.log('built:', readdirSync(OUT).filter(f=>f.endsWith('.html')).join(', '));
