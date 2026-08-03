@@ -113,111 +113,48 @@ section{position:relative;z-index:2;background:#fff;color:var(--ink);padding:100
 </section>
 
 <script type="importmap">
-{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
 </script>
 <script type="module">
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 const canvas = document.getElementById('motor-canvas');
 const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true});
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.15;
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
-camera.position.set(0, 0.6, 7.2);
+const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
+camera.position.set(0, 0.4, 6.6);
 camera.lookAt(0, 0, 0);
 
-// ── lights
-scene.add(new THREE.AmbientLight(0x8899ff, 0.55));
-const key = new THREE.DirectionalLight(0xffffff, 1.6); key.position.set(4, 6, 6); scene.add(key);
-const rimC = new THREE.DirectionalLight(0x2BD9E5, 2.2); rimC.position.set(-6, 2, -4); scene.add(rimC);
-const rimV = new THREE.DirectionalLight(0x7A5CFF, 2.0); rimV.position.set(6, -3, -5); scene.add(rimV);
-const pt = new THREE.PointLight(0x2A5CFF, 18, 12); pt.position.set(0, 2.4, 2.5); scene.add(pt);
+// lights
+scene.add(new THREE.AmbientLight(0xaabbff, 0.9));
+const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(4, 6, 6); scene.add(key);
+const rimC = new THREE.DirectionalLight(0x2BD9E5, 1.6); rimC.position.set(-6, 2, -4); scene.add(rimC);
+const rimV = new THREE.DirectionalLight(0x7A5CFF, 1.4); rimV.position.set(6, -3, -5); scene.add(rimV);
+const pt = new THREE.PointLight(0xffffff, 14, 14); pt.position.set(-2, 3, 3); scene.add(pt);
 
-// ── materials
-const bodyMat  = new THREE.MeshStandardMaterial({color:0x2A3A7A, metalness:0.85, roughness:0.32});
-const darkMat  = new THREE.MeshStandardMaterial({color:0x141E44, metalness:0.9,  roughness:0.4});
-const steelMat = new THREE.MeshStandardMaterial({color:0xB8C4DE, metalness:1.0,  roughness:0.22});
-const wireMat  = new THREE.MeshBasicMaterial({color:0x2BD9E5, wireframe:true, transparent:true, opacity:0.10});
-
-// ── motor group
-const motor = new THREE.Group();
-
-// stator body
-const bodyGeo = new THREE.CylinderGeometry(1.05, 1.05, 2.6, 48);
-const body = new THREE.Mesh(bodyGeo, bodyMat);
-body.rotation.z = Math.PI/2;
-motor.add(body);
-const bodyWire = new THREE.Mesh(new THREE.CylinderGeometry(1.07, 1.07, 2.62, 24, 3), wireMat);
-bodyWire.rotation.z = Math.PI/2;
-motor.add(bodyWire);
-
-// cooling fins (방열핀)
-const finGeo = new THREE.BoxGeometry(2.55, 0.22, 0.045);
-for(let i=0;i<28;i++){
-  const a = (i/28)*Math.PI*2;
-  const fin = new THREE.Mesh(finGeo, darkMat);
-  const r = 1.13;
-  fin.position.set(0, Math.cos(a)*r, Math.sin(a)*r);
-  fin.rotation.x = -a;
-  motor.add(fin);
-}
-
-// end bells (양쪽 커버)
-const bellGeo = new THREE.CylinderGeometry(1.16, 1.16, 0.3, 48);
-[-1.45, 1.45].forEach(x=>{
-  const bell = new THREE.Mesh(bellGeo, darkMat);
-  bell.rotation.z = Math.PI/2; bell.position.x = x;
-  motor.add(bell);
+// 실물 사진으로 생성한 3D 모터 모델
+const holder = new THREE.Group();
+scene.add(holder);
+new GLTFLoader().load('img/motor3d.glb', (gltf)=>{
+  const model = gltf.scene;
+  // 중심 정렬 + 크기 맞추기
+  const box = new THREE.Box3().setFromObject(model);
+  const center = box.getCenter(new THREE.Vector3());
+  const size = box.getSize(new THREE.Vector3());
+  model.position.sub(center);
+  const scale = 3.6 / Math.max(size.x, size.y, size.z);
+  holder.scale.setScalar(scale);
+  holder.add(model);
 });
-// bolt ring
-const boltGeo = new THREE.CylinderGeometry(0.05, 0.05, 0.34, 12);
-[-1.45, 1.45].forEach(x=>{
-  for(let i=0;i<8;i++){
-    const a=(i/8)*Math.PI*2;
-    const b=new THREE.Mesh(boltGeo, steelMat);
-    b.rotation.z=Math.PI/2;
-    b.position.set(x, Math.cos(a)*0.95, Math.sin(a)*0.95);
-    motor.add(b);
-  }
-});
+holder.rotation.y = -0.6;
+holder.rotation.x = 0.1;
 
-// fan cover (뒤)
-const fanCover = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 1.16, 0.55, 48), bodyMat);
-fanCover.rotation.z = Math.PI/2; fanCover.position.x = -1.85;
-motor.add(fanCover);
-// fan cover slits
-for(let i=0;i<10;i++){
-  const ring = new THREE.Mesh(new THREE.TorusGeometry(0.5+i*0.05, 0.012, 6, 40), darkMat);
-  ring.rotation.y = Math.PI/2; ring.position.x = -2.13;
-  motor.add(ring);
-}
-
-// shaft (축) — 계속 빠르게 도는 부분
-const shaftGroup = new THREE.Group();
-const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 1.1, 24), steelMat);
-shaft.rotation.z = Math.PI/2; shaft.position.x = 2.05;
-shaftGroup.add(shaft);
-const key1 = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.05, 0.09), darkMat);
-key1.position.set(2.25, 0.18, 0); shaftGroup.add(key1);
-motor.add(shaftGroup);
-
-// terminal box (단자함)
-const tbox = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.6, 0.8), darkMat);
-tbox.position.set(0.2, 1.35, 0); motor.add(tbox);
-const tboxLid = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.08, 0.85), steelMat);
-tboxLid.position.set(0.2, 1.68, 0); motor.add(tboxLid);
-
-// base feet (다리)
-[-0.9, 0.9].forEach(x=>{
-  const foot = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.3, 1.9), darkMat);
-  foot.position.set(x, -1.2, 0); motor.add(foot);
-});
-
-motor.rotation.y = -0.5;
-motor.rotation.x = 0.12;
-scene.add(motor);
-
-// ── resize
+// resize
 function resize(){
   const w = canvas.clientWidth, h = canvas.clientHeight;
   renderer.setSize(w, h, false);
@@ -226,27 +163,22 @@ function resize(){
 }
 addEventListener('resize', resize); resize();
 
-// ── scroll + mouse interaction
-let targetSpin = 0, spin = 0, targetYaw = -0.5, yaw = -0.5, mx = 0, my = 0;
+// scroll + mouse
+let targetSpin = 0, spin = 0, mx = 0, my = 0;
 addEventListener('scroll', ()=>{
-  targetSpin = scrollY * 0.012;          // 스크롤 → 모터가 굴러가듯 회전
-  targetYaw  = -0.5 + scrollY * 0.0012;  // 살짝 방향도 틀어짐
+  targetSpin = scrollY * 0.01;   // 스크롤하면 굴러가듯 회전
 }, {passive:true});
 addEventListener('mousemove', e=>{
   mx = (e.clientX/innerWidth - 0.5);
   my = (e.clientY/innerHeight - 0.5);
 });
 
-const clock = new THREE.Clock();
 function animate(){
   requestAnimationFrame(animate);
-  const dt = Math.min(clock.getDelta(), 0.05);
-  spin += (targetSpin - spin) * 0.06;
-  yaw  += (targetYaw  - yaw ) * 0.05;
-  motor.rotation.x = 0.12 + spin + my*0.15;        // 굴러가는 회전
-  motor.rotation.y = yaw + mx*0.35 + performance.now()*0.00006; // 천천히 자전
-  shaftGroup.rotation.x -= dt * 9;                  // 축은 항상 고속 회전
-  motor.position.y = Math.sin(performance.now()*0.0009)*0.08;   // 둥실 떠있는 느낌
+  spin += (targetSpin - spin) * 0.07;
+  holder.rotation.y = -0.6 + spin + mx*0.4 + performance.now()*0.00012; // 천천히 자전 + 스크롤 회전
+  holder.rotation.x = 0.1 + my*0.2 + Math.sin(performance.now()*0.0007)*0.03;
+  holder.position.y = Math.sin(performance.now()*0.0009)*0.1;  // 둥실
   renderer.render(scene, camera);
 }
 animate();
