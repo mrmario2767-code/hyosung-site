@@ -191,6 +191,7 @@ const page = (title, active, heroTag, heroTitle, heroDesc, body, extraJs = '') =
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="naver-site-verification" content="01d5a36352a9de1769c2832da8976b95ee1ffa03" />
+<meta name="google-site-verification" content="XbCmtvutlhDihJ6a1m2OTd1XFSjAwuv-JUax5Q9G1LI" />
 <title>${title} — (주)효성중전기</title>
 <meta name="description" content="(주)효성중전기 — 고압·저압 전동기, 기어드모터, 싸이크로감속기, 변압기 공급. ${heroDesc.replace(/<[^>]+>/g,'').slice(0,80)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
