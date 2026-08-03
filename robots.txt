@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /hero3d-demo.html
+Disallow: /exploded3d-demo.html
+
+Sitemap: https://hyosung-site.pages.dev/sitemap.xml
