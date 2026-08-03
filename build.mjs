@@ -164,7 +164,8 @@ const NAV = (active = '') => `
     <a class="cta-btn" href="quote.html">견적요청</a>
     <button class="m-toggle" aria-label="메뉴 열기">☰</button>
   </div>
-  <nav class="mnav" id="mnav">
+</header>
+<nav class="mnav" id="mnav">
     <a href="about.html">회사소개</a>
     <a href="product-hv.html">전동기</a>
     <a href="product-hv.html" class="sub">— 고압전동기</a>
@@ -180,8 +181,7 @@ const NAV = (active = '') => `
     <a href="notice.html" class="sub">— 공지사항</a>
     <a href="faq.html" class="sub">— 자주 묻는 질문</a>
     <a class="cta-btn" href="quote.html">견적요청</a>
-  </nav>
-</header>`;
+  </nav>`;
 
 const CBAND = `
 <section class="cband">
