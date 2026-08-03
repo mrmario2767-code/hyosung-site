@@ -259,13 +259,6 @@ async function doSignup(){
   m.style.color='var(--slate)';m.textContent='신청 중...';
   const {error}=await sb.auth.signUp({email,password:pw,options:{data:{name,position:pos,phone}}});
   if(error){m.style.color='#D14343';m.textContent='신청 실패: '+error.message;return;}
-  try{
-    await fetch('https://formsubmit.co/ajax/hsgearmotor@korea.com',{method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({_subject:'[효성중전기] 관리자 가입 승인 요청 - '+name,_template:'table',
-        '이름':name,'직급':pos||'-','이메일':email,'연락처':phone,
-        '승인방법':'관리자 페이지(hyosung-site.pages.dev/admin.html) 로그인 → 직원 관리 탭 → 승인 클릭'})});
-  }catch(e){}
   m.style.color='#0E8345';m.textContent='✅ 신청 완료! ① 입력한 이메일로 온 인증 메일의 링크를 눌러 인증하고, ② 최고관리자 승인이 나면 로그인할 수 있어요.';
 }
 $('logout-btn').addEventListener('click',async()=>{await sb.auth.signOut();location.reload();});
