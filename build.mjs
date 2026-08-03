@@ -21,7 +21,7 @@ header .hd{display:flex;align-items:center;justify-content:space-between;height:
 .logo .lrow{display:flex;align-items:center;gap:9px}
 .logo .en{font-family:'Marcellus',serif;font-size:24px;letter-spacing:.05em}
 .logo .he{display:flex;flex-direction:column;gap:3px;font-family:'Outfit',sans-serif;font-size:9.5px;letter-spacing:.22em;color:var(--cyan);font-weight:600}
-.logo .kr{font-size:12px;color:rgba(255,255,255,.85);letter-spacing:.4em;margin-top:5px;font-weight:500}
+.logo .kr{display:flex;justify-content:space-between;font-size:13.5px;color:#fff;margin-top:6px;font-weight:700}
 .logo .sub{font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:.42em;color:var(--cyan);margin-top:4px;font-weight:500}
 nav.gnb>ul{display:flex;gap:2px}
 nav.gnb>ul>li{position:relative}
@@ -132,7 +132,7 @@ const NAV = (active = '') => `
   <div class="wrap hd">
     <a href="index.html" class="logo" aria-label="효성중전기 홈">
       <span class="lrow"><span class="en">HYOSUNG</span><span class="he"><span>HEAVY</span><span>ELECTRIC</span></span></span>
-      <span class="kr">효성중전기</span>
+      <span class="kr"><span>효</span><span>성</span><span>중</span><span>전</span><span>기</span></span>
     </a>
     <nav class="gnb" aria-label="주 메뉴">
       <ul>
