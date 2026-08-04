@@ -281,8 +281,8 @@ const CBAND = `
       <p>제품명이나 명판 사진, 필요한 사양만 보내주세요. 확인 후 빠르게 견적을 회신드립니다.</p>
     </div>
     <div>
-      <div class="tel"><small>TEL</small>02-535-1571~2</div>
-      <div class="sub">Mobile 010-3125-9666 · FAX 02-535-1573<br>E-mail hsgearmotor@korea.com</div>
+      <div class="tel"><small>TEL</small><a href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')" style="color:inherit">02-535-1571~2</a></div>
+      <div class="sub">Mobile <a href="tel:01031259666" onclick="return confirm('010-3125-9666 으로 전화를 걸까요?')" style="color:inherit">010-3125-9666</a> · FAX 02-535-1573<br>E-mail <a href="mailto:hsgearmotor@korea.com" style="color:inherit">hsgearmotor@korea.com</a></div>
     </div>
   </div>
 </section>`;
@@ -291,8 +291,8 @@ const FOOTER = `
 <footer>
   <div class="wrap">
     <div class="f-logo">HYOSUNG<span>HEAVY ELECTRIC</span></div>
-    <p>상호: (주)효성중전기 &nbsp;|&nbsp; TEL: 02-535-1571~2 &nbsp;|&nbsp; FAX: 02-535-1573 &nbsp;|&nbsp; Mobile: 010-3125-9666<br>
-    주소: (07072) 서울특별시 동작구 신대방1가길 38, 106동 214호 (동작상떼빌) &nbsp;|&nbsp; E-mail: hsgearmotor@korea.com</p>
+    <p>상호: (주)효성중전기 &nbsp;|&nbsp; TEL: <a href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')" style="color:inherit">02-535-1571~2</a> &nbsp;|&nbsp; FAX: 02-535-1573 &nbsp;|&nbsp; Mobile: <a href="tel:01031259666" onclick="return confirm('010-3125-9666 으로 전화를 걸까요?')" style="color:inherit">010-3125-9666</a><br>
+    주소: (07072) 서울특별시 동작구 신대방1가길 38, 106동 214호 (동작상떼빌) &nbsp;|&nbsp; E-mail: <a href="mailto:hsgearmotor@korea.com" style="color:inherit">hsgearmotor@korea.com</a></p>
     <p class="copy">Copyright © (주)효성중전기. All rights reserved.</p>
   </div>
 </footer>
@@ -551,10 +551,10 @@ function buildAbout(){
   <table class="info-table">
     <tr><th>상호</th><td>(주)효성중전기 (HYOSUNG HEAVY ELECTRIC)</td></tr>
     <tr><th>주소</th><td>(07072) 서울특별시 동작구 신대방1가길 38, 106동 214호 (동작상떼빌)</td></tr>
-    <tr><th>전화</th><td>02-535-1571~2</td></tr>
+    <tr><th>전화</th><td><a href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')" style="color:inherit">02-535-1571~2</a></td></tr>
     <tr><th>팩스</th><td>02-535-1573</td></tr>
-    <tr><th>휴대전화</th><td>010-3125-9666</td></tr>
-    <tr><th>이메일</th><td>hsgearmotor@korea.com</td></tr>
+    <tr><th>휴대전화</th><td><a href="tel:01031259666" onclick="return confirm('010-3125-9666 으로 전화를 걸까요?')" style="color:inherit">010-3125-9666</a></td></tr>
+    <tr><th>이메일</th><td><a href="mailto:hsgearmotor@korea.com" style="color:var(--blue);font-weight:500">hsgearmotor@korea.com</a></td></tr>
   </table>
 </div>`;
   writeFileSync(join(OUT,'about.html'), page('회사소개','about','About Us','회사소개','산업 현장의 동력을 정확한 사양으로 책임지는 (주)효성중전기입니다.',body));
@@ -1079,8 +1079,8 @@ function buildQuote(){
 <div>
   <div class="card" style="padding:28px 30px;margin-bottom:16px">
     <h3 style="font-size:16px;font-weight:900;margin-bottom:12px">전화가 가장 빠릅니다</h3>
-    <div style="font-family:'Outfit';font-size:26px;font-weight:600;color:var(--blue)">02-535-1571~2</div>
-    <p style="font-size:13.5px;color:var(--slate);margin-top:8px">Mobile 010-3125-9666<br>FAX 02-535-1573</p>
+    <div style="font-family:'Outfit';font-size:26px;font-weight:600;color:var(--blue)"><a href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')" style="color:inherit">02-535-1571~2</a></div>
+    <p style="font-size:13.5px;color:var(--slate);margin-top:8px">Mobile <a href="tel:01031259666" onclick="return confirm('010-3125-9666 으로 전화를 걸까요?')" style="color:inherit">010-3125-9666</a><br>FAX 02-535-1573</p>
   </div>
   <div class="card" style="padding:28px 30px">
     <h3 style="font-size:16px;font-weight:900;margin-bottom:10px">이메일 문의</h3>
@@ -1659,7 +1659,7 @@ function buildTransformer(){
   <h2 style="font-size:26px;font-weight:900">변압기 페이지는 준비 중입니다</h2>
   <p style="color:var(--slate);margin:14px auto 0;max-width:52ch">제품 자료를 준비하고 있어요. 변압기가 필요하시면 용량과 사양만 알려주세요 — 재고 확인 후 바로 견적을 안내해 드립니다.</p>
   <div style="display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap">
-    <a class="dl-btn" href="tel:025351571" style="font-size:15px;padding:11px 26px">📞 02-535-1571~2</a>
+    <a class="dl-btn" href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')" style="font-size:15px;padding:11px 26px">📞 02-535-1571~2</a>
     <a class="dl-btn" href="quote.html" style="font-size:15px;padding:11px 26px;background:var(--blue);color:#fff">견적 요청하기</a>
   </div>
 </div>`;
