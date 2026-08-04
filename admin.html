@@ -259,7 +259,8 @@ async function doSignup(){
   m.style.color='var(--slate)';m.textContent='신청 중...';
   const {error}=await sb.auth.signUp({email,password:pw,options:{data:{name,position:pos,phone}}});
   if(error){m.style.color='#D14343';m.textContent='신청 실패: '+error.message;return;}
-  m.style.color='#0E8345';m.textContent='✅ 신청 완료! ① 입력한 이메일로 온 인증 메일의 링크를 눌러 인증하고, ② 최고관리자 승인이 나면 로그인할 수 있어요.';
+  await sb.auth.signOut();
+  m.style.color='#0E8345';m.textContent='✅ 신청 완료! 최고관리자가 승인하면 바로 로그인할 수 있어요.';
 }
 $('logout-btn').addEventListener('click',async()=>{await sb.auth.signOut();location.reload();});
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&!$('login-view').hidden)doLogin();});
