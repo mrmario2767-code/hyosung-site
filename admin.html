@@ -226,7 +226,7 @@ const sb=(window.SB_URL&&window.SB_KEY&&window.supabase)?window.supabase.createC
 const $=id=>document.getElementById(id);
 const esc=s=>(s||'').toString().replace(/</g,'&lt;');
 const CATS={'manual-hv':'매뉴얼·고압전동기','manual-lv':'매뉴얼·저압전동기','manual-gm':'매뉴얼·기어드모터','spec-lv':'사양서·저압','spec-gm':'사양서·기어드','etc':'기타'};
-let MY_ID=null, MY_ROLE='admin';
+let MY_ID=null, MY_ROLE='user';
 if(!sb){$('no-sb').hidden=false;}else{init();}
 
 async function init(){
@@ -241,7 +241,7 @@ async function init(){
   MY_ID=session.user.id;
   const {data:prof}=await sb.from('admin_profiles').select('*').eq('id',MY_ID).single();
   if(!prof||!prof.approved){$('pending-view').hidden=false;$('logout-btn').hidden=false;return;}
-  MY_ROLE=prof.role||'admin';
+  MY_ROLE=prof.role||'user';
   showDash();
 }
 function showLogin(){$('signup-view').hidden=true;$('login-view').hidden=false;}
@@ -266,7 +266,7 @@ $('logout-btn').addEventListener('click',async()=>{await sb.auth.signOut();locat
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&!$('login-view').hidden)doLogin();});
 function showDash(){
   $('dash').hidden=false;$('logout-btn').hidden=false;
-  if(MY_ROLE==='super'){$('staff-tab').hidden=false;loadStaff();}
+  if(MY_ROLE==='admin'){$('staff-tab').hidden=false;loadStaff();}
   loadInq();loadNotices();loadFaqs();loadRes();
 }
 document.querySelectorAll('.a-tabs button').forEach(b=>b.addEventListener('click',()=>{
@@ -392,23 +392,23 @@ async function loadStaff(){
     <tr><th>이름</th><th>직급</th><th>이메일</th><th>연락처</th><th>가입일</th><th>등급</th><th>상태</th><th colspan="4"></th></tr>
     ${data.map(x=>{
       const me=x.id===MY_ID;
-      const superB=x.role==='super';
+      const adminB=x.role==='admin';
       return `<tr>
       <td style="font-weight:700">${esc(x.name||'-')}${me?' <span class="badge">나</span>':''}</td>
       <td>${esc(x.position||'-')}</td>
       <td style="font-size:13px">${esc(x.email)}</td>
       <td style="font-size:13px">${esc(x.phone||'-')}</td>
       <td style="color:#98A2B8;font-size:12.5px">${(x.created_at||'').slice(0,10)}</td>
-      <td>${superB?'<span class="badge super">최고관리자</span>':'<span class="badge">관리자</span>'}</td>
+      <td>${adminB?'<span class="badge super">관리자</span>':'<span class="badge">일반</span>'}</td>
       <td>${x.approved?'<span class="badge ok">승인됨</span>':'<span class="badge wait">대기중</span>'}</td>
       <td>${me?'':(x.approved
         ?`<button class="btn ghost sm" onclick="setApprove('${x.id}',false)">승인취소</button>`
         :`<button class="btn ok sm" onclick="setApprove('${x.id}',true)">✓ 승인</button>`)}</td>
-      <td>${me||!x.approved?'':(superB
-        ?`<button class="btn ghost sm" onclick="setRole('${x.id}','admin')">최고관리자 해제</button>`
-        :`<button class="btn ghost sm" onclick="setRole('${x.id}','super')">최고관리자 지정</button>`)}</td>
+      <td>${me||!x.approved?'':(adminB
+        ?`<button class="btn ghost sm" onclick="setRole('${x.id}','user')">관리자 해제</button>`
+        :`<button class="btn ghost sm" onclick="setRole('${x.id}','admin')">관리자 지정</button>`)}</td>
       <td><button class="btn ghost sm" onclick="sendReset('${esc(x.email)}')">비번 재설정</button></td>
-      <td>${me?'':`<button class="btn danger sm" onclick="delStaff('${x.id}','${esc(x.name||'')}')">삭제</button>`}</td>
+      <td>${me||adminB?'':`<button class="btn danger sm" onclick="delStaff('${x.id}','${esc(x.name||'')}')">삭제</button>`}</td>
     </tr>`}).join('')}</table>`
   :'<div class="empty">가입된 직원이 없어요.</div>';
 }
@@ -418,7 +418,8 @@ async function setApprove(id,val){
   loadStaff();
 }
 async function setRole(id,role){
-  if(role==='super'&&!confirm('최고관리자로 지정하면 직원 승인·삭제 권한을 갖게 돼요. 지정할까요?'))return;
+  if(role==='admin'&&!confirm('관리자로 지정하면 직원 승인·권한 부여가 가능해져요. 지정할까요?'))return;
+  if(role==='user'&&!confirm('관리자 권한을 해제할까요? 직원 관리 탭이 더 이상 보이지 않게 돼요.'))return;
   const {error}=await sb.from('admin_profiles').update({role}).eq('id',id);
   if(error)return alert('실패: '+error.message);
   loadStaff();
