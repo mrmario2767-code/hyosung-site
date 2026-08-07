@@ -270,6 +270,20 @@ footer .copy{margin-top:14px;color:#9AA3B0;font-size:12.5px}
  table.man .badge.lang{font-size:9.5px;padding:2px 6px}
  table.man .dl-btn{padding:4px 8px!important;font-size:11px!important}
 }
+
+/* floating quote button */
+.fab{position:fixed;right:26px;bottom:26px;z-index:150;display:flex;align-items:center;gap:0;height:56px;padding:0 18px;border-radius:99px;background:linear-gradient(135deg,#2A5CFF,#12206B);color:#fff;box-shadow:0 10px 30px rgba(18,32,107,.35);overflow:hidden;transition:.35s cubic-bezier(.2,.7,.3,1)}
+.fab .fab-ic{font-size:19px;line-height:1}
+.fab .fab-tx{max-width:0;opacity:0;white-space:nowrap;font-weight:700;font-size:14.5px;margin-left:0;transition:.35s cubic-bezier(.2,.7,.3,1)}
+.fab:hover{box-shadow:0 16px 40px rgba(42,92,255,.45);transform:translateY(-3px)}
+.fab:hover .fab-tx{max-width:80px;opacity:1;margin-left:9px}
+.fab .fab-ring{position:absolute;inset:0;border-radius:99px;border:2px solid rgba(255,255,255,.55);opacity:0;animation:fabring 2.6s ease-out infinite}
+@keyframes fabring{0%{transform:scale(.9);opacity:.7}70%{transform:scale(1.25);opacity:0}100%{opacity:0}}
+@media(max-width:760px){.fab{right:16px;bottom:16px;height:50px;padding:0 15px}.fab .fab-tx{max-width:70px;opacity:1;margin-left:8px;font-size:13px}.fab .fab-ring{display:none}}
+header{transition:box-shadow .3s}
+header.scrolled{box-shadow:0 4px 24px rgba(20,27,51,.08)}
+.reveal{opacity:0;transform:translateY(34px);transition:.8s cubic-bezier(.2,.7,.3,1)}
+.reveal.on{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1!important;transform:none!important}}
 </style>
 </head>
@@ -299,7 +313,7 @@ footer .copy{margin-top:14px;color:#9AA3B0;font-size:12.5px}
           </ul></li>
       </ul>
     </nav>
-    <a class="cta-btn" href="quote.html">견적요청</a>
+    <a class="cta-btn" href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')">📞 전화상담</a>
     <button class="m-toggle" aria-label="메뉴 열기">☰</button>
   </div>
 </header>
@@ -318,7 +332,7 @@ footer .copy{margin-top:14px;color:#9AA3B0;font-size:12.5px}
     <a href="data-manual.html" class="sub">— 제품 매뉴얼</a>
     <a href="notice.html" class="sub">— 공지사항</a>
     <a href="faq.html" class="sub">— 자주 묻는 질문</a>
-    <a class="cta-btn" href="quote.html">견적요청</a>
+    <a class="cta-btn" href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')">📞 전화상담</a>
   </nav>
 <div class="phero" style="background-image:linear-gradient(100deg,rgba(10,18,48,.88) 30%,rgba(16,32,90,.55) 70%,rgba(16,32,90,.25)),url('../img/products-hero.jpg')">
   <div class="wrap">
@@ -411,9 +425,15 @@ footer .copy{margin-top:14px;color:#9AA3B0;font-size:12.5px}
     <p class="copy">Copyright © (주)효성중전기. All rights reserved.</p>
   </div>
 </footer>
+<a class="fab" href="quote.html" aria-label="견적요청">
+  <span class="fab-ring"></span>
+  <span class="fab-ic">✎</span>
+  <span class="fab-tx">견적요청</span>
+</a>
 <script>
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=((i%4)*90)+'ms';io.observe(el)});
+window.addEventListener('scroll',()=>{document.querySelector('header').classList.toggle('scrolled',scrollY>10)},{passive:true});
 const mt=document.querySelector('.m-toggle'),mn=document.getElementById('mnav');
 if(mt&&mn){mt.addEventListener('click',()=>{const o=mn.classList.toggle('open');mt.textContent=o?'✕':'☰';});}
 </script>
