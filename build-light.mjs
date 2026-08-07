@@ -303,6 +303,12 @@ const mt=document.querySelector('.m-toggle'),mn=document.getElementById('mnav');
 if(mt&&mn){mt.addEventListener('click',()=>{const o=mn.classList.toggle('open');mt.textContent=o?'✕':'☰';});}
 </script>`;
 
+const HERO_BG = (a) => {
+  if (a === 'about') return 'about-hero.jpg';
+  if (['hv','lv','gb','gm','cyclo','tr'].includes(a)) return 'products-hero.jpg';
+  if (a && a.startsWith('data')) return 'warehouse.jpg';
+  return 'hero-plant.jpg';
+};
 const page = (title, active, heroTag, heroTitle, heroDesc, body, extraJs = '') => `<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -363,7 +369,7 @@ const page = (title, active, heroTag, heroTitle, heroDesc, body, extraJs = '') =
 </head>
 <body>
 ${NAV(active)}
-<div class="phero">
+<div class="phero" style="background-image:linear-gradient(100deg,rgba(10,18,48,.88) 30%,rgba(16,32,90,.55) 70%,rgba(16,32,90,.25)),url('../img/${HERO_BG(active)}')">
   <div class="wrap">
     <div class="tag">${heroTag}</div>
     <h1>${heroTitle}</h1>
@@ -419,124 +425,34 @@ function dimTable(t){
 }
 
 function buildCyclo(){
-  // load
-  const yang = ['yangchuk-seonjungpyo-6-13.json','yangchuk-seonjungpyo-15-21.json','yangchuk-seonjungpyo-25-43.json','yangchuk-seonjungpyo-51-87.json'].map(J);
-  const yang2 = J('yangchuk-2dan-yongryang.json');
-  const jik = ['jikgyeol-seonjungpyo-6-17.json','jikgyeol-seonjungpyo-21-51.json','jikgyeol-seonjungpyo-1247-3045.json','jikgyeol-seonjungpyo-3481-7569.json'].map(J);
-  const jik6 = J('jikgyeol-6geuk.json');
-  const dimJik = ['wr8-jikgyeol-supyeong-1dan.json','wr7-jikgyeol-supyeong-2dan.json','wr6-jikgyeol-sujik-1dan.json','wr5-jikgyeol-sujik-2dan.json'].map(J);
-  const dimYang = ['wr4-yangchuk-supyeong-1dan.json','wr3-yangchuk-supyeong-2dan.json','wr2-yangchuk-sujik-1dan.json','wr1-yangchuk-sujik-2dan.json'].map(J);
-
-  // ── panel: 전동기 직결형 (외형 치수)
-  let pJik = '';
-  for(const d of dimJik){
-    pJik += `<div class="sec-h"><h2>${esc(d.post)}</h2><p>외형 치수표 (단위: mm · 모터는 효성모터 기준)</p></div>`;
-    for(const t of d.tables){
-      pJik += `<div class="tbl-sec"><h3 style="font-size:17px">${esc(t.title)}</h3>${dimTable(t)}</div>`;
-    }
-  }
-  pJik += `<div class="note-box">외형 도면(치수 기호 그림)은 카탈로그 원본 이미지 업로드 후 추가됩니다. 치수 기호는 카탈로그 도면 기준입니다.</div>`;
-
-  // ── panel: 양축형 (외형 치수)
-  let pYang = '';
-  for(const d of dimYang){
-    pYang += `<div class="sec-h"><h2>양축형 ${esc(d.post).replace(' 전동기 직결형','')}</h2><p>외형 치수표 (단위: mm)</p></div>`;
-    for(const t of d.tables){
-      pYang += `<div class="tbl-sec"><h3 style="font-size:17px">${esc(t.title)}</h3>${dimTable(t)}</div>`;
-    }
-  }
-  pYang += `<div class="note-box">외형 도면(치수 기호 그림)은 카탈로그 원본 이미지 업로드 후 추가됩니다.</div>`;
-
-  // ── panel: 직결형 선정표
-  let pJikSel = '';
-  const jikChips = [];
-  for(const d of [...jik, jik6]){
-    for(const t of d.tables){
-      const id = 'js-' + t.title.replace(/[^0-9a-zA-Z가-힣]/g,'-');
-      jikChips.push(`<a href="#${id}">${esc(t.title)}${d===jik6?' (6극)':''}</a>`);
-    }
-  }
-  pJikSel += `<div class="subtabs">${jikChips.join('')}</div>`;
-  for(const d of [...jik, jik6]){
-    const is6 = d === jik6;
-    for(const t of d.tables){
-      const id = 'js-' + t.title.replace(/[^0-9a-zA-Z가-힣]/g,'-');
-      pJikSel += `<div class="tbl-sec" id="${id}"><h3>${esc(t.title)}${is6?' — 6극 전동기 직결형':''}</h3><div class="desc">전동기 직결형 선정표 · SFG = 서비스팩터</div>${selTable(t)}</div>`;
-    }
-  }
-  pJikSel += `<div class="note-box"><b>참고</b> — 2단 조합 감속비(1247~7569)의 형번은 4자리(예: F0807)로 1단×2단 조합을 나타냅니다. SFG "※"는 카탈로그 원본 표기입니다.</div>`;
-
-  // ── panel: 양축형 선정표 (용량표)
-  let pYangSel = '';
-  const yangChips = [];
-  for(const d of yang) for(const t of d.tables) yangChips.push(`<a href="#ys-${t.ratio}">감속비 ${t.ratio}</a>`);
-  yangChips.push(`<a href="#ys-2dan">2단형</a>`);
-  pYangSel += `<div class="subtabs">${yangChips.join('')}</div>`;
-  for(const d of yang){
-    for(const t of d.tables){
-      pYangSel += `<div class="tbl-sec" id="ys-${t.ratio}"><h3>감속비 ${t.ratio} — 1단형 허용전달 용량표</h3><div class="desc">입력회전수별 허용입력용량(kW) · 허용출력 TORQUE(Kgf·m)</div>${capacityTable(t)}</div>`;
-    }
-  }
-  pYangSel += `<div class="sec-h" id="ys-2dan"><h2>2단형 허용전달 용량표</h2><p>입력 1800rpm 기준 · 감속비 104~7569 (1단×2단 조합)</p></div>`;
-  for(const t of yang2.tables){
-    pYangSel += `<div class="tbl-sec"><h3 style="font-size:17px">${esc(t.part)}</h3>${twoStageTable(t)}</div>`;
-  }
-
   const body = `
-<div class="tabs" role="tablist">
-  <button class="on" data-t="all">전체</button>
-  <button data-t="jik">전동기 직결형</button>
-  <button data-t="yang">양축형</button>
-  <button data-t="jiksel">직결형 선정표</button>
-  <button data-t="yangsel">양축형 선정표</button>
+<div class="card reveal p-intro">
+  <div class="p-intro-txt">
+    <div class="p-en">CYCLO REDUCER</div>
+    <h2>고감속비 · 고내구성 싸이크로감속기</h2>
+    <p>전동기 직결형과 양축형 싸이크로감속기를 감속비별로 공급합니다. 부하 조건에 맞는 형번 선정부터 납품까지 —
+    원하는 감속비·동력·설치 방향만 알려주시면 선정표 기준으로 맞는 제품을 찾아드립니다.</p>
+  </div>
+  <div class="p-intro-img"><img src="img/cyclo-studio.jpg" alt="싸이크로감속기"></div>
 </div>
-<div id="panel-jik" data-p="jik"><div class="sec-h" style="margin-top:0"><h2 style="font-size:28px">전동기 직결형</h2></div>${pJik}</div>
-<div id="panel-yang" data-p="yang"><div class="sec-h"><h2 style="font-size:28px">양축형</h2></div>${pYang}</div>
-<div id="panel-jiksel" data-p="jiksel"><div class="sec-h"><h2 style="font-size:28px">직결형 선정표</h2></div>${pJikSel}</div>
-<div id="panel-yangsel" data-p="yangsel"><div class="sec-h"><h2 style="font-size:28px">양축형 선정표</h2></div>${pYangSel}</div>`;
 
-  const js = `<style>
-.tv-open{display:none}
-@media(max-width:760px){
- .tv-open{display:block;margin:10px 0 -6px auto;font-size:11.5px;padding:5px 13px;border:1px solid var(--line);border-radius:99px;background:#fff;color:var(--slate);cursor:pointer}
-}
-#tblov{position:fixed;inset:0;z-index:400;background:#fff;display:none;flex-direction:column}
-#tblov.open{display:flex}
-#tblov .tv-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:11.5px;color:var(--slate)}
-#tblov .tv-bar b{font-size:12.5px;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#tblov .tv-bar button{font-size:12.5px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:6px 12px;flex-shrink:0;cursor:pointer}
-#tblov .tv-body{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px}
-#tblov .tv-body table{min-width:max-content}
-</style><script>
-document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
-  document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on');
-  const t=b.dataset.t;
-  document.querySelectorAll('[data-p]').forEach(p=>{p.hidden = (t!=='all' && p.dataset.p!==t)});
-  window.scrollTo({top:0});
-}));
-// 모바일: 표 전체화면 보기
-if(matchMedia('(max-width:760px)').matches){
-  const ov=document.createElement('div');ov.id='tblov';
-  ov.innerHTML='<div class="tv-bar"><b id="tv-t"></b><button id="tv-x">✕ 닫기</button></div><div class="tv-body"></div>';
-  document.body.appendChild(ov);
-  const close=()=>{ov.classList.remove('open');document.body.style.overflow='';};
-  ov.querySelector('#tv-x').addEventListener('click',close);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
-  document.querySelectorAll('.tbl-wrap').forEach(w=>{
-    const sec=w.closest('.tbl-sec');
-    const title=sec?(sec.querySelector('h3')||{}).textContent||'':'';
-    const b=document.createElement('button');b.className='tv-open';b.textContent='⛶ 표 크게 보기';
-    b.addEventListener('click',()=>{
-      ov.querySelector('#tv-t').textContent=title;
-      ov.querySelector('.tv-body').innerHTML=w.innerHTML;
-      ov.classList.add('open');document.body.style.overflow='hidden';
-    });
-    w.parentNode.insertBefore(b,w);
-  });
-}
-</script>`;
-  writeFileSync(join(OUT,'cyclo.html'), page('싸이크로감속기','cyclo','Cyclo Reducer','싸이크로감속기','전동기 직결형 · 양축형 외형 치수와 감속비별 선정표·허용전달 용량표를 한눈에 확인하세요.',body,js));
+<div class="sec-h"><h2>특장점</h2></div>
+<div class="feat-grid">
+  <div class="card reveal feat"><h3>고감속비</h3><p>1단으로 큰 감속비를 구현하며, 2단 조합 시 최대 7,569:1까지 대응합니다.</p></div>
+  <div class="card reveal feat"><h3>고내구성</h3><p>싸이크로 치형의 구름 접촉 구조로 충격 부하에 강하고 수명이 깁니다.</p></div>
+  <div class="card reveal feat"><h3>컴팩트</h3><p>동급 감속비 대비 소형·경량으로 설치 공간을 절약합니다.</p></div>
+  <div class="card reveal feat"><h3>다양한 형식</h3><p>전동기 직결형·양축형, 수평·수직 설치 등 현장에 맞는 형식을 선택할 수 있습니다.</p></div>
+</div>
+
+<div class="card reveal" style="text-align:center;padding:56px 40px;margin-top:40px">
+  <h2 style="font-size:24px;font-weight:900">감속비·형번 선정이 필요하신가요?</h2>
+  <p style="color:var(--slate);margin:12px auto 0;max-width:56ch">부하 토크, 감속비, 설치 방향만 알려주세요. 선정표 기준으로 맞는 형번과 견적을 바로 안내해 드립니다.</p>
+  <div style="display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap">
+    <a class="dl-btn" href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')" style="font-size:15px;padding:11px 26px">📞 02-535-1571~2</a>
+    <a class="dl-btn" href="quote.html" style="font-size:15px;padding:11px 26px;background:var(--blue);color:#fff">견적 요청하기</a>
+  </div>
+</div>`;
+  writeFileSync(join(OUT,'cyclo.html'), page('싸이크로감속기','cyclo','Cyclo Reducer','싸이크로감속기','전동기 직결형 · 양축형 싸이크로감속기를 감속비별로 공급합니다.',body));
 }
 
 /* ───────────────────────── about page ───────────────────────── */
@@ -845,7 +761,7 @@ function buildProducts(){
   productPage({
     file:'product-hv.html', active:'hv', en:'HIGH VOLTAGE MOTOR', title:'고압전동기',
     heroDesc:'KS·IEC·NEMA 국제 규격에 대응하는 고압전동기 — 발전, 석유화학, 담수, 선박, 철강 등 산업 전반에 공급합니다.',
-    mainImg:'hv-main.png',
+    mainImg:'motor-studio.jpg',
     introTitle:'다양한 부하 조건에 최적화된 고압전동기',
     intro:'우수한 절연 시스템을 기반으로 발전소, Oil&Gas, 석유화학, 담수 플랜트, 선박, 철강 등 폭넓은 산업 현장에 적용되는 고압전동기를 공급합니다. 필요한 출력·전압·형식을 알려주시면 최적 사양을 안내해 드립니다.',
     features:[
@@ -942,7 +858,7 @@ function buildProducts(){
   productPage({
     file:'product-gm.html', active:'gm', en:'GEARED MOTOR', title:'기어드모터',
     heroDesc:'소형·경량·저소음 설계에 20,000시간 이상의 수명 — 시리즈별 기어드모터를 공급합니다.',
-    mainImg:'gm-main.jpg',
+    mainImg:'gm-studio.jpg',
     introTitle:'현장 요구에 맞춘 기어드모터 라인업',
     intro:'정밀한 설계로 소형·경량화된 기어드모터를 시리즈별로 공급합니다. 저소음, 20,000시간 이상의 긴 수명이 특징이며, 동력·감속비·취부방법만 알려주시면 맞는 제품을 선정해 드립니다.',
     features:[
