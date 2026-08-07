@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /admin.html
+Disallow: /light/
 Disallow: /hero3d-demo.html
 Disallow: /exploded3d-demo.html
 
