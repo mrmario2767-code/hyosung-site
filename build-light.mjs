@@ -821,7 +821,7 @@ function buildProducts(){
   productPage({
     file:'product-lv.html', active:'lv', en:'LOW VOLTAGE MOTOR', title:'저압전동기',
     heroDesc:'IEC·NEMA 규격의 프리미엄 효율 저압전동기 — 규격별 재고 확인과 빠른 납품이 가능합니다.',
-    mainImg:'lv-main.jpg',
+    mainImg:'lv-studio.jpg',
     introTitle:'프리미엄 효율의 친환경 저압전동기',
     intro:'혁신적인 철심 설계와 최적화된 권선 설계를 바탕으로 한 프리미엄 효율 저압전동기를 공급합니다. IEC·NEMA 등 국제 규격에 대응하며, 전폐형·플랜지형 등 다양한 형식의 규격별 재고 확인이 가능합니다.',
     features:[
@@ -850,7 +850,7 @@ function buildProducts(){
   productPage({
     file:'product-gearbox.html', active:'gb', en:'GEARBOX', title:'기어박스',
     heroDesc:'일반 산업기계부터 제철·발전·시멘트·석유화학 설비까지 — 용도에 맞는 기어박스를 공급합니다.',
-    mainImg:'gb-main.png',
+    mainImg:'gb-studio.jpg',
     introTitle:'현장 조건에 맞춘 기어박스 솔루션',
     intro:'최신 설계·해석 기술로 제작된 다양한 기어박스를 공급합니다. 일반 산업기계는 물론 제철, 발전, 시멘트, 고무, 석유·화학 설비까지 — 부하 조건과 설치 환경에 맞는 제품을 선정해 드립니다.',
     features:[
