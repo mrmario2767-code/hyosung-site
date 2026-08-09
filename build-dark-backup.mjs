@@ -15,29 +15,29 @@ html{scroll-behavior:smooth}
 body{font-family:'Noto Sans KR',sans-serif;color:var(--ink);background:#fff;line-height:1.65;overflow-x:hidden;word-break:keep-all}
 a{text-decoration:none;color:inherit}ul{list-style:none}
 .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
-header{position:sticky;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;left:0;right:0;z-index:100;background:rgba(10,18,48,.94);backdrop-filter:blur(14px)}
 header .hd{display:flex;align-items:center;justify-content:space-between;height:74px}
-.logo{display:flex;flex-direction:column;line-height:1;color:var(--space)}
+.logo{display:flex;flex-direction:column;line-height:1;color:#fff}
 .logo .lrow{display:flex;align-items:center;gap:9px}
 .logo .en{font-family:'Marcellus',serif;font-size:24px;letter-spacing:.05em}
-.logo .he{display:flex;flex-direction:column;gap:3px;font-family:'Outfit',sans-serif;font-size:9.5px;letter-spacing:.22em;color:var(--blue);font-weight:600}
-.logo .kr{display:flex;justify-content:space-between;font-size:13.5px;color:var(--space);margin-top:6px;font-weight:700}
+.logo .he{display:flex;flex-direction:column;gap:3px;font-family:'Outfit',sans-serif;font-size:9.5px;letter-spacing:.22em;color:var(--cyan);font-weight:600}
+.logo .kr{display:flex;justify-content:space-between;font-size:13.5px;color:#fff;margin-top:6px;font-weight:700}
 .logo .sub{font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:.42em;color:var(--cyan);margin-top:4px;font-weight:500}
 nav.gnb>ul{display:flex;gap:2px}
 nav.gnb>ul>li{position:relative}
-nav.gnb>ul>li>a{display:block;padding:11px 15px;font-weight:600;font-size:15px;color:#333C55;border-radius:99px;transition:.2s}
-nav.gnb>ul>li>a:hover,nav.gnb>ul>li>a.on{color:var(--blue);background:#EFF3FF}
-nav.gnb .dep2{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--line);box-shadow:0 16px 40px rgba(20,27,51,.12);border-radius:14px;min-width:160px;padding:8px;display:none}
+nav.gnb>ul>li>a{display:block;padding:11px 15px;font-weight:500;font-size:15px;color:rgba(255,255,255,.88);border-radius:99px;transition:.2s}
+nav.gnb>ul>li>a:hover,nav.gnb>ul>li>a.on{color:#fff;background:rgba(255,255,255,.10)}
+nav.gnb .dep2{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(13,21,54,.96);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:14px;min-width:160px;padding:8px;display:none}
 nav.gnb .dep2::before{content:"";position:absolute;left:-10px;right:-10px;top:-14px;height:14px}
 nav.gnb>ul>li:hover .dep2{display:block}
-nav.gnb .dep2 a{display:block;padding:9px 14px;font-size:14px;border-radius:8px;color:#4A5470;white-space:nowrap}
-nav.gnb .dep2 a:hover{background:#EFF3FF;color:var(--blue)}
+nav.gnb .dep2 a{display:block;padding:9px 14px;font-size:14px;border-radius:8px;color:rgba(255,255,255,.75);white-space:nowrap}
+nav.gnb .dep2 a:hover{background:rgba(255,255,255,.10);color:#fff}
 .cta-btn{font-weight:700;font-size:14.5px;padding:10px 24px;border-radius:99px;color:#fff;background:linear-gradient(135deg,var(--blue),var(--violet));box-shadow:0 6px 20px rgba(42,92,255,.35);transition:.25s}
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(42,92,255,.5)}
-.m-toggle{display:none;background:none;border:none;font-size:26px;color:var(--space);cursor:pointer}
+.m-toggle{display:none;background:none;border:none;font-size:26px;color:#fff;cursor:pointer}
 /* page hero */
-.phero{position:relative;background:linear-gradient(100deg,rgba(10,18,48,.88) 30%,rgba(16,32,90,.55) 70%,rgba(16,32,90,.25)),url('img/hero-plant.jpg') center 40%/cover no-repeat;color:#fff;padding:86px 0 68px;overflow:hidden}
-.phero::after{content:"";display:none}
+.phero{position:relative;background:radial-gradient(900px 460px at 80% 0%,rgba(122,92,255,.4),transparent 60%),radial-gradient(700px 400px at 10% 100%,rgba(43,217,229,.18),transparent 55%),linear-gradient(140deg,#0A1230 10%,#16246E 70%,#22348F 100%);color:#fff;padding:74px 0 58px;overflow:hidden}
+.phero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(255,255,255,.04) 56px),repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(255,255,255,.04) 56px)}
 .phero .wrap{position:relative;z-index:1}
 .phero .tag{font-family:'Outfit',sans-serif;font-size:13.5px;letter-spacing:.32em;font-weight:600;color:var(--cyan);text-transform:uppercase}
 .phero h1{font-size:clamp(30px,4vw,44px);font-weight:900;margin-top:10px;letter-spacing:-.01em}
@@ -112,11 +112,11 @@ table.board tbody tr:hover td{background:#F8FAFD}
 .cband .tel{font-family:'Outfit',sans-serif;font-size:clamp(32px,4vw,46px);font-weight:600;text-align:right;line-height:1.1}
 .cband .tel small{display:block;font-size:14px;letter-spacing:.3em;color:#BFF3F8;font-weight:500;margin-bottom:4px}
 .cband .sub{margin-top:10px;color:rgba(255,255,255,.85);font-size:14px;font-weight:300;text-align:right}
-footer{background:#F3F5F8;border-top:1px solid var(--line);color:#6B7280;font-size:13.5px;padding:42px 0}
-footer .f-logo{font-family:'Marcellus',serif;color:var(--space);font-size:19px;letter-spacing:.07em}
-footer .f-logo span{display:block;font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:.4em;color:var(--blue);margin-top:4px}
+footer{background:var(--space);color:#7E88A3;font-size:13.5px;padding:42px 0}
+footer .f-logo{font-family:'Marcellus',serif;color:#fff;font-size:19px;letter-spacing:.07em}
+footer .f-logo span{display:block;font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:.4em;color:var(--cyan);margin-top:4px}
 footer p{margin-top:13px;line-height:2;font-weight:300}
-footer .copy{margin-top:14px;color:#9AA3B0;font-size:12.5px}
+footer .copy{margin-top:14px;color:#4A5470;font-size:12.5px}
 .reveal{opacity:0;transform:translateY(30px);transition:.7s cubic-bezier(.2,.7,.3,1)}
 .reveal.on{opacity:1;transform:none}
 /* product pages */
@@ -143,10 +143,10 @@ footer .copy{margin-top:14px;color:#9AA3B0;font-size:12.5px}
 .lineup .luses{font-size:13.5px;color:var(--slate);margin-top:6px}
 .ltbl-t{font-weight:700;font-size:15px;margin-bottom:-4px}
 [hidden]{display:none!important}
-.mnav{display:none;position:fixed;top:74px;left:0;right:0;bottom:0;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);z-index:99;overflow-y:auto;padding:16px 26px 40px}
+.mnav{display:none;position:fixed;top:74px;left:0;right:0;bottom:0;background:rgba(10,18,48,.97);backdrop-filter:blur(12px);z-index:99;overflow-y:auto;padding:16px 26px 40px}
 .mnav.open{display:block}
-.mnav a{display:block;padding:14px 6px;font-size:16px;color:var(--ink);border-bottom:1px solid var(--line);font-weight:600}
-.mnav a.sub{padding-left:24px;font-size:14px;color:var(--slate);font-weight:400}
+.mnav a{display:block;padding:14px 6px;font-size:16px;color:#fff;border-bottom:1px solid rgba(255,255,255,.08);font-weight:500}
+.mnav a.sub{padding-left:24px;font-size:14px;color:rgba(255,255,255,.65);font-weight:400}
 .mnav .cta-btn{margin-top:18px;text-align:center;border-bottom:none}
 @media(max-width:960px){
  nav.gnb{display:none}.m-toggle{display:block}
@@ -223,20 +223,6 @@ footer .copy{margin-top:14px;color:#9AA3B0;font-size:12.5px}
  table.man .badge.lang{font-size:9.5px;padding:2px 6px}
  table.man .dl-btn{padding:4px 8px!important;font-size:11px!important}
 }
-
-/* floating quote button */
-.fab{position:fixed;right:26px;bottom:26px;z-index:150;display:flex;align-items:center;gap:0;height:56px;padding:0 18px;border-radius:99px;background:linear-gradient(135deg,#2A5CFF,#12206B);color:#fff;box-shadow:0 10px 30px rgba(18,32,107,.35);overflow:hidden;transition:.35s cubic-bezier(.2,.7,.3,1)}
-.fab .fab-ic{font-size:19px;line-height:1}
-.fab .fab-tx{max-width:0;opacity:0;white-space:nowrap;font-weight:700;font-size:14.5px;margin-left:0;transition:.35s cubic-bezier(.2,.7,.3,1)}
-.fab:hover{box-shadow:0 16px 40px rgba(42,92,255,.45);transform:translateY(-3px)}
-.fab:hover .fab-tx{max-width:80px;opacity:1;margin-left:9px}
-.fab .fab-ring{position:absolute;inset:0;border-radius:99px;border:2px solid rgba(255,255,255,.55);opacity:0;animation:fabring 2.6s ease-out infinite}
-@keyframes fabring{0%{transform:scale(.9);opacity:.7}70%{transform:scale(1.25);opacity:0}100%{opacity:0}}
-@media(max-width:760px){.fab{right:16px;bottom:16px;height:50px;padding:0 15px}.fab .fab-tx{max-width:70px;opacity:1;margin-left:8px;font-size:13px}.fab .fab-ring{display:none}}
-header{transition:box-shadow .3s}
-header.scrolled{box-shadow:0 4px 24px rgba(20,27,51,.08)}
-.reveal{opacity:0;transform:translateY(34px);transition:.8s cubic-bezier(.2,.7,.3,1)}
-.reveal.on{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1!important;transform:none!important}}
 `;
 
@@ -250,8 +236,8 @@ const NAV = (active = '') => `
     <nav class="gnb" aria-label="주 메뉴">
       <ul>
         <li><a href="about.html" class="${active==='about'?'on':''}">회사소개</a></li>
-        <li><a href="product-lv.html" class="${active==='hv'||active==='lv'?'on':''}">전동기</a>
-          <ul class="dep2"><li><a href="product-lv.html">저압전동기</a></li><li><a href="product-hv.html">고압전동기</a></li></ul></li>
+        <li><a href="product-hv.html" class="${active==='hv'||active==='lv'?'on':''}">전동기</a>
+          <ul class="dep2"><li><a href="product-hv.html">고압전동기</a></li><li><a href="product-lv.html">저압전동기</a></li></ul></li>
         <li><a href="product-gearbox.html" class="${active==='gb'||active==='gm'?'on':''}">기어드모터</a>
           <ul class="dep2"><li><a href="product-gearbox.html">기어박스</a></li><li><a href="product-gm.html">기어드모터</a></li></ul></li>
         <li><a href="cyclo.html" class="${active==='cyclo'?'on':''}">싸이크로감속기</a></li>
@@ -265,15 +251,15 @@ const NAV = (active = '') => `
           </ul></li>
       </ul>
     </nav>
-    <a class="cta-btn" href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')">📞 전화상담</a>
+    <a class="cta-btn" href="quote.html">견적요청</a>
     <button class="m-toggle" aria-label="메뉴 열기">☰</button>
   </div>
 </header>
 <nav class="mnav" id="mnav">
     <a href="about.html">회사소개</a>
-    <a href="product-lv.html">전동기</a>
-    <a href="product-lv.html" class="sub">— 저압전동기</a>
+    <a href="product-hv.html">전동기</a>
     <a href="product-hv.html" class="sub">— 고압전동기</a>
+    <a href="product-lv.html" class="sub">— 저압전동기</a>
     <a href="product-gearbox.html">기어드모터</a>
     <a href="product-gearbox.html" class="sub">— 기어박스</a>
     <a href="product-gm.html" class="sub">— 기어드모터</a>
@@ -284,7 +270,7 @@ const NAV = (active = '') => `
     <a href="data-manual.html" class="sub">— 제품 매뉴얼</a>
     <a href="notice.html" class="sub">— 공지사항</a>
     <a href="faq.html" class="sub">— 자주 묻는 질문</a>
-    <a class="cta-btn" href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')">📞 전화상담</a>
+    <a class="cta-btn" href="quote.html">견적요청</a>
   </nav>`;
 
 const CBAND = `
@@ -310,25 +296,13 @@ const FOOTER = `
     <p class="copy">Copyright © (주)효성중전기. All rights reserved.</p>
   </div>
 </footer>
-<a class="fab" href="quote.html" aria-label="견적요청">
-  <span class="fab-ring"></span>
-  <span class="fab-ic">✎</span>
-  <span class="fab-tx">견적요청</span>
-</a>
 <script>
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
-document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=((i%4)*90)+'ms';io.observe(el)});
-window.addEventListener('scroll',()=>{document.querySelector('header').classList.toggle('scrolled',scrollY>10)},{passive:true});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const mt=document.querySelector('.m-toggle'),mn=document.getElementById('mnav');
 if(mt&&mn){mt.addEventListener('click',()=>{const o=mn.classList.toggle('open');mt.textContent=o?'✕':'☰';});}
 </script>`;
 
-const HERO_BG = (a) => {
-  if (a === 'about') return 'hero-plant.jpg';
-  if (['hv','lv','gb','gm','cyclo','tr'].includes(a)) return 'products-hero.jpg';
-  if (a && a.startsWith('data')) return 'warehouse.jpg';
-  return 'hero-plant.jpg';
-};
 const page = (title, active, heroTag, heroTitle, heroDesc, body, extraJs = '') => `<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -389,7 +363,7 @@ const page = (title, active, heroTag, heroTitle, heroDesc, body, extraJs = '') =
 </head>
 <body>
 ${NAV(active)}
-<div class="phero" style="background-image:linear-gradient(100deg,rgba(10,18,48,.88) 30%,rgba(16,32,90,.55) 70%,rgba(16,32,90,.25)),url('img/${HERO_BG(active)}')">
+<div class="phero">
   <div class="wrap">
     <div class="tag">${heroTag}</div>
     <h1>${heroTitle}</h1>
@@ -445,34 +419,124 @@ function dimTable(t){
 }
 
 function buildCyclo(){
+  // load
+  const yang = ['yangchuk-seonjungpyo-6-13.json','yangchuk-seonjungpyo-15-21.json','yangchuk-seonjungpyo-25-43.json','yangchuk-seonjungpyo-51-87.json'].map(J);
+  const yang2 = J('yangchuk-2dan-yongryang.json');
+  const jik = ['jikgyeol-seonjungpyo-6-17.json','jikgyeol-seonjungpyo-21-51.json','jikgyeol-seonjungpyo-1247-3045.json','jikgyeol-seonjungpyo-3481-7569.json'].map(J);
+  const jik6 = J('jikgyeol-6geuk.json');
+  const dimJik = ['wr8-jikgyeol-supyeong-1dan.json','wr7-jikgyeol-supyeong-2dan.json','wr6-jikgyeol-sujik-1dan.json','wr5-jikgyeol-sujik-2dan.json'].map(J);
+  const dimYang = ['wr4-yangchuk-supyeong-1dan.json','wr3-yangchuk-supyeong-2dan.json','wr2-yangchuk-sujik-1dan.json','wr1-yangchuk-sujik-2dan.json'].map(J);
+
+  // ── panel: 전동기 직결형 (외형 치수)
+  let pJik = '';
+  for(const d of dimJik){
+    pJik += `<div class="sec-h"><h2>${esc(d.post)}</h2><p>외형 치수표 (단위: mm · 모터는 효성모터 기준)</p></div>`;
+    for(const t of d.tables){
+      pJik += `<div class="tbl-sec"><h3 style="font-size:17px">${esc(t.title)}</h3>${dimTable(t)}</div>`;
+    }
+  }
+  pJik += `<div class="note-box">외형 도면(치수 기호 그림)은 카탈로그 원본 이미지 업로드 후 추가됩니다. 치수 기호는 카탈로그 도면 기준입니다.</div>`;
+
+  // ── panel: 양축형 (외형 치수)
+  let pYang = '';
+  for(const d of dimYang){
+    pYang += `<div class="sec-h"><h2>양축형 ${esc(d.post).replace(' 전동기 직결형','')}</h2><p>외형 치수표 (단위: mm)</p></div>`;
+    for(const t of d.tables){
+      pYang += `<div class="tbl-sec"><h3 style="font-size:17px">${esc(t.title)}</h3>${dimTable(t)}</div>`;
+    }
+  }
+  pYang += `<div class="note-box">외형 도면(치수 기호 그림)은 카탈로그 원본 이미지 업로드 후 추가됩니다.</div>`;
+
+  // ── panel: 직결형 선정표
+  let pJikSel = '';
+  const jikChips = [];
+  for(const d of [...jik, jik6]){
+    for(const t of d.tables){
+      const id = 'js-' + t.title.replace(/[^0-9a-zA-Z가-힣]/g,'-');
+      jikChips.push(`<a href="#${id}">${esc(t.title)}${d===jik6?' (6극)':''}</a>`);
+    }
+  }
+  pJikSel += `<div class="subtabs">${jikChips.join('')}</div>`;
+  for(const d of [...jik, jik6]){
+    const is6 = d === jik6;
+    for(const t of d.tables){
+      const id = 'js-' + t.title.replace(/[^0-9a-zA-Z가-힣]/g,'-');
+      pJikSel += `<div class="tbl-sec" id="${id}"><h3>${esc(t.title)}${is6?' — 6극 전동기 직결형':''}</h3><div class="desc">전동기 직결형 선정표 · SFG = 서비스팩터</div>${selTable(t)}</div>`;
+    }
+  }
+  pJikSel += `<div class="note-box"><b>참고</b> — 2단 조합 감속비(1247~7569)의 형번은 4자리(예: F0807)로 1단×2단 조합을 나타냅니다. SFG "※"는 카탈로그 원본 표기입니다.</div>`;
+
+  // ── panel: 양축형 선정표 (용량표)
+  let pYangSel = '';
+  const yangChips = [];
+  for(const d of yang) for(const t of d.tables) yangChips.push(`<a href="#ys-${t.ratio}">감속비 ${t.ratio}</a>`);
+  yangChips.push(`<a href="#ys-2dan">2단형</a>`);
+  pYangSel += `<div class="subtabs">${yangChips.join('')}</div>`;
+  for(const d of yang){
+    for(const t of d.tables){
+      pYangSel += `<div class="tbl-sec" id="ys-${t.ratio}"><h3>감속비 ${t.ratio} — 1단형 허용전달 용량표</h3><div class="desc">입력회전수별 허용입력용량(kW) · 허용출력 TORQUE(Kgf·m)</div>${capacityTable(t)}</div>`;
+    }
+  }
+  pYangSel += `<div class="sec-h" id="ys-2dan"><h2>2단형 허용전달 용량표</h2><p>입력 1800rpm 기준 · 감속비 104~7569 (1단×2단 조합)</p></div>`;
+  for(const t of yang2.tables){
+    pYangSel += `<div class="tbl-sec"><h3 style="font-size:17px">${esc(t.part)}</h3>${twoStageTable(t)}</div>`;
+  }
+
   const body = `
-<div class="card reveal p-intro">
-  <div class="p-intro-txt">
-    <div class="p-en">CYCLO REDUCER</div>
-    <h2>고감속비 · 고내구성 싸이크로감속기</h2>
-    <p>전동기 직결형과 양축형 싸이크로감속기를 감속비별로 공급합니다. 부하 조건에 맞는 형번 선정부터 납품까지 —
-    원하는 감속비·동력·설치 방향만 알려주시면 선정표 기준으로 맞는 제품을 찾아드립니다.</p>
-  </div>
-  <div class="p-intro-img"><img src="img/cyclo-studio.jpg" alt="싸이크로감속기"></div>
+<div class="tabs" role="tablist">
+  <button class="on" data-t="all">전체</button>
+  <button data-t="jik">전동기 직결형</button>
+  <button data-t="yang">양축형</button>
+  <button data-t="jiksel">직결형 선정표</button>
+  <button data-t="yangsel">양축형 선정표</button>
 </div>
+<div id="panel-jik" data-p="jik"><div class="sec-h" style="margin-top:0"><h2 style="font-size:28px">전동기 직결형</h2></div>${pJik}</div>
+<div id="panel-yang" data-p="yang"><div class="sec-h"><h2 style="font-size:28px">양축형</h2></div>${pYang}</div>
+<div id="panel-jiksel" data-p="jiksel"><div class="sec-h"><h2 style="font-size:28px">직결형 선정표</h2></div>${pJikSel}</div>
+<div id="panel-yangsel" data-p="yangsel"><div class="sec-h"><h2 style="font-size:28px">양축형 선정표</h2></div>${pYangSel}</div>`;
 
-<div class="sec-h"><h2>특장점</h2></div>
-<div class="feat-grid">
-  <div class="card reveal feat"><h3>고감속비</h3><p>1단으로 큰 감속비를 구현하며, 2단 조합 시 최대 7,569:1까지 대응합니다.</p></div>
-  <div class="card reveal feat"><h3>고내구성</h3><p>싸이크로 치형의 구름 접촉 구조로 충격 부하에 강하고 수명이 깁니다.</p></div>
-  <div class="card reveal feat"><h3>컴팩트</h3><p>동급 감속비 대비 소형·경량으로 설치 공간을 절약합니다.</p></div>
-  <div class="card reveal feat"><h3>다양한 형식</h3><p>전동기 직결형·양축형, 수평·수직 설치 등 현장에 맞는 형식을 선택할 수 있습니다.</p></div>
-</div>
-
-<div class="card reveal" style="text-align:center;padding:56px 40px;margin-top:40px">
-  <h2 style="font-size:24px;font-weight:900">감속비·형번 선정이 필요하신가요?</h2>
-  <p style="color:var(--slate);margin:12px auto 0;max-width:56ch">부하 토크, 감속비, 설치 방향만 알려주세요. 선정표 기준으로 맞는 형번과 견적을 바로 안내해 드립니다.</p>
-  <div style="display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap">
-    <a class="dl-btn" href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')" style="font-size:15px;padding:11px 26px">📞 02-535-1571~2</a>
-    <a class="dl-btn" href="quote.html" style="font-size:15px;padding:11px 26px;background:var(--blue);color:#fff">견적 요청하기</a>
-  </div>
-</div>`;
-  writeFileSync(join(OUT,'cyclo.html'), page('싸이크로감속기','cyclo','Cyclo Reducer','싸이크로감속기','전동기 직결형 · 양축형 싸이크로감속기를 감속비별로 공급합니다.',body));
+  const js = `<style>
+.tv-open{display:none}
+@media(max-width:760px){
+ .tv-open{display:block;margin:10px 0 -6px auto;font-size:11.5px;padding:5px 13px;border:1px solid var(--line);border-radius:99px;background:#fff;color:var(--slate);cursor:pointer}
+}
+#tblov{position:fixed;inset:0;z-index:400;background:#fff;display:none;flex-direction:column}
+#tblov.open{display:flex}
+#tblov .tv-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:11.5px;color:var(--slate)}
+#tblov .tv-bar b{font-size:12.5px;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#tblov .tv-bar button{font-size:12.5px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:6px 12px;flex-shrink:0;cursor:pointer}
+#tblov .tv-body{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px}
+#tblov .tv-body table{min-width:max-content}
+</style><script>
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  const t=b.dataset.t;
+  document.querySelectorAll('[data-p]').forEach(p=>{p.hidden = (t!=='all' && p.dataset.p!==t)});
+  window.scrollTo({top:0});
+}));
+// 모바일: 표 전체화면 보기
+if(matchMedia('(max-width:760px)').matches){
+  const ov=document.createElement('div');ov.id='tblov';
+  ov.innerHTML='<div class="tv-bar"><b id="tv-t"></b><button id="tv-x">✕ 닫기</button></div><div class="tv-body"></div>';
+  document.body.appendChild(ov);
+  const close=()=>{ov.classList.remove('open');document.body.style.overflow='';};
+  ov.querySelector('#tv-x').addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+  document.querySelectorAll('.tbl-wrap').forEach(w=>{
+    const sec=w.closest('.tbl-sec');
+    const title=sec?(sec.querySelector('h3')||{}).textContent||'':'';
+    const b=document.createElement('button');b.className='tv-open';b.textContent='⛶ 표 크게 보기';
+    b.addEventListener('click',()=>{
+      ov.querySelector('#tv-t').textContent=title;
+      ov.querySelector('.tv-body').innerHTML=w.innerHTML;
+      ov.classList.add('open');document.body.style.overflow='hidden';
+    });
+    w.parentNode.insertBefore(b,w);
+  });
+}
+</script>`;
+  writeFileSync(join(OUT,'cyclo.html'), page('싸이크로감속기','cyclo','Cyclo Reducer','싸이크로감속기','전동기 직결형 · 양축형 외형 치수와 감속비별 선정표·허용전달 용량표를 한눈에 확인하세요.',body,js));
 }
 
 /* ───────────────────────── about page ───────────────────────── */
@@ -781,7 +845,7 @@ function buildProducts(){
   productPage({
     file:'product-hv.html', active:'hv', en:'HIGH VOLTAGE MOTOR', title:'고압전동기',
     heroDesc:'KS·IEC·NEMA 국제 규격에 대응하는 고압전동기 — 발전, 석유화학, 담수, 선박, 철강 등 산업 전반에 공급합니다.',
-    mainImg:'motor-studio.jpg',
+    mainImg:'hv-main.png',
     introTitle:'다양한 부하 조건에 최적화된 고압전동기',
     intro:'우수한 절연 시스템을 기반으로 발전소, Oil&Gas, 석유화학, 담수 플랜트, 선박, 철강 등 폭넓은 산업 현장에 적용되는 고압전동기를 공급합니다. 필요한 출력·전압·형식을 알려주시면 최적 사양을 안내해 드립니다.',
     features:[
@@ -821,7 +885,7 @@ function buildProducts(){
   productPage({
     file:'product-lv.html', active:'lv', en:'LOW VOLTAGE MOTOR', title:'저압전동기',
     heroDesc:'IEC·NEMA 규격의 프리미엄 효율 저압전동기 — 규격별 재고 확인과 빠른 납품이 가능합니다.',
-    mainImg:'lv-studio.jpg',
+    mainImg:'lv-main.jpg',
     introTitle:'프리미엄 효율의 친환경 저압전동기',
     intro:'혁신적인 철심 설계와 최적화된 권선 설계를 바탕으로 한 프리미엄 효율 저압전동기를 공급합니다. IEC·NEMA 등 국제 규격에 대응하며, 전폐형·플랜지형 등 다양한 형식의 규격별 재고 확인이 가능합니다.',
     features:[
@@ -850,7 +914,7 @@ function buildProducts(){
   productPage({
     file:'product-gearbox.html', active:'gb', en:'GEARBOX', title:'기어박스',
     heroDesc:'일반 산업기계부터 제철·발전·시멘트·석유화학 설비까지 — 용도에 맞는 기어박스를 공급합니다.',
-    mainImg:'gb-studio.jpg',
+    mainImg:'gb-main.png',
     introTitle:'현장 조건에 맞춘 기어박스 솔루션',
     intro:'최신 설계·해석 기술로 제작된 다양한 기어박스를 공급합니다. 일반 산업기계는 물론 제철, 발전, 시멘트, 고무, 석유·화학 설비까지 — 부하 조건과 설치 환경에 맞는 제품을 선정해 드립니다.',
     features:[
@@ -878,7 +942,7 @@ function buildProducts(){
   productPage({
     file:'product-gm.html', active:'gm', en:'GEARED MOTOR', title:'기어드모터',
     heroDesc:'소형·경량·저소음 설계에 20,000시간 이상의 수명 — 시리즈별 기어드모터를 공급합니다.',
-    mainImg:'gm-studio.jpg',
+    mainImg:'gm-main.jpg',
     introTitle:'현장 요구에 맞춘 기어드모터 라인업',
     intro:'정밀한 설계로 소형·경량화된 기어드모터를 시리즈별로 공급합니다. 저소음, 20,000시간 이상의 긴 수명이 특징이며, 동력·감속비·취부방법만 알려주시면 맞는 제품을 선정해 드립니다.',
     features:[
@@ -1624,34 +1688,16 @@ async function delRow(table,id,cb){if(!confirm('삭제할까요?'))return;await 
 
 function buildTransformer(){
   const body = `
-<div class="card reveal p-intro">
-  <div class="p-intro-txt">
-    <div class="p-en">TRANSFORMER</div>
-    <h2>용량별 변압기 공급 및 교체 상담</h2>
-    <p>배전용 몰드변압기부터 유입변압기까지, 현장에 맞는 용량과 형식의 변압기를 공급합니다.
-    신설은 물론 노후 변압기 교체 상담도 가능합니다 — 기존 변압기 명판 사진만 보내주시면
-    동일 사양 또는 대체 가능한 제품으로 견적을 드립니다.</p>
-  </div>
-  <div class="p-intro-img"><img src="img/tr-studio.jpg" alt="변압기"></div>
-</div>
-
-<div class="sec-h"><h2>특장점</h2></div>
-<div class="feat-grid">
-  <div class="card reveal feat"><h3>다양한 용량 대응</h3><p>소용량 배전용부터 산업용 대용량까지, 현장 부하에 맞는 용량을 선정해 드립니다.</p></div>
-  <div class="card reveal feat"><h3>저손실 · 고효율</h3><p>저손실 설계 제품 위주로 공급해 전력 비용과 발열 부담을 줄입니다.</p></div>
-  <div class="card reveal feat"><h3>폭넓은 적용 분야</h3><p>공장, 빌딩, 수처리시설, 플랜트 등 산업 전반의 수배전 설비에 적용됩니다.</p></div>
-  <div class="card reveal feat"><h3>교체 상담</h3><p>노후 변압기 진단부터 대체 형식 선정, 납품까지 전 과정을 안내해 드립니다.</p></div>
-</div>
-
-<div class="card reveal" style="text-align:center;padding:56px 40px;margin-top:40px">
-  <h2 style="font-size:24px;font-weight:900">변압기 용량·형식 선정이 필요하신가요?</h2>
-  <p style="color:var(--slate);margin:12px auto 0;max-width:56ch">필요한 용량과 용도, 또는 기존 변압기 명판 사진만 알려주세요. 확인 후 바로 견적을 안내해 드립니다.</p>
-  <div style="display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap">
+<div class="card reveal" style="text-align:center;padding:80px 40px">
+  <div style="font-size:52px;margin-bottom:18px">⚡</div>
+  <h2 style="font-size:26px;font-weight:900">변압기 페이지는 준비 중입니다</h2>
+  <p style="color:var(--slate);margin:14px auto 0;max-width:52ch">제품 자료를 준비하고 있어요. 변압기가 필요하시면 용량과 사양만 알려주세요 — 재고 확인 후 바로 견적을 안내해 드립니다.</p>
+  <div style="display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap">
     <a class="dl-btn" href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')" style="font-size:15px;padding:11px 26px">📞 02-535-1571~2</a>
     <a class="dl-btn" href="quote.html" style="font-size:15px;padding:11px 26px;background:var(--blue);color:#fff">견적 요청하기</a>
   </div>
 </div>`;
-  writeFileSync(join(OUT,'product-transformer.html'), page('변압기','tr','Transformer','변압기','배전용 몰드변압기부터 유입변압기까지 — 용량별 공급 및 교체 상담이 가능합니다.',body));
+  writeFileSync(join(OUT,'product-transformer.html'), page('변압기','tr','Transformer','변압기','용량별 변압기 공급 및 교체 상담 — 페이지 준비 중입니다.',body));
 }
 
 /* ───────────────────────── run ───────────────────────── */

@@ -3,278 +3,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="naver-site-verification" content="01d5a36352a9de1769c2832da8976b95ee1ffa03" />
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<meta name="naver-site-verification" content="01d5a36352a9de1769c2832da8976b95ee1ffa03" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="shortcut icon" href="favicon.ico">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="(주)효성중전기">
 <meta property="og:title" content="(주)효성중전기 — 전동기 · 기어드모터 · 싸이크로감속기 · 변압기">
-<meta property="og:description" content="산업용 동력·전력 설비 전문기업. 고압·저압 전동기, 기어드모터, 싸이크로감속기, 변압기를 정확한 사양으로 공급합니다.">
+<meta property="og:description" content="산업용 동력·전력 설비 전문기업. 저압·고압 전동기, 기어드모터, 싸이크로감속기, 변압기를 정확한 사양으로 공급합니다.">
 <meta property="og:image" content="https://hyosung-site.pages.dev/img/og.png">
 <meta property="og:url" content="https://hyosung-site.pages.dev/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="google-site-verification" content="XbCmtvutlhDihJ6a1m2OTd1XFSjAwuv-JUax5Q9G1LI" />
+<meta name="description" content="(주)효성중전기 — 저압·고압 전동기, 기어드모터, 싸이크로감속기, 변압기 공급. 규격별 재고 확인 및 전국 납품.">
 <title>(주)효성중전기 — 전동기 · 기어드모터 · 싸이크로감속기 · 변압기</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --space:#0A1230;
-  --space2:#101A42;
-  --blue:#2A5CFF;
-  --violet:#7A5CFF;
-  --cyan:#2BD9E5;
-  --ink:#141B33;
-  --slate:#5A6480;
-  --cloud:#F5F7FB;
-  --line:#E3E7F0;
-  --white:#fff;
-}
+:root{--space:#0A1230;--navy:#12206B;--blue:#2A5CFF;--ink:#141B33;--slate:#5A6480;--cloud:#F5F7FB;--line:#E3E7F0}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Noto Sans KR',sans-serif;color:var(--ink);background:#fff;line-height:1.65;overflow-x:hidden;word-break:keep-all}
-a{text-decoration:none;color:inherit}
-ul{list-style:none}
+a{text-decoration:none;color:inherit}ul{list-style:none}
 .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
-.en-d{font-family:'Outfit','Noto Sans KR',sans-serif}
 
-/* ───────── header ───────── */
-header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.35s;padding:0}
+/* header */
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 header .hd{display:flex;align-items:center;justify-content:space-between;height:76px}
-header.solid{background:rgba(10,18,48,.92);backdrop-filter:blur(14px);box-shadow:0 2px 24px rgba(6,10,30,.25)}
-.logo{display:flex;flex-direction:column;line-height:1;color:#fff}
-.logo .en{font-family:'Marcellus',serif;font-size:25px;letter-spacing:.05em}
+.logo{display:flex;flex-direction:column;line-height:1;color:var(--space)}
 .logo .lrow{display:flex;align-items:center;gap:9px}
-.logo .he{display:flex;flex-direction:column;gap:3px;font-family:'Outfit',sans-serif;font-size:9.5px;letter-spacing:.22em;color:var(--cyan);font-weight:600}
-.logo .kr{display:flex;justify-content:space-between;font-size:13.5px;color:#fff;margin-top:6px;font-weight:700}
-.logo .sub{font-family:'Outfit',sans-serif;font-size:10.5px;letter-spacing:.42em;color:var(--cyan);margin-top:4px;font-weight:500}
+.logo .en{font-family:'Marcellus',serif;font-size:24px;letter-spacing:.05em}
+.logo .he{display:flex;flex-direction:column;gap:3px;font-family:'Outfit',sans-serif;font-size:9.5px;letter-spacing:.22em;color:var(--blue);font-weight:600}
+.logo .kr{display:flex;justify-content:space-between;font-size:13.5px;margin-top:6px;font-weight:700}
 nav.gnb>ul{display:flex;gap:2px}
 nav.gnb>ul>li{position:relative}
-nav.gnb>ul>li>a{display:block;padding:12px 16px;font-weight:500;font-size:15.5px;color:rgba(255,255,255,.88);border-radius:99px;transition:.2s}
-nav.gnb>ul>li>a:hover{color:#fff;background:rgba(255,255,255,.10)}
-nav.gnb .dep2{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(13,21,54,.96);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:14px;min-width:160px;padding:8px;display:none}
+nav.gnb>ul>li>a{display:block;padding:11px 15px;font-weight:600;font-size:15px;color:#333C55;border-radius:99px;transition:.2s}
+nav.gnb>ul>li>a:hover{color:var(--blue);background:#EFF3FF}
+nav.gnb .dep2{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--line);box-shadow:0 16px 40px rgba(20,27,51,.12);border-radius:14px;min-width:160px;padding:8px;display:none}
 nav.gnb .dep2::before{content:"";position:absolute;left:-10px;right:-10px;top:-14px;height:14px}
 nav.gnb>ul>li:hover .dep2{display:block}
-nav.gnb .dep2 a{display:block;padding:9px 14px;font-size:14px;border-radius:8px;color:rgba(255,255,255,.75)}
-nav.gnb .dep2 a:hover{background:rgba(255,255,255,.10);color:#fff}
-.cta-btn{font-weight:700;font-size:15px;padding:11px 26px;border-radius:99px;color:#fff;background:linear-gradient(135deg,var(--blue),var(--violet));box-shadow:0 6px 20px rgba(42,92,255,.35);transition:.25s}
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(42,92,255,.5)}
-.m-toggle{display:none;background:none;border:none;font-size:26px;color:#fff;cursor:pointer}
+nav.gnb .dep2 a{display:block;padding:9px 14px;font-size:14px;border-radius:8px;color:#4A5470;white-space:nowrap}
+nav.gnb .dep2 a:hover{background:#EFF3FF;color:var(--blue)}
+.tel-pill{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit','Noto Sans KR',sans-serif;font-weight:600;font-size:15px;padding:10px 22px;border-radius:99px;color:#fff;background:var(--navy);transition:.25s}
+.tel-pill:hover{background:var(--blue)}
+.m-toggle{display:none;background:none;border:none;font-size:26px;color:var(--space);cursor:pointer}
+.mnav{display:none;position:fixed;top:76px;left:0;right:0;bottom:0;background:rgba(255,255,255,.98);z-index:99;overflow-y:auto;padding:16px 26px 40px}
+.mnav.open{display:block}
+.mnav a{display:block;padding:14px 6px;font-size:16px;color:var(--ink);border-bottom:1px solid var(--line);font-weight:600}
+.mnav a.sub{padding-left:24px;font-size:14px;color:var(--slate);font-weight:400}
 
-/* ───────── hero ───────── */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:
-  radial-gradient(1200px 700px at 78% 18%,rgba(122,92,255,.55),transparent 60%),
-  radial-gradient(900px 600px at 12% 85%,rgba(43,217,229,.28),transparent 55%),
-  linear-gradient(150deg,#0A1230 0%,#12206B 48%,#2740B8 100%);
-  color:#fff;overflow:hidden}
-.hero::after{content:"";position:absolute;inset:0;background:
-  repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(255,255,255,.035) 56px),
-  repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(255,255,255,.035) 56px)}
-.cube{position:absolute;border-radius:18px;border:1px solid rgba(255,255,255,.28);
-  background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.02));
-  backdrop-filter:blur(3px);animation:float 9s ease-in-out infinite}
-.cube.c1{width:150px;height:150px;right:14%;top:16%;transform:rotate(14deg)}
-.cube.c2{width:90px;height:90px;right:29%;top:44%;transform:rotate(-10deg);animation-delay:-3s}
-.cube.c3{width:210px;height:210px;right:5%;bottom:12%;transform:rotate(7deg);animation-delay:-5s}
-.cube.c4{width:60px;height:60px;right:42%;top:24%;transform:rotate(20deg);animation-delay:-7s}
-.cube.c5{width:120px;height:120px;left:6%;bottom:20%;transform:rotate(-14deg);animation-delay:-2s;opacity:.6}
-@keyframes float{0%,100%{margin-top:0}50%{margin-top:-26px}}
-.hero .wrap{position:relative;z-index:2;padding-top:130px;padding-bottom:110px}
-.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Outfit',sans-serif;font-size:14px;letter-spacing:.3em;font-weight:500;color:var(--cyan);margin-bottom:26px}
-.hero .eyebrow::before{content:"";width:34px;height:1.5px;background:var(--cyan)}
-.hero h1{font-family:'Outfit','Noto Sans KR',sans-serif;font-weight:600;font-size:clamp(44px,7vw,88px);line-height:1.08;letter-spacing:-.015em}
-.hero h1 .l2{display:block;margin-left:.9em}
-.hero h1 .l3{display:block;margin-left:.35em;background:linear-gradient(90deg,#8FB0FF,#2BD9E5);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p.lead{margin:30px 0 0 .2em;font-size:clamp(16px,1.6vw,20px);font-weight:300;color:rgba(255,255,255,.85);max-width:56ch}
-.hero p.lead b{font-weight:700;color:#fff}
-.hero .btns{display:flex;gap:14px;margin:42px 0 0 .2em;flex-wrap:wrap}
-.btn-glass{font-weight:500;font-size:15px;padding:13px 28px;border-radius:99px;color:#fff;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);backdrop-filter:blur(6px);transition:.25s}
-.btn-glass:hover{background:rgba(255,255,255,.18)}
-.hero .quick{display:flex;gap:34px;margin:64px 0 0 .2em;flex-wrap:wrap}
-.hero .quick>div{border-left:2px solid rgba(43,217,229,.7);padding-left:14px}
-.hero .quick .t{font-size:12.5px;color:rgba(255,255,255,.6);letter-spacing:.1em}
-.hero .quick .v{font-family:'Outfit',sans-serif;font-size:23px;font-weight:600;letter-spacing:.01em}
-.scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.6);font-size:20px;animation:hint 2s ease-in-out infinite}
-@keyframes hint{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
-/* load animation */
-.rise{opacity:0;transform:translateY(34px);animation:rise .9s cubic-bezier(.2,.7,.3,1) forwards}
-.rise.d1{animation-delay:.15s}.rise.d2{animation-delay:.3s}.rise.d3{animation-delay:.45s}.rise.d4{animation-delay:.6s}
-@keyframes rise{to{opacity:1;transform:none}}
+/* hero */
+.hero{position:relative;height:78vh;min-height:520px;display:flex;align-items:center;color:#fff;overflow:hidden;
+  background:linear-gradient(100deg,rgba(7,13,36,.72) 25%,rgba(10,18,48,.42) 60%,rgba(10,18,48,.15)),url('img/about-hero.jpg') center/cover no-repeat}
+.hero .wrap>*{opacity:0;transform:translateY(28px);animation:heroRise .9s cubic-bezier(.2,.7,.3,1) forwards}
+.hero .wrap>*:nth-child(2){animation-delay:.15s}
+.hero .wrap>*:nth-child(3){animation-delay:.3s}
+.hero .wrap>*:nth-child(4){animation-delay:.45s}
+@keyframes heroRise{to{opacity:1;transform:none}}
+.hero .eyebrow{font-family:'Outfit',sans-serif;font-size:13.5px;letter-spacing:.32em;font-weight:600;color:#9DE8EF;margin-bottom:18px}
+.hero h1{font-family:'Outfit','Noto Sans KR',sans-serif;font-size:clamp(34px,4.6vw,58px);font-weight:600;line-height:1.15;letter-spacing:-.01em}
+.hero p{margin-top:16px;font-size:clamp(15px,1.5vw,18px);font-weight:300;color:rgba(255,255,255,.88);max-width:52ch}
+.hero .btns{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.btn-solid{font-weight:700;font-size:15px;padding:13px 30px;border-radius:99px;color:#fff;background:var(--blue);transition:.25s}
+.btn-solid:hover{background:#1D47D6}
+.btn-line{font-weight:500;font-size:15px;padding:13px 30px;border-radius:99px;color:#fff;border:1.5px solid rgba(255,255,255,.6);transition:.25s}
+.btn-line:hover{background:rgba(255,255,255,.15)}
 
-/* ───────── section common ───────── */
-section{padding:100px 0}
-.sec-head{text-align:center;margin-bottom:56px}
-.sec-head .tag{font-family:'Outfit',sans-serif;font-size:14px;letter-spacing:.34em;font-weight:600;color:var(--blue);text-transform:uppercase}
-.sec-head h2{font-size:clamp(30px,3.4vw,42px);font-weight:900;letter-spacing:-.01em;margin-top:10px}
-.sec-head h2 .hl{position:relative;z-index:1}
-.sec-head h2 .hl::after{content:"";position:absolute;left:-2%;right:-2%;bottom:6%;height:34%;background:linear-gradient(90deg,rgba(42,92,255,.18),rgba(43,217,229,.28));z-index:-1}
-.sec-head p{color:var(--slate);margin-top:14px;font-size:16.5px}
-.reveal{opacity:0;transform:translateY(40px);transition:.8s cubic-bezier(.2,.7,.3,1)}
+/* section common */
+section{padding:96px 0}
+.sec-head{margin-bottom:44px}
+.sec-head .tag{font-family:'Outfit',sans-serif;font-size:13px;letter-spacing:.3em;font-weight:600;color:var(--blue);text-transform:uppercase}
+.sec-head h2{font-size:clamp(26px,3vw,36px);font-weight:900;margin-top:8px;color:var(--space)}
+.sec-head p{color:var(--slate);margin-top:10px;font-size:16px}
+
+/* products */
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:6px;padding:26px 24px;transition:.25s;display:flex;flex-direction:column}
+.pcard:hover{border-color:var(--blue);box-shadow:0 18px 40px rgba(20,27,51,.10);transform:translateY(-4px)}
+.pcard .en{font-family:'Outfit',sans-serif;font-size:11.5px;letter-spacing:.18em;color:#98A2B8;font-weight:600;text-transform:uppercase}
+.pcard .ph{height:210px;margin:16px 0;border-radius:4px;overflow:hidden;background:#EEF0F4}
+.pcard .ph img{width:100%;height:100%;object-fit:cover;transition:.35s}
+.pcard:hover .ph img{transform:scale(1.04)}
+.pcard h3{font-size:20px;font-weight:900;color:var(--space)}
+.pcard p{font-size:13.5px;color:var(--slate);margin-top:8px;flex:1}
+.pcard .go{margin-top:16px;font-size:13.5px;font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:6px}
+.pcard .go::after{content:"→";transition:.25s}
+.pcard:hover .go::after{transform:translateX(4px)}
+
+/* factory band */
+.band{position:relative;color:#fff;background:linear-gradient(90deg,rgba(7,13,36,.82) 30%,rgba(7,13,36,.35)),url('img/factory-line.jpg') center/cover no-repeat;padding:110px 0}
+@media(min-width:961px){.band{background-attachment:fixed,fixed}}
+.band h2{font-size:clamp(26px,3.2vw,40px);font-weight:900;line-height:1.3}
+.band p{margin-top:14px;color:rgba(255,255,255,.85);font-weight:300;max-width:58ch;font-size:15.5px}
+.band .stats{display:flex;gap:44px;margin-top:38px;flex-wrap:wrap}
+.band .stats .v{font-family:'Outfit',sans-serif;font-size:34px;font-weight:600}
+.band .stats .t{font-size:13px;color:rgba(255,255,255,.65);margin-top:2px}
+
+/* data room */
+.data-sec{background:var(--cloud)}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.dblock{position:relative;background:var(--navy);color:#fff;border-radius:6px;padding:38px 40px;transition:.25s;overflow:hidden}
+.dblock:hover{background:#1A2E8F}
+.dblock h3{font-size:21px;font-weight:900}
+.dblock p{margin-top:8px;font-size:14px;color:rgba(255,255,255,.75)}
+.dblock .ic{position:absolute;right:34px;top:50%;transform:translateY(-50%);font-size:40px;opacity:.5}
+
+/* boards + contact */
+.info-sec .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px}
+.info-sec h3{font-family:'Outfit','Noto Sans KR',sans-serif;font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.04em;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
+.info-sec h3 a{font-size:13px;color:var(--slate);font-weight:500;border:1px solid var(--line);border-radius:99px;padding:5px 14px}
+.info-sec h3 a:hover{color:var(--blue);border-color:var(--blue)}
+.nlist li{border-bottom:1px solid var(--line)}
+.nlist li a{display:flex;justify-content:space-between;gap:16px;padding:13px 2px;font-size:15px}
+.nlist li a:hover{color:var(--blue)}
+.nlist .date{color:#9AA3B8;font-size:13px;white-space:nowrap;font-family:'Outfit',sans-serif}
+.big-tel{font-family:'Outfit',sans-serif;font-size:clamp(38px,4.5vw,54px);font-weight:700;color:var(--space);line-height:1.1;letter-spacing:-.01em}
+.c-rows{margin-top:22px;display:grid;gap:10px;font-size:15px}
+.c-rows .r{display:flex;gap:18px}
+.c-rows .k{width:64px;color:#98A2B8;font-weight:700;font-size:13.5px;padding-top:2px}
+.c-rows a:hover{color:var(--blue)}
+
+/* floating quote button */
+.fab{position:fixed;right:26px;bottom:26px;z-index:150;display:flex;align-items:center;height:56px;padding:0 18px;border-radius:99px;background:linear-gradient(135deg,#2A5CFF,#12206B);color:#fff;box-shadow:0 10px 30px rgba(18,32,107,.35);overflow:hidden;transition:.35s cubic-bezier(.2,.7,.3,1)}
+.fab .fab-ic{font-size:19px;line-height:1}
+.fab .fab-tx{max-width:0;opacity:0;white-space:nowrap;font-weight:700;font-size:14.5px;margin-left:0;transition:.35s cubic-bezier(.2,.7,.3,1)}
+.fab:hover{box-shadow:0 16px 40px rgba(42,92,255,.45);transform:translateY(-3px)}
+.fab:hover .fab-tx{max-width:80px;opacity:1;margin-left:9px}
+.fab .fab-ring{position:absolute;inset:0;border-radius:99px;border:2px solid rgba(255,255,255,.55);opacity:0;animation:fabring 2.6s ease-out infinite}
+@keyframes fabring{0%{transform:scale(.9);opacity:.7}70%{transform:scale(1.25);opacity:0}100%{opacity:0}}
+@media(max-width:760px){.fab{right:16px;bottom:16px;height:50px;padding:0 15px}.fab .fab-tx{max-width:70px;opacity:1;margin-left:8px;font-size:13px}.fab .fab-ring{display:none}}
+header{transition:box-shadow .3s}
+header.scrolled{box-shadow:0 4px 24px rgba(20,27,51,.08)}
+
+/* footer */
+footer{background:#F3F5F8;border-top:1px solid var(--line);color:#6B7280;font-size:13.5px;padding:42px 0}
+footer .f-logo{font-family:'Marcellus',serif;color:var(--space);font-size:19px;letter-spacing:.07em}
+footer .f-logo span{display:block;font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:.4em;color:var(--blue);margin-top:4px}
+footer p{margin-top:13px;line-height:2;font-weight:300}
+footer .copy{margin-top:14px;color:#9AA3B0;font-size:12.5px}
+
+.reveal{opacity:0;transform:translateY(30px);transition:.7s cubic-bezier(.2,.7,.3,1)}
 .reveal.on{opacity:1;transform:none}
 
-/* ───────── products ───────── */
-.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.prod{position:relative;border-radius:20px;padding:34px 28px 30px;min-height:290px;display:flex;flex-direction:column;color:#fff;overflow:hidden;transition:.3s;
-  background:linear-gradient(160deg,#18244F 0%,#0A1230 70%)}
-.prod::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 260px at 85% -10%,rgba(122,92,255,.5),transparent 60%);opacity:.7;transition:.3s}
-.prod:nth-child(2)::before{background:radial-gradient(420px 260px at 85% -10%,rgba(42,92,255,.55),transparent 60%)}
-.prod:nth-child(3)::before{background:radial-gradient(420px 260px at 85% -10%,rgba(43,217,229,.4),transparent 60%)}
-.prod:nth-child(4)::before{background:radial-gradient(420px 260px at 85% -10%,rgba(143,176,255,.45),transparent 60%)}
-.prod:hover{transform:translateY(-8px);box-shadow:0 24px 44px rgba(10,18,48,.35)}
-.prod:hover::before{opacity:1}
-.prod .ic{position:relative;z-index:1;width:54px;height:54px;border-radius:14px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:var(--cyan);margin-bottom:auto}
-.prod h3{position:relative;z-index:1;font-size:21px;font-weight:700;margin-top:26px}
-.prod .en{position:relative;z-index:1;font-family:'Outfit',sans-serif;font-size:12.5px;letter-spacing:.22em;color:rgba(255,255,255,.55);text-transform:uppercase;margin:4px 0 12px}
-.prod p{position:relative;z-index:1;font-size:14px;color:rgba(255,255,255,.72);font-weight:300}
-.prod .go{position:relative;z-index:1;margin-top:18px;font-family:'Outfit',sans-serif;font-size:13.5px;letter-spacing:.08em;color:var(--cyan);display:inline-flex;align-items:center;gap:6px}
-.prod .go::after{content:"→";transition:.25s}
-.prod:hover .go::after{transform:translateX(5px)}
-
-/* ───────── data room (dark) ───────── */
-.data-sec{background:
-  radial-gradient(900px 500px at 85% 0%,rgba(122,92,255,.25),transparent 55%),
-  radial-gradient(700px 500px at 8% 100%,rgba(43,217,229,.14),transparent 55%),
-  var(--space);color:#fff}
-.data-sec .sec-head h2{color:#fff}
-.data-sec .sec-head .tag{color:var(--cyan)}
-.data-sec .sec-head p{color:rgba(255,255,255,.6)}
-.data-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.data-card{border-radius:20px;padding:34px 30px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(8px);transition:.3s}
-.data-card:hover{background:rgba(255,255,255,.09);transform:translateY(-6px)}
-.data-card .tag{display:inline-block;font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:.24em;font-weight:600;color:var(--cyan);border:1px solid rgba(43,217,229,.45);border-radius:99px;padding:4px 14px;margin-bottom:20px}
-.data-card h3{font-size:20px;font-weight:700;margin-bottom:8px}
-.data-card p{font-size:14.5px;color:rgba(255,255,255,.65);font-weight:300;margin-bottom:24px}
-.dl{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:14.5px;color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:3px;transition:.2s}
-.dl:hover{color:var(--cyan);border-color:var(--cyan)}
-
-/* ───────── boards ───────── */
-.board-sec{background:var(--cloud)}
-.board-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.board{background:#fff;border-radius:20px;padding:34px 34px 22px;border:1px solid var(--line)}
-.board h3{display:flex;justify-content:space-between;align-items:center;font-size:21px;font-weight:900;margin-bottom:14px}
-.board h3 a{font-size:13px;color:var(--slate);font-weight:500;border:1px solid var(--line);border-radius:99px;padding:5px 14px;transition:.2s}
-.board h3 a:hover{border-color:var(--blue);color:var(--blue)}
-.board li{border-top:1px solid var(--line)}
-.board li a{display:flex;justify-content:space-between;gap:16px;padding:14px 2px;font-size:15px}
-.board li a:hover{color:var(--blue)}
-.board li .date{color:#9AA3B8;font-size:13px;white-space:nowrap;font-family:'Outfit',sans-serif}
-.board li .q{color:var(--blue);font-weight:900;margin-right:9px;font-family:'Outfit',sans-serif}
-
-/* ───────── contact ───────── */
-.contact{position:relative;background:linear-gradient(120deg,#12206B,#2A5CFF 55%,#7A5CFF);color:#fff;overflow:hidden}
-.contact::after{content:"";position:absolute;inset:0;background:
-  repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(255,255,255,.05) 56px),
-  repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(255,255,255,.05) 56px)}
-.contact .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center}
-.contact .tag{font-family:'Outfit',sans-serif;font-size:14px;letter-spacing:.34em;font-weight:600;color:#BFF3F8;text-transform:uppercase}
-.contact h2{font-size:clamp(28px,3.2vw,40px);font-weight:900;margin:12px 0 12px}
-.contact p{color:rgba(255,255,255,.82);max-width:52ch;font-weight:300}
-.contact .tels{text-align:right}
-.contact .tel-big{font-family:'Outfit',sans-serif;font-size:clamp(38px,4.4vw,54px);font-weight:600;line-height:1.1}
-.contact .tel-big small{display:block;font-size:15px;letter-spacing:.3em;color:#BFF3F8;font-weight:500;margin-bottom:6px}
-.contact .sub-line{margin-top:16px;color:rgba(255,255,255,.85);font-size:15px;font-weight:300}
-.contact .sub-line b{font-weight:700}
-
-/* ───────── footer ───────── */
-footer{background:var(--space);color:#7E88A3;font-size:13.5px;padding:44px 0}
-footer .f-logo{font-family:'Marcellus',serif;color:#fff;font-size:20px;letter-spacing:.07em}
-footer .f-logo span{display:block;font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:.4em;color:var(--cyan);margin-top:4px}
-footer p{margin-top:14px;line-height:2;font-weight:300}
-footer .copy{margin-top:16px;color:#4A5470;font-size:12.5px}
-
-.mnav{display:none;position:fixed;top:78px;left:0;right:0;bottom:0;background:rgba(10,18,48,.97);backdrop-filter:blur(12px);z-index:99;overflow-y:auto;padding:16px 26px 40px}
-.mnav.open{display:block}
-.mnav a{display:block;padding:14px 6px;font-size:16px;color:#fff;border-bottom:1px solid rgba(255,255,255,.08);font-weight:500}
-.mnav a.sub{padding-left:24px;font-size:14px;color:rgba(255,255,255,.65);font-weight:400}
-.mnav .cta-btn{margin-top:18px;text-align:center;border-bottom:none}
-@media (max-width:960px){
-  .topbar .right span.hide-m{display:none}
-  .hd .cta-btn{padding:8px 15px;font-size:12.5px;box-shadow:none}
-  .logo .en{font-size:19px}
-  .logo .he{font-size:7.5px;gap:2px;letter-spacing:.18em}
-  .logo .kr{font-size:10px;margin-top:4px}
-  .hero h1{font-size:clamp(32px,9.5vw,44px)}
-  .hero p.lead{font-size:15px}
-  .hero .btns .cta-btn,.hero .btns .btn-glass{font-size:14px;padding:11px 20px}
-  .hero .quick{gap:18px;margin-top:28px}
-  .hero .quick .v{font-size:18px}
-  .hero .quick .v[style]{font-size:14px!important}
-  nav.gnb{display:none}
-  .m-toggle{display:block}
-  header{background:rgba(10,18,48,.9);backdrop-filter:blur(10px)}
-  .hero .wrap{padding-top:120px;padding-bottom:90px}
-  .prod-grid{grid-template-columns:repeat(2,1fr)}
-  .data-grid{grid-template-columns:1fr}
-  .board-grid{grid-template-columns:1fr}
-  .contact .wrap{grid-template-columns:1fr}
-  .contact .tels{text-align:left}
-  .cube.c4,.cube.c5{display:none}
+@media(max-width:960px){
+ nav.gnb{display:none}.m-toggle{display:block}
+ .tel-pill{padding:8px 15px;font-size:13px}
+ .info-sec .grid{grid-template-columns:1fr}
 }
-@media (max-width:560px){
-  .hero h1 .l2,.hero h1 .l3{margin-left:0}
-  .prod-grid{gap:12px}
-  .prod{padding:18px 15px;border-radius:16px}
-  .prod .ic{width:40px;height:40px;border-radius:10px}
-  .prod .ic svg{width:20px;height:20px}
-  .prod h3{font-size:15px;margin-top:14px}
-  .prod .en{font-size:9.5px;letter-spacing:.14em}
-  .prod p{font-size:12px}
-  .prod .go{font-size:12px;margin-top:12px}
-}
-@media (prefers-reduced-motion:reduce){
-  *{transition:none!important;animation:none!important}
-  .rise,.reveal{opacity:1!important;transform:none!important}
-}
-/* scrollytelling stage */
-.exp-section{height:440vh;position:relative;background:
-  radial-gradient(1200px 800px at 50% 40%,#152258 0%,#0A1230 55%,#070D24 100%)}
-.sticky{position:sticky;top:0;height:100vh;overflow:hidden}
-#exp-canvas{position:absolute;inset:0;width:100%;height:100%}
-.grid-bg{position:absolute;inset:0;background:
-  repeating-linear-gradient(0deg,transparent,transparent 55px,rgba(255,255,255,.03) 56px),
-  repeating-linear-gradient(90deg,transparent,transparent 55px,rgba(255,255,255,.03) 56px);pointer-events:none}
-.stage-title{position:absolute;top:100px;left:0;right:0;text-align:center;pointer-events:none}
-.stage-title .t1{font-family:'Outfit';font-size:13px;letter-spacing:.34em;color:var(--cyan)}
-.stage-title h2{font-size:clamp(22px,2.6vw,34px);font-weight:900;margin-top:8px}
-.phase-label{position:absolute;bottom:56px;left:0;right:0;text-align:center;pointer-events:none}
-.phase-label .bar{width:280px;height:3px;background:rgba(255,255,255,.15);border-radius:99px;margin:0 auto 12px;overflow:hidden}
-.phase-label .bar i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:99px}
-.phase-label .txt{font-family:'Outfit';font-size:12.5px;letter-spacing:.28em;color:rgba(255,255,255,.65)}
-/* part labels */
-.plabel{position:absolute;transform:translate(-50%,-100%);pointer-events:none;opacity:0;transition:opacity .2s;white-space:nowrap}
-.plabel .chip{font-family:'Outfit','Noto Sans KR';font-size:12px;letter-spacing:.08em;color:#BFF3F8;border:1px solid rgba(43,217,229,.45);background:rgba(7,13,36,.72);backdrop-filter:blur(4px);border-radius:8px;padding:5px 12px;font-weight:500}
-.plabel::after{content:"";display:block;width:1px;height:16px;background:rgba(43,217,229,.5);margin:0 auto}
-
-
-
-@media (max-width:760px){
-  .exp-section{display:none}
-  section{padding:54px 0}
-  .sec-head{margin-bottom:30px}
-  .sec-head h2{font-size:23px}
-  .sec-head p{font-size:13.5px;margin-top:8px}
-  .hero .eyebrow{font-size:11.5px;letter-spacing:.2em;margin-bottom:18px}
-  .hero h1{font-size:clamp(29px,8.6vw,38px)}
-  .hero p.lead{font-size:14.5px;margin-top:16px}
-  .hero .btns{margin-top:26px}
-  .prod{min-height:0;padding:22px 20px}
-  .prod h3{font-size:17px;margin-top:18px}
-  .prod .en{font-size:11px}
-  .prod p{font-size:13px}
-  .data-card{padding:22px 20px}
-  .data-card h3{font-size:17px}
-  .data-card p{font-size:13px}
-  .board{padding:22px 20px 12px}
-  .board h3{font-size:17.5px}
-  .board li a{font-size:13.5px;padding:11px 2px}
-  .contact h2{font-size:22px}
-  .contact p{font-size:13.5px}
-  .contact .tel-big{font-size:30px}
-  .contact .sub-line{font-size:13px}
-  footer{font-size:12px;padding:30px 0}
-  footer .f-logo{font-size:16px}
+@media(max-width:760px){
+ section{padding:56px 0}
+ header .hd{height:62px}
+ .mnav{top:62px}
+ .logo .en{font-size:18px}
+ .logo .he{font-size:7.5px;letter-spacing:.16em;gap:2px}
+ .logo .kr{font-size:10px;margin-top:4px}
+ .tel-pill{padding:7px 12px;font-size:12px}
+ .m-toggle{font-size:22px}
+ .hero{height:64vh;min-height:440px}
+ .hero .eyebrow{font-size:2.55vw;letter-spacing:.12em;white-space:nowrap}
+ .sec-head p{white-space:nowrap}
+ .pgrid{grid-template-columns:1fr 1fr;gap:12px}
+ .pcard{padding:16px 14px}
+ .pcard .ph{height:110px;margin:10px 0}
+ .pcard h3{font-size:15.5px}
+ .pcard p{font-size:12px}
+ .pcard .go{font-size:12px}
+ .dgrid{grid-template-columns:1fr}
+ .dblock{padding:26px 24px}
+ .band{padding:64px 0}
+ .band .stats{gap:24px}
+ .band .stats .v{font-size:26px}
+ .sec-head h2{font-size:23px}
+ footer{font-size:12px}
 }
 </style>
 <script type="application/ld+json">
@@ -314,8 +215,7 @@ footer .copy{margin-top:16px;color:#4A5470;font-size:12.5px}
 </head>
 <body>
 
-<!-- header -->
-<header id="hd">
+<header>
   <div class="wrap hd">
     <a href="index.html" class="logo" aria-label="효성중전기 홈">
       <span class="lrow"><span class="en">HYOSUNG</span><span class="he"><span>HEAVY</span><span>ELECTRIC</span></span></span>
@@ -324,484 +224,200 @@ footer .copy{margin-top:16px;color:#4A5470;font-size:12.5px}
     <nav class="gnb" aria-label="주 메뉴">
       <ul>
         <li><a href="about.html">회사소개</a></li>
-        <li><a href="product-hv.html">전동기</a>
-          <ul class="dep2">
-            <li><a href="product-hv.html">고압전동기</a></li>
-            <li><a href="product-lv.html">저압전동기</a></li>
-          </ul>
-        </li>
+        <li><a href="product-lv.html">전동기</a>
+          <ul class="dep2"><li><a href="product-lv.html">저압전동기</a></li><li><a href="product-hv.html">고압전동기</a></li></ul></li>
         <li><a href="product-gearbox.html">기어드모터</a>
-          <ul class="dep2">
-            <li><a href="product-gearbox.html">기어박스</a></li>
-            <li><a href="product-gm.html">기어드모터</a></li>
-          </ul>
-        </li>
+          <ul class="dep2"><li><a href="product-gearbox.html">기어박스</a></li><li><a href="product-gm.html">기어드모터</a></li></ul></li>
         <li><a href="cyclo.html">싸이크로감속기</a></li>
         <li><a href="product-transformer.html">변압기</a></li>
-        <li><a href="#data">자료실</a>
+        <li><a href="data-spec.html">자료실</a>
           <ul class="dep2">
             <li><a href="data-spec.html">사양서</a></li>
             <li><a href="data-manual.html">제품 매뉴얼</a></li>
             <li><a href="notice.html">공지사항</a></li>
             <li><a href="faq.html">자주 묻는 질문</a></li>
-          </ul>
-        </li>
+          </ul></li>
       </ul>
     </nav>
-    <a class="cta-btn" href="quote.html">견적요청</a>
+    <a class="tel-pill" href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')">📞 전화상담</a>
     <button class="m-toggle" aria-label="메뉴 열기">☰</button>
   </div>
 </header>
 <nav class="mnav" id="mnav">
-    <a href="about.html">회사소개</a>
-    <a href="product-hv.html">전동기</a>
-    <a href="product-hv.html" class="sub">— 고압전동기</a>
-    <a href="product-lv.html" class="sub">— 저압전동기</a>
-    <a href="product-gearbox.html">기어드모터</a>
-    <a href="product-gearbox.html" class="sub">— 기어박스</a>
-    <a href="product-gm.html" class="sub">— 기어드모터</a>
-    <a href="cyclo.html">싸이크로감속기</a>
-    <a href="product-transformer.html">변압기</a>
-    <a href="data-spec.html">자료실</a>
-    <a href="data-spec.html" class="sub">— 사양서</a>
-    <a href="data-manual.html" class="sub">— 제품 매뉴얼</a>
-    <a href="notice.html" class="sub">— 공지사항</a>
-    <a href="faq.html" class="sub">— 자주 묻는 질문</a>
-    <a class="cta-btn" href="quote.html">견적요청</a>
-  </nav>
+  <a href="about.html">회사소개</a>
+  <a href="product-lv.html">전동기</a>
+  <a href="product-lv.html" class="sub">— 저압전동기</a>
+  <a href="product-hv.html" class="sub">— 고압전동기</a>
+  <a href="product-gearbox.html">기어드모터</a>
+  <a href="product-gearbox.html" class="sub">— 기어박스</a>
+  <a href="product-gm.html" class="sub">— 기어드모터</a>
+  <a href="cyclo.html">싸이크로감속기</a>
+  <a href="product-transformer.html">변압기</a>
+  <a href="data-spec.html">자료실</a>
+  <a href="data-spec.html" class="sub">— 사양서</a>
+  <a href="data-manual.html" class="sub">— 제품 매뉴얼</a>
+  <a href="notice.html" class="sub">— 공지사항</a>
+  <a href="faq.html" class="sub">— 자주 묻는 질문</a>
+  <a href="quote.html">견적요청</a>
+</nav>
 
 <!-- hero -->
 <div class="hero">
-  <div class="cube c1" aria-hidden="true"></div>
-  <div class="cube c2" aria-hidden="true"></div>
-  <div class="cube c3" aria-hidden="true"></div>
-  <div class="cube c4" aria-hidden="true"></div>
-  <div class="cube c5" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="eyebrow rise">HYOSUNG HEAVY ELECTRIC</div>
-    <h1>
-      <span class="rise d1">Total</span>
-      <span class="l2 rise d2">Power Solution</span>
-      <span class="l3 rise d3">for Industry</span>
-    </h1>
-    <p class="lead rise d3">고압·저압 전동기부터 기어드모터, 싸이크로감속기, 변압기까지 —<br>산업 현장에 필요한 동력 설비를 <b>정확한 사양</b>으로 공급합니다.</p>
-    <div class="btns rise d4">
-      <a class="cta-btn" href="quote.html">견적 요청하기</a>
-      <a class="btn-glass" href="data-spec.html">사양서 다운로드</a>
-    </div>
-    <div class="quick rise d4">
-      <div><div class="t">구입문의</div><div class="v"><a href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')" style="color:inherit">02-535-1571~2</a></div></div>
-      <div><div class="t">휴대전화</div><div class="v"><a href="tel:01031259666" onclick="return confirm('010-3125-9666 으로 전화를 걸까요?')" style="color:inherit">010-3125-9666</a></div></div>
-      <div><div class="t">이메일</div><div class="v" style="font-size:17px;padding-top:5px"><a href="mailto:hsgearmotor@korea.com" style="color:inherit">hsgearmotor@korea.com</a></div></div>
-    </div>
-  </div>
-  <div class="scroll-hint" aria-hidden="true">⌄</div>
-</div>
-
-<div class="exp-section" id="exp-section">
-  <div class="sticky">
-    <div class="grid-bg"></div>
-    <canvas id="exp-canvas"></canvas>
-    <!-- part labels (JS가 3D 위치 따라 이동) -->
-    <div class="plabel" data-part="fanCover"><span class="chip">냉각팬 커버 Fan Cover</span></div>
-    <div class="plabel" data-part="fan"><span class="chip">냉각팬 Cooling Fan</span></div>
-    <div class="plabel" data-part="rearBell"><span class="chip">브라켓 · 베어링 Bearing</span></div>
-    <div class="plabel" data-part="stator"><span class="chip">고정자 · 권선 Stator</span></div>
-    <div class="plabel" data-part="rotor"><span class="chip">회전자 · 축 Rotor &amp; Shaft</span></div>
-    <div class="plabel" data-part="frontBell"><span class="chip">브라켓 · 베어링 Bearing</span></div>
-    <div class="plabel" data-part="tbox"><span class="chip">단자함 Terminal Box</span></div>
-    <div class="phase-label">
-      <div class="bar"><i id="pbar"></i></div>
-      <div class="txt" id="phase-txt">SCROLL — 분해</div>
+    <div class="eyebrow">MOTOR · GEARED MOTOR · CYCLO · TRANSFORMER</div>
+    <h1>산업의 동력을<br>정확한 사양으로 공급합니다</h1>
+    <p>저압·고압 전동기부터 기어드모터, 싸이크로감속기, 변압기까지 — 현장 조건에 맞는 형번 선정과 빠른 납품,<br>(주)효성중전기가 함께합니다.</p>
+    <div class="btns">
+      <a class="btn-solid" href="quote.html">견적 요청하기</a>
+      <a class="btn-line" href="product-lv.html">제품 보기</a>
     </div>
   </div>
 </div>
 
 <!-- products -->
-<section id="products">
+<section>
   <div class="wrap">
-    <div class="sec-head reveal">
+    <div class="sec-head">
       <div class="tag">Products</div>
-      <h2><span class="hl">취급 품목</span></h2>
+      <h2>취급 품목</h2>
       <p>산업 현장에서 가장 많이 찾는 동력·전력 설비를 공급합니다.</p>
     </div>
-    <div class="prod-grid">
-      <a class="prod reveal" href="product-hv.html">
-        <div class="ic"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="13" height="9" rx="2"/><path d="M6 8v9M9 8v9M12 8v9M17 10h3v5h-3M2 11.5h2v2H2z"/></svg></div>
+    <div class="pgrid">
+      <a class="pcard reveal" href="product-lv.html">
+        <span class="en">Motor</span>
+        <span class="ph"><img src="img/motor-studio.jpg" alt="전동기"></span>
         <h3>전동기</h3>
-        <div class="en">High · Low Voltage Motor</div>
-        <p>고압전동기 · 저압전동기<br>규격별 재고 확인 및 공급</p>
+        <p>저압·고압 전동기, IEC·NEMA 규격 대응, 규격별 재고 확인 및 공급</p>
         <span class="go">자세히 보기</span>
       </a>
-      <a class="prod reveal" href="product-gm.html">
-        <div class="ic"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="8" width="10" height="9" rx="2"/><circle cx="5.5" cy="12.5" r="3.5"/><path d="M11 8v9M14 8v9"/></svg></div>
+      <a class="pcard reveal" href="product-gm.html">
+        <span class="en">Geared Motor</span>
+        <span class="ph"><img src="img/gm-studio.jpg" alt="기어드모터"></span>
         <h3>기어드모터</h3>
-        <div class="en">Geared Motor · Gear Box</div>
-        <p>기어박스, 모터 일체형 기어드모터<br>감속비별 선정 지원</p>
+        <p>기어박스, 모터 일체형 기어드모터, 감속비별 선정 지원</p>
         <span class="go">자세히 보기</span>
       </a>
-      <a class="prod reveal" href="cyclo.html">
-        <div class="ic"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="4.2" stroke-dasharray="2.5 2.5"/><circle cx="12" cy="12" r="1.4"/></svg></div>
+      <a class="pcard reveal" href="cyclo.html">
+        <span class="en">Cyclo Reducer</span>
+        <span class="ph"><img src="img/cyclo-studio.jpg" alt="싸이크로감속기"></span>
         <h3>싸이크로감속기</h3>
-        <div class="en">Cyclo Reducer</div>
-        <p>고감속비·고내구성<br>싸이크로 감속기</p>
+        <p>고감속비·고내구성 싸이크로 감속기, 선정표 제공</p>
         <span class="go">자세히 보기</span>
       </a>
-      <a class="prod reveal" href="product-transformer.html">
-        <div class="ic"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="5" width="16" height="14" rx="2"/><circle cx="9.5" cy="12" r="2.8"/><circle cx="14.5" cy="12" r="2.8"/><path d="M7 5V3M17 5V3"/></svg></div>
+      <a class="pcard reveal" href="product-transformer.html">
+        <span class="en">Transformer</span>
+        <span class="ph"><img src="img/tr-card.jpg" alt="변압기"></span>
         <h3>변압기</h3>
-        <div class="en">Transformer</div>
-        <p>용량별 변압기 공급<br>및 교체 상담</p>
+        <p>용량별 변압기 공급 및 교체 상담</p>
         <span class="go">자세히 보기</span>
       </a>
     </div>
   </div>
 </section>
+
+<!-- factory band -->
+<div class="band">
+  <div class="wrap">
+    <h2>규격별 재고 보유,<br>확인 즉시 빠른 납품</h2>
+    <p>제품명이나 명판 사진만 보내주시면 동일 사양 또는 대체 가능한 모델을 찾아 재고 확인 후 바로 견적을 드립니다. 전국 어디든 납품 가능합니다.</p>
+    <div class="stats">
+      <div><div class="v">4<span style="font-size:20px">개</span></div><div class="t">주요 제품군</div></div>
+      <div><div class="v">IEC·NEMA</div><div class="t">국제 규격 대응</div></div>
+      <div><div class="v">전국</div><div class="t">납품 지역</div></div>
+    </div>
+  </div>
+</div>
 
 <!-- data room -->
-<section class="data-sec" id="data">
+<section class="data-sec">
   <div class="wrap">
-    <div class="sec-head reveal">
+    <div class="sec-head">
       <div class="tag">Data Room</div>
       <h2>자료실</h2>
-      <p>사양서·도면·메뉴얼을 회원가입 없이 바로 내려받을 수 있습니다.</p>
+      <p>사양서·외형도와 제품 취급설명서를 내려받을 수 있습니다.</p>
     </div>
-    <div class="data-grid">
-      <div class="data-card reveal">
-        <span class="tag">SPEC</span>
-        <h3>사양서</h3>
-        <p>저압전동기·기어드모터 사양서와 외형도</p>
-        <a class="dl" href="data-spec.html">바로가기 →</a>
-      </div>
-      <div class="data-card reveal">
-        <span class="tag">MANUAL</span>
+    <div class="dgrid">
+      <a class="dblock reveal" href="data-spec.html">
+        <h3>사양서 및 외형도</h3>
+        <p>저압전동기·기어드모터 사양서와 외형도를 검색·다운로드할 수 있습니다.</p>
+        <span class="ic">🔍</span>
+      </a>
+      <a class="dblock reveal" href="data-manual.html">
         <h3>제품 매뉴얼</h3>
-        <p>고압전동기·저압전동기·기어드모터 취급설명서</p>
-        <a class="dl" href="data-manual.html">바로가기 →</a>
-      </div>
-      <div class="data-card reveal">
-        <span class="tag">CYCLO</span>
-        <h3>싸이크로감속기 선정 자료</h3>
-        <p>감속비별 선정표 · 허용전달 용량표 · 외형 치수</p>
-        <a class="dl" href="cyclo.html">바로가기 →</a>
+        <p>고압전동기·저압전동기·기어드모터 취급설명서를 제공합니다.</p>
+        <span class="ic">📄</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- notice + contact -->
+<section class="info-sec">
+  <div class="wrap grid">
+    <div>
+      <h3>NOTICE <a href="notice.html">더보기</a></h3>
+      <ul class="nlist" id="notice-list">
+        <li><a href="notice.html"><span>공지사항을 불러오는 중입니다…</span></a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>CONTACT US</h3>
+      <div class="big-tel"><a href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')">02-535-1571</a></div>
+      <div class="c-rows">
+        <div class="r"><span class="k">Mobile</span><a href="tel:01031259666" onclick="return confirm('010-3125-9666 으로 전화를 걸까요?')">010-3125-9666</a></div>
+        <div class="r"><span class="k">Fax</span><span>02-535-1573</span></div>
+        <div class="r"><span class="k">E-mail</span><a href="mailto:hsgearmotor@korea.com">hsgearmotor@korea.com</a></div>
+        <div class="r"><span class="k">주소</span><span>(07072) 서울특별시 동작구 신대방1가길 38, 106동 214호</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- boards -->
-<section class="board-sec" id="board">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="tag">Support</div>
-      <h2>고객지원</h2>
-    </div>
-    <div class="board-grid">
-      <div class="board reveal">
-        <h3>공지사항 <a href="notice.html">더보기 +</a></h3>
-        <ul>
-          <li><a href="#"><span>홈페이지를 새롭게 오픈했습니다</span><span class="date">2026-08</span></a></li>
-          <li><a href="#"><span>여름 휴가 기간 배송 안내</span><span class="date">2026-08</span></a></li>
-          <li><a href="#"><span>기어드모터 신규 사양서 업로드 안내</span><span class="date">2026-07</span></a></li>
-          <li><a href="#"><span>전화 상담 가능 시간 안내</span><span class="date">2026-07</span></a></li>
-        </ul>
-      </div>
-      <div class="board reveal">
-        <h3>자주 묻는 질문 <a href="faq.html">더보기 +</a></h3>
-        <ul>
-          <li><a href="#"><span><span class="q">Q</span>견적은 어떻게 요청하나요?</span></a></li>
-          <li><a href="#"><span><span class="q">Q</span>모터 명판만 보내드려도 견적이 가능한가요?</span></a></li>
-          <li><a href="#"><span><span class="q">Q</span>지방 현장도 납품이 가능한가요?</span></a></li>
-          <li><a href="#"><span><span class="q">Q</span>단종 모델 대체품도 찾아주시나요?</span></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- contact -->
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="tag">Contact</div>
-      <h2>구입 · 견적 문의</h2>
-      <p>제품명이나 명판 사진, 필요한 사양만 보내주세요.<br>확인 후 빠르게 견적을 회신드립니다.</p>
-    </div>
-    <div class="tels reveal">
-      <div class="tel-big"><small>TEL</small><a href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')" style="color:inherit">02-535-1571~2</a></div>
-      <div class="sub-line">Mobile <b><a href="tel:01031259666" onclick="return confirm('010-3125-9666 으로 전화를 걸까요?')" style="color:inherit">010-3125-9666</a></b> · FAX <b>02-535-1573</b><br>E-mail <b><a href="mailto:hsgearmotor@korea.com" style="color:inherit">hsgearmotor@korea.com</a></b></div>
-    </div>
-  </div>
-</section>
-
-<!-- footer -->
 <footer>
   <div class="wrap">
     <div class="f-logo">HYOSUNG<span>HEAVY ELECTRIC</span></div>
-    <p>
-      상호: (주)효성중전기 &nbsp;|&nbsp; TEL: <a href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')" style="color:inherit">02-535-1571~2</a> &nbsp;|&nbsp; FAX: 02-535-1573 &nbsp;|&nbsp; Mobile: <a href="tel:01031259666" onclick="return confirm('010-3125-9666 으로 전화를 걸까요?')" style="color:inherit">010-3125-9666</a><br>
-      주소: (07072) 서울특별시 동작구 신대방1가길 38, 106동 214호 (동작상떼빌) &nbsp;|&nbsp; E-mail: <a href="mailto:hsgearmotor@korea.com" style="color:inherit">hsgearmotor@korea.com</a>
-    </p>
+    <p>상호: (주)효성중전기 &nbsp;|&nbsp; TEL: <a href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')" style="color:inherit">02-535-1571~2</a> &nbsp;|&nbsp; FAX: 02-535-1573 &nbsp;|&nbsp; Mobile: <a href="tel:01031259666" onclick="return confirm('010-3125-9666 으로 전화를 걸까요?')" style="color:inherit">010-3125-9666</a><br>
+    주소: (07072) 서울특별시 동작구 신대방1가길 38, 106동 214호 (동작상떼빌) &nbsp;|&nbsp; E-mail: <a href="mailto:hsgearmotor@korea.com" style="color:inherit">hsgearmotor@korea.com</a></p>
     <p class="copy">Copyright © (주)효성중전기. All rights reserved.</p>
   </div>
 </footer>
 
+<a class="fab" href="quote.html" aria-label="견적요청">
+  <span class="fab-ring"></span>
+  <span class="fab-ic">✎</span>
+  <span class="fab-tx">견적요청</span>
+</a>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
 <script>
-// header solid on scroll
-const mt=document.querySelector('.m-toggle'),mn=document.getElementById('mnav');
-if(mt&&mn){mt.addEventListener('click',()=>{const o=mn.classList.toggle('open');mt.textContent=o?'✕':'☰';});}
-const hd=document.getElementById('hd');
-addEventListener('scroll',()=>{hd.classList.toggle('solid',scrollY>60)},{passive:true});
-// reveal on scroll
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.14});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-// stagger product cards
-document.querySelectorAll('.prod-grid .prod').forEach((el,i)=>el.style.transitionDelay=(i*90)+'ms');
-document.querySelectorAll('.data-grid .data-card').forEach((el,i)=>el.style.transitionDelay=(i*90)+'ms');
-</script>
-<script type="importmap">
-{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
-</script>
-<script type="module">
-import * as THREE from 'three';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-
-if (matchMedia('(max-width:760px)').matches) {
-  document.getElementById('exp-section')?.remove();
-} else {
-const canvas = document.getElementById('exp-canvas');
-const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true});
-renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-renderer.outputColorSpace = THREE.SRGBColorSpace;
-renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.1;
-
-const scene = new THREE.Scene();
-// 금속 반사를 위한 환경맵 — 이게 있어야 금속이 "진짜"처럼 보임
-const pmrem = new THREE.PMREMGenerator(renderer);
-scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
-
-const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
-
-// lights (환경맵 + 보조 림라이트)
-const rimC = new THREE.DirectionalLight(0x2BD9E5, 1.1); rimC.position.set(-6, 3, -5); scene.add(rimC);
-const rimV = new THREE.DirectionalLight(0x7A5CFF, 0.9); rimV.position.set(6, -2, -5); scene.add(rimV);
-const key  = new THREE.DirectionalLight(0xffffff, 0.9); key.position.set(3, 6, 6); scene.add(key);
-
-// ── 재질
-const navy   = new THREE.MeshStandardMaterial({color:0x35508F, metalness:0.75, roughness:0.34});
-const navyD  = new THREE.MeshStandardMaterial({color:0x22335F, metalness:0.7,  roughness:0.4});
-const steel  = new THREE.MeshStandardMaterial({color:0xC8D2E4, metalness:1.0,  roughness:0.18});
-const alu    = new THREE.MeshStandardMaterial({color:0x9AA6BC, metalness:0.95, roughness:0.3});
-const copper = new THREE.MeshStandardMaterial({color:0xC77A3A, metalness:1.0,  roughness:0.28});
-const darkFe = new THREE.MeshStandardMaterial({color:0x4A5266, metalness:0.9,  roughness:0.45});
-
-const root = new THREE.Group();
-scene.add(root);
-const P = {}; // parts
-
-function G(){ const g = new THREE.Group(); root.add(g); return g; }
-function cyl(r1,r2,len,mat,seg=48){ const m=new THREE.Mesh(new THREE.CylinderGeometry(r1,r2,len,seg),mat); m.rotation.z=Math.PI/2; return m; }
-
-// ── 고정자 (중앙 고정)
-P.stator = G();
-{
-  const body = cyl(1.0, 1.0, 2.1, navy);
-  P.stator.add(body);
-  // 방열핀
-  const finGeo = new THREE.BoxGeometry(2.05, 0.2, 0.04);
-  for(let i=0;i<30;i++){
-    const a=(i/30)*Math.PI*2;
-    const fin=new THREE.Mesh(finGeo, navyD);
-    fin.position.set(0, Math.cos(a)*1.09, Math.sin(a)*1.09);
-    fin.rotation.x=-a;
-    P.stator.add(fin);
-  }
-  // 내부 보어(구멍) + 코일 엔드(구리 권선)
-  const bore = new THREE.Mesh(new THREE.CylinderGeometry(0.58,0.58,2.12,48,1,true),
-    new THREE.MeshStandardMaterial({color:0x1A2440, metalness:.6, roughness:.6, side:THREE.BackSide}));
-  bore.rotation.z=Math.PI/2; P.stator.add(bore);
-  [-1.02, 1.02].forEach(x=>{
-    const coil=new THREE.Mesh(new THREE.TorusGeometry(0.72, 0.13, 16, 48), copper);
-    coil.rotation.y=Math.PI/2; coil.position.x=x;
-    P.stator.add(coil);
+document.querySelector('.m-toggle').addEventListener('click',()=>{document.getElementById('mnav').classList.toggle('open')});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=((i%4)*90)+'ms';io.observe(el)});
+window.addEventListener('scroll',()=>{document.querySelector('header').classList.toggle('scrolled',scrollY>10)},{passive:true});
+// 모바일: 섹션 설명 문구를 화면 폭에 딱 맞는 최대 크기로 자동 조절
+function fitLines(){
+  if(!matchMedia('(max-width:760px)').matches){document.querySelectorAll('.sec-head p').forEach(p=>p.style.fontSize='');return}
+  document.querySelectorAll('.sec-head p').forEach(p=>{
+    const max=p.clientWidth||p.parentElement.clientWidth;
+    let lo=8,hi=26;
+    for(let i=0;i<14;i++){const mid=(lo+hi)/2;p.style.fontSize=mid+'px';(p.scrollWidth<=max)?lo=mid:hi=mid;}
+    p.style.fontSize=Math.floor(lo*10)/10+'px';
   });
 }
-
-// ── 회전자 + 축 (앞으로 뽑힘)
-P.rotor = G();
-{
-  const shaft = cyl(0.13, 0.13, 4.7, steel, 32); P.rotor.add(shaft);
-  const core = cyl(0.53, 0.53, 1.9, darkFe); P.rotor.add(core);
-  // 라미네이션 줄무늬
-  for(let i=0;i<7;i++){
-    const ring=new THREE.Mesh(new THREE.TorusGeometry(0.535, 0.008, 8, 48), navyD);
-    ring.rotation.y=Math.PI/2; ring.position.x=-0.8+i*0.27;
-    P.rotor.add(ring);
-  }
-  // 엔드링(구리)
-  [-1.0, 1.0].forEach(x=>{
-    const er=new THREE.Mesh(new THREE.TorusGeometry(0.44, 0.075, 12, 48), copper);
-    er.rotation.y=Math.PI/2; er.position.x=x; P.rotor.add(er);
-  });
-  // 축 키
-  const k=new THREE.Mesh(new THREE.BoxGeometry(0.55,0.05,0.08), steel);
-  k.position.set(2.15,0.15,0); P.rotor.add(k);
-}
-
-// ── 브라켓(엔드벨) + 베어링
-function bell(dir){
-  const g = G();
-  const b = cyl(1.12, 1.02, 0.3, navy); b.position.x = 0; g.add(b);
-  const rim = cyl(1.12, 1.12, 0.08, navyD); rim.position.x = dir*0.16; g.add(rim);
-  const brg = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.09, 14, 40), steel);
-  brg.rotation.y = Math.PI/2; g.add(brg);
-  const hub = cyl(0.24, 0.24, 0.34, darkFe, 24); g.add(hub);
-  for(let i=0;i<8;i++){
-    const a=(i/8)*Math.PI*2;
-    const bolt=cyl(0.045,0.045,0.36,steel,10);
-    bolt.position.set(0, Math.cos(a)*0.92, Math.sin(a)*0.92);
-    g.add(bolt);
-  }
-  g.position.x = dir*1.2;
-  return g;
-}
-P.frontBell = bell(1);
-P.rearBell  = bell(-1);
-
-// ── 냉각팬
-P.fan = G();
-{
-  const hub = cyl(0.3, 0.3, 0.14, alu, 32); P.fan.add(hub);
-  for(let i=0;i<8;i++){
-    const a=(i/8)*Math.PI*2;
-    const bl=new THREE.Mesh(new THREE.BoxGeometry(0.1,0.62,0.2), alu);
-    bl.position.set(0, Math.cos(a)*0.55, Math.sin(a)*0.55);
-    bl.rotation.x=-a; bl.rotation.y=0.5;
-    P.fan.add(bl);
-  }
-  P.fan.position.x = -1.62;
-}
-
-// ── 팬커버
-P.fanCover = G();
-{
-  const cov = cyl(1.05, 0.85, 0.6, navy); P.fanCover.add(cov);
-  const cap = cyl(0.85, 0.85, 0.04, navyD); cap.position.x=-0.32; P.fanCover.add(cap);
-  for(let i=0;i<9;i++){
-    const ring=new THREE.Mesh(new THREE.TorusGeometry(0.15+i*0.075, 0.011, 6, 40), navyD);
-    ring.rotation.y=Math.PI/2; ring.position.x=-0.35; P.fanCover.add(ring);
-  }
-  P.fanCover.position.x = -1.95;
-}
-
-// ── 단자함 (위로 분리)
-P.tbox = G();
-{
-  const box=new THREE.Mesh(new THREE.BoxGeometry(0.8,0.55,0.75), navyD); P.tbox.add(box);
-  const lid=new THREE.Mesh(new THREE.BoxGeometry(0.85,0.09,0.8), navy); lid.position.y=0.3; P.tbox.add(lid);
-  const gl=cyl(0.07,0.07,0.3,steel,12); gl.rotation.z=0; gl.rotation.x=Math.PI/2; gl.position.set(0.2,-0.1,0.5); P.tbox.add(gl);
-  P.tbox.position.set(0.15, 1.32, 0);
-}
-
-// ── 베이스(다리) — 아래로 분리
-P.feet = G();
-{
-  [-0.75, 0.75].forEach(x=>{
-    const f=new THREE.Mesh(new THREE.BoxGeometry(0.5,0.26,1.85), navyD);
-    f.position.set(x,0,0); P.feet.add(f);
-  });
-  const plate=new THREE.Mesh(new THREE.BoxGeometry(2.2,0.08,1.95), navy);
-  plate.position.y=-0.16; P.feet.add(plate);
-  P.feet.position.y=-1.16;
-}
-
-root.rotation.set(0.14, -0.65, 0);
-root.scale.setScalar(0.94);
-
-// ── 분해 오프셋 (부품별 이동 방향/거리)
-const EXPLODE = {
-  fanCover:[-2.3, 0, 0],
-  fan:[-1.5, 0, 0],
-  rearBell:[-0.85, 0, 0],
-  stator:[0, 0, 0],
-  rotor:[1.75, 0, 0],
-  frontBell:[2.7, 0, 0],
-  tbox:[0.15, 1.25, 0],
-  feet:[0, -1.15, 0],
-};
-const BASE = {};
-for(const k in P) BASE[k] = P[k].position.clone();
-
-// ── 라벨
-const labels = [...document.querySelectorAll('.plabel')];
-const labelAnchor = new THREE.Vector3();
-
-// ── 스크롤 진행도
-const section = document.getElementById('exp-section');
-const pbar = document.getElementById('pbar');
-const phaseTxt = document.getElementById('phase-txt');
-let progress = 0;
-function onScroll(){
-  const r = section.getBoundingClientRect();
-  const total = section.offsetHeight - innerHeight;
-  progress = Math.min(1, Math.max(0, -r.top / total));
-}
-addEventListener('scroll', onScroll, {passive:true});
-
-function ease(t){ return t*t*(3-2*t); } // smoothstep
-
-function resize(){
-  const w=canvas.clientWidth, h=canvas.clientHeight;
-  renderer.setSize(w,h,false);
-  camera.aspect=w/h; camera.updateProjectionMatrix();
-}
-addEventListener('resize', resize);
-resize();
-
-let smooth = 0;
-function animate(){
-  requestAnimationFrame(animate);
-  smooth += (progress - smooth)*0.08;
-
-  // 0~0.5 분해 / 0.5~1 조립
-  let ex;
-  if(smooth < 0.5){ ex = ease(smooth*2); phaseTxt.textContent='SCROLL — 분해 EXPLODE'; }
-  else { ex = ease((1-smooth)*2); phaseTxt.textContent='SCROLL — 조립 ASSEMBLE'; }
-  pbar.style.width = (smooth*100)+'%';
-
-  for(const k in P){
-    const o = EXPLODE[k];
-    P[k].position.set(BASE[k].x + o[0]*ex, BASE[k].y + o[1]*ex, BASE[k].z + o[2]*ex);
-  }
-  // 회전: 분해되는 동안 천천히 돌면서 보여줌
-  root.rotation.y = -0.65 + smooth*1.05;  // 옆모습 유지하며 살짝만 회전
-  root.rotation.x = 0.14 + Math.sin(smooth*Math.PI)*0.1;
-  root.position.y = 0;
-
-  // 카메라 살짝 뒤로 (분해 시 전체가 보이게)
-  const mob = canvas.clientWidth < 760;
-  camera.position.set(0, 0.5, (mob?11.5:7.6) + ex*(mob?4.5:3.2));
-  camera.lookAt(0, 0, 0);
-
-  renderer.render(scene, camera);
-
-  // 라벨 위치 갱신
-  const w=canvas.clientWidth, h=canvas.clientHeight;
-  labels.forEach(el=>{
-    const part = P[el.dataset.part];
-    if(!part) return;
-    part.getWorldPosition(labelAnchor);
-    labelAnchor.y += 0.55;
-    const v = labelAnchor.clone().project(camera);
-    el.style.left = ((v.x*0.5+0.5)*w)+'px';
-    el.style.top  = ((-v.y*0.5+0.5)*h)+'px';
-    el.style.opacity = ex > 0.55 ? Math.min(1,(ex-0.55)*4) : 0;
-  });
-}
-onScroll();
-animate();
-}
+fitLines();window.addEventListener('resize',fitLines);
+// 숫자 카운트업
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cio.unobserve(e.target);
+  const el=e.target,n=parseInt(el.dataset.n);let c=0;const step=Math.max(1,Math.round(n/40));
+  const t=setInterval(()=>{c+=step;if(c>=n){c=n;clearInterval(t)}el.firstChild.textContent=c},28);}),{threshold:.5});
+document.querySelectorAll('[data-n]').forEach(el=>cio.observe(el));
+(async()=>{
+  const sb=(window.SB_URL&&window.SB_KEY&&window.supabase)?window.supabase.createClient(window.SB_URL,window.SB_KEY):null;
+  const ul=document.getElementById('notice-list');
+  if(!sb){ul.innerHTML='<li><a href="notice.html"><span>공지사항 게시판 바로가기</span><span class="date">→</span></a></li>';return}
+  const {data}=await sb.from('notices').select('*').order('created_at',{ascending:false}).limit(5);
+  ul.innerHTML=(data&&data.length)?data.map(n=>`<li><a href="notice.html"><span>${(n.title||'').replace(/</g,'&lt;')}</span><span class="date">${(n.created_at||'').slice(0,10)}</span></a></li>`).join('')
+    :'<li><a href="notice.html"><span>등록된 공지사항이 없습니다.</span></a></li>';
+})();
 </script>
 </body>
 </html>
