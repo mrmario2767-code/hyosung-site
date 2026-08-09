@@ -250,8 +250,8 @@ const NAV = (active = '') => `
     <nav class="gnb" aria-label="주 메뉴">
       <ul>
         <li><a href="about.html" class="${active==='about'?'on':''}">회사소개</a></li>
-        <li><a href="product-hv.html" class="${active==='hv'||active==='lv'?'on':''}">전동기</a>
-          <ul class="dep2"><li><a href="product-hv.html">고압전동기</a></li><li><a href="product-lv.html">저압전동기</a></li></ul></li>
+        <li><a href="product-lv.html" class="${active==='hv'||active==='lv'?'on':''}">전동기</a>
+          <ul class="dep2"><li><a href="product-lv.html">저압전동기</a></li><li><a href="product-hv.html">고압전동기</a></li></ul></li>
         <li><a href="product-gearbox.html" class="${active==='gb'||active==='gm'?'on':''}">기어드모터</a>
           <ul class="dep2"><li><a href="product-gearbox.html">기어박스</a></li><li><a href="product-gm.html">기어드모터</a></li></ul></li>
         <li><a href="cyclo.html" class="${active==='cyclo'?'on':''}">싸이크로감속기</a></li>
@@ -271,9 +271,9 @@ const NAV = (active = '') => `
 </header>
 <nav class="mnav" id="mnav">
     <a href="about.html">회사소개</a>
-    <a href="product-hv.html">전동기</a>
-    <a href="product-hv.html" class="sub">— 고압전동기</a>
+    <a href="product-lv.html">전동기</a>
     <a href="product-lv.html" class="sub">— 저압전동기</a>
+    <a href="product-hv.html" class="sub">— 고압전동기</a>
     <a href="product-gearbox.html">기어드모터</a>
     <a href="product-gearbox.html" class="sub">— 기어박스</a>
     <a href="product-gm.html" class="sub">— 기어드모터</a>
