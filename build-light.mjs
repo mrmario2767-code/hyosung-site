@@ -1624,16 +1624,34 @@ async function delRow(table,id,cb){if(!confirm('삭제할까요?'))return;await 
 
 function buildTransformer(){
   const body = `
-<div class="card reveal" style="text-align:center;padding:80px 40px">
-  <div style="font-size:52px;margin-bottom:18px">⚡</div>
-  <h2 style="font-size:26px;font-weight:900">변압기 페이지는 준비 중입니다</h2>
-  <p style="color:var(--slate);margin:14px auto 0;max-width:52ch">제품 자료를 준비하고 있어요. 변압기가 필요하시면 용량과 사양만 알려주세요 — 재고 확인 후 바로 견적을 안내해 드립니다.</p>
-  <div style="display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap">
+<div class="card reveal p-intro">
+  <div class="p-intro-txt">
+    <div class="p-en">TRANSFORMER</div>
+    <h2>용량별 변압기 공급 및 교체 상담</h2>
+    <p>배전용 몰드변압기부터 유입변압기까지, 현장에 맞는 용량과 형식의 변압기를 공급합니다.
+    신설은 물론 노후 변압기 교체 상담도 가능합니다 — 기존 변압기 명판 사진만 보내주시면
+    동일 사양 또는 대체 가능한 제품으로 견적을 드립니다.</p>
+  </div>
+  <div class="p-intro-img"><img src="img/tr-studio.jpg" alt="변압기"></div>
+</div>
+
+<div class="sec-h"><h2>특장점</h2></div>
+<div class="feat-grid">
+  <div class="card reveal feat"><h3>다양한 용량 대응</h3><p>소용량 배전용부터 산업용 대용량까지, 현장 부하에 맞는 용량을 선정해 드립니다.</p></div>
+  <div class="card reveal feat"><h3>저손실 · 고효율</h3><p>저손실 설계 제품 위주로 공급해 전력 비용과 발열 부담을 줄입니다.</p></div>
+  <div class="card reveal feat"><h3>폭넓은 적용 분야</h3><p>공장, 빌딩, 수처리시설, 플랜트 등 산업 전반의 수배전 설비에 적용됩니다.</p></div>
+  <div class="card reveal feat"><h3>교체 상담</h3><p>노후 변압기 진단부터 대체 형식 선정, 납품까지 전 과정을 안내해 드립니다.</p></div>
+</div>
+
+<div class="card reveal" style="text-align:center;padding:56px 40px;margin-top:40px">
+  <h2 style="font-size:24px;font-weight:900">변압기 용량·형식 선정이 필요하신가요?</h2>
+  <p style="color:var(--slate);margin:12px auto 0;max-width:56ch">필요한 용량과 용도, 또는 기존 변압기 명판 사진만 알려주세요. 확인 후 바로 견적을 안내해 드립니다.</p>
+  <div style="display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap">
     <a class="dl-btn" href="tel:025351571" onclick="return confirm('02-535-1571 로 전화를 걸까요?')" style="font-size:15px;padding:11px 26px">📞 02-535-1571~2</a>
     <a class="dl-btn" href="quote.html" style="font-size:15px;padding:11px 26px;background:var(--blue);color:#fff">견적 요청하기</a>
   </div>
 </div>`;
-  writeFileSync(join(OUT,'product-transformer.html'), page('변압기','tr','Transformer','변압기','용량별 변압기 공급 및 교체 상담 — 페이지 준비 중입니다.',body));
+  writeFileSync(join(OUT,'product-transformer.html'), page('변압기','tr','Transformer','변압기','배전용 몰드변압기부터 유입변압기까지 — 용량별 공급 및 교체 상담이 가능합니다.',body));
 }
 
 /* ───────────────────────── run ───────────────────────── */
